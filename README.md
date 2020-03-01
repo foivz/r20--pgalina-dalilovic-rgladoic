@@ -40,14 +40,9 @@ F09 | **Forma za pretragu filmova** | Jedna od uloga (*obični korisnik*) u apli
 
 
 ## Tehnologije i oprema
-Visual Studio 2019 - licenca putem AAI@EduHr korisničkog računa
-
+Visual Studio 2019 - licenca putem AAI@EduHr korisničkog računa.
 C# (.NET)
-
 MySQL 
-
-MySQL Workbench 6.3 CE - za pristup i manipulaciju bazom poadataka
-
-Flaticon.com - za preuzimanje ikona (*button-a*) koji će biti korišteni prilikom dizajniranja aplikacije
-
-Microsoft Office Word - za izradu dokumentacije projekta; licenca putem AAI@EduHr korisničkog računa
+MySQL Workbench 6.3 CE - za pristup i manipulaciju bazom podataka.
+Flaticon.com - za preuzimanje ikona (*button-a*) koji će biti korišteni prilikom dizajniranja aplikacije.
+Microsoft Office Word - za izradu dokumentacije projekta; licenca putem AAI@EduHr korisničkog računa.
