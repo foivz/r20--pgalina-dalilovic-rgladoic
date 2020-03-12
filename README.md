@@ -1,4 +1,4 @@
-# PI20-020 Izrada aplikacije za kupnju kino ulaznica
+# PI20-020 Izrada booking sustava
 
 ## Projektni tim
 
