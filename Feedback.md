@@ -6,7 +6,7 @@ Molim da arhitektura sustava bude temeljena na centraliziranoj bazi podataka na 
 
 ## Zahtijevane dopune
 1. Molim da vaš projekt fokusirate samo na aviokarte, te da isključite hotelske sobe i kino ulaznice. 
-2. Omogućiti sklapanje ugovora (suradnju) sa više poslovnih partnera (aviokompanije, putničke agencije itd) koje bi sustav punile podacima o letovima (stalnim, povremenim charter). Za vašu implementaciju to znači kreiranje novog admin računa za dotičnog partnera, koji se onda bavi kreiranjem drugih uloga u sustavu i dodjelom ovlasti njima. U ovu svrhu je potrebno osposobiti fleksibilan model ovlasti (da admin bilo kojem korisniku može dodijliti bilo koji set ovlasti nad postojećim funkcionalnostima sustava).
+2. Omogućiti sklapanje ugovora (suradnju) sa više poslovnih partnera (aviokompanije, putničke agencije itd) koje bi sustav punile podacima o letovima (stalnim, povremenim charter). Za vašu implementaciju to znači kreiranje novog admin računa za dotičnog partnera, koji se onda bavi kreiranjem drugih uloga u sustavu i dodjelom ovlasti njima. U ovu svrhu je potrebno osposobiti fleksibilan model ovlasti (da admin bilo kojem korisniku može dodijeliti bilo koji set ovlasti nad postojećim funkcionalnostima sustava).
 3. Omogućiti izradu računa vašim partnerima (aviokompanijama i drugima) koji bi se spremao u PDF i slao na mail partnera. Izdavanje računa može biti implementirano ručno, ali i automatski.
 4. Dodati izradu statističkih izvješća koja uključuju tablične i grafičke prikaze te pohranu u PDF i mogućnost ispisa.
 
