@@ -31,7 +31,7 @@ F013 | **Forma za dodavanje leta** | Dvije od uloga (*administrator i moderator*
 ## Tehnologije i oprema
 Visual Studio 2019 - licenca putem AAI@EduHr korisničkog računa.
 
-C# (.NET, WAF)
+C# (.NET, WPF)
 
 MySQL 
 
