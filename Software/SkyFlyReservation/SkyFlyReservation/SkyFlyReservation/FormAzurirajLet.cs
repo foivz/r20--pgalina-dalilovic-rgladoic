@@ -31,6 +31,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = letovi;
 
             popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisLetovaDataGridView.Columns[2].HeaderText = "Polazišni aerodrom";
@@ -47,8 +48,13 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox()
         {
             polazisniComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAerodrome().ToList();
+            polazisniComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             odredisniComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAerodrome().ToList();
+            odredisniComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace SkyFlyReservation
             popisAvionaDataGridView.DataSource = avioniAviokompanije;
 
             popisAvionaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisAvionaDataGridView.ReadOnly = true;
 
             popisAvionaDataGridView.Columns[1].HeaderText = "Registarska oznaka";
             popisAvionaDataGridView.Columns[2].HeaderText = "Proizvođač";

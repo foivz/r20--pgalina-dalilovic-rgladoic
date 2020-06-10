@@ -30,6 +30,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = letovi;
 
             popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisLetovaDataGridView.Columns[2].HeaderText = "Polazišni aerodrom";

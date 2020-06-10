@@ -14,6 +14,7 @@ namespace SkyFlyReservation
 {
     public partial class FormPregledLetova : Form
     {
+        private bool _F2Click = false;
         public FormPregledLetova()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = letovi;
 
             popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisLetovaDataGridView.Columns[2].HeaderText = "Polazišni aerodrom";
@@ -62,7 +64,10 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox(List<Aerodrom> aerodromi)
         {
             polazisniAerodromComboBox.DataSource = aerodromi.ToList();
+            polazisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             odredisniAerodromComboBox.DataSource = aerodromi.ToList();
+            odredisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void pretraziLetoveButton_Click(object sender, EventArgs e)
@@ -195,6 +200,26 @@ namespace SkyFlyReservation
             form.ShowDialog();
 
             OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
+        }
+
+        private void FormPregledLetova_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F2)
+            {
+                if(_F2Click == false)
+                {
+                    MessageBox.Show("Otvorit help.");
+                    _F2Click = true;
+                    return;
+                }
+                if(_F2Click == true)
+                {
+                    MessageBox.Show("Zatvori help.");
+                    _F2Click = false;
+                    return;
+                    
+                }
+            }
         }
     }
 }

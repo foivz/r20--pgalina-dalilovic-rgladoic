@@ -234,6 +234,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj let";
             this.Load += new System.EventHandler(this.FormDodajLet_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormDodajLet_KeyPress);
             this.noviLetGroupBox.ResumeLayout(false);
             this.noviLetGroupBox.PerformLayout();
             this.ResumeLayout(false);

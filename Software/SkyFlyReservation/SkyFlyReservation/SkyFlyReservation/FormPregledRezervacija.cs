@@ -70,6 +70,7 @@ namespace SkyFlyReservation
             popisRezervacijaDataGridView.DataSource = rezervacijeKorisnika;
 
             popisRezervacijaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisRezervacijaDataGridView.ReadOnly = true;
 
             popisRezervacijaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisRezervacijaDataGridView.Columns[2].HeaderText = "Polaziši aerodrom";

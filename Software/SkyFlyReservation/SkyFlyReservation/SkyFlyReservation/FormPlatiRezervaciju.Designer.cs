@@ -223,7 +223,7 @@
             // 
             // platiRezervacijuButton
             // 
-            this.platiRezervacijuButton.Location = new System.Drawing.Point(39, 307);
+            this.platiRezervacijuButton.Location = new System.Drawing.Point(39, 306);
             this.platiRezervacijuButton.Name = "platiRezervacijuButton";
             this.platiRezervacijuButton.Size = new System.Drawing.Size(110, 36);
             this.platiRezervacijuButton.TabIndex = 29;

@@ -279,10 +279,12 @@
             this.Controls.Add(this.popisLetovaDataGridView);
             this.Controls.Add(this.popisLetovaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormPregledLetova";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled letova";
             this.Load += new System.EventHandler(this.FormPregledLetova_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPregledLetova_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).EndInit();
             this.pretrazivanjeLetovaGroupBox.ResumeLayout(false);
             this.pretrazivanjeLetovaGroupBox.PerformLayout();

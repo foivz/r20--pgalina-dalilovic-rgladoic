@@ -26,8 +26,13 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox(List<Aerodrom> aerodromi)
         {
             polazisniAerodromComboBox.DataSource = aerodromi.ToList();
+            polazisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             odredisniAerodromComboBox.DataSource = aerodromi.ToList();
+            odredisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -102,6 +107,11 @@ namespace SkyFlyReservation
                 return false;
             }
             return true;
+        }
+
+        private void FormDodajLet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show("Stisnut");
         }
     }
 }
