@@ -57,11 +57,6 @@ namespace SkyFlyReservation
             avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void odustaniButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void azurirajLetButton_Click(object sender, EventArgs e)
         {
             Aerodrom polazisniAerodrom = polazisniComboBox.SelectedItem as Aerodrom;
@@ -184,6 +179,14 @@ namespace SkyFlyReservation
         private Let DohvatiSelektiraniLet()
         {
             return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+        }
+
+        private void FormAzurirajLet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "AzurirajLet.htm");
+            }
         }
     }
 }

@@ -119,7 +119,6 @@ namespace SkyFlyReservation
             if (e.KeyCode == Keys.F1)
             {
                 Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajLet.htm");
-
             }
         }
     }

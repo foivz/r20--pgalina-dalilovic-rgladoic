@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAzurirajLet));
-            this.odustaniButton = new System.Windows.Forms.Button();
             this.cijenaKarteLabel = new System.Windows.Forms.Label();
             this.vrijemeDolaskaLabel = new System.Windows.Forms.Label();
             this.vrijemePolaskaLabel = new System.Windows.Forms.Label();
@@ -53,17 +52,6 @@
             this.detaljiLetaGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // odustaniButton
-            // 
-            this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(175, 457);
-            this.odustaniButton.Name = "odustaniButton";
-            this.odustaniButton.Size = new System.Drawing.Size(97, 43);
-            this.odustaniButton.TabIndex = 44;
-            this.odustaniButton.Text = "Odustani";
-            this.odustaniButton.UseVisualStyleBackColor = true;
-            this.odustaniButton.Click += new System.EventHandler(this.odustaniButton_Click);
             // 
             // cijenaKarteLabel
             // 
@@ -147,7 +135,7 @@
             // azurirajLetButton
             // 
             this.azurirajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.azurirajLetButton.Location = new System.Drawing.Point(30, 457);
+            this.azurirajLetButton.Location = new System.Drawing.Point(95, 457);
             this.azurirajLetButton.Name = "azurirajLetButton";
             this.azurirajLetButton.Size = new System.Drawing.Size(108, 43);
             this.azurirajLetButton.TabIndex = 45;
@@ -222,7 +210,6 @@
             this.detaljiLetaGroupBox.Controls.Add(this.polazisniComboBox);
             this.detaljiLetaGroupBox.Controls.Add(this.cijenaKarteLabel);
             this.detaljiLetaGroupBox.Controls.Add(this.azurirajLetButton);
-            this.detaljiLetaGroupBox.Controls.Add(this.odustaniButton);
             this.detaljiLetaGroupBox.Location = new System.Drawing.Point(829, 59);
             this.detaljiLetaGroupBox.Name = "detaljiLetaGroupBox";
             this.detaljiLetaGroupBox.Size = new System.Drawing.Size(306, 518);
@@ -280,10 +267,12 @@
             this.Controls.Add(this.popisLetovaLabel);
             this.Controls.Add(this.detaljiLetaGroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormAzurirajLet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Azuriraj let";
             this.Load += new System.EventHandler(this.FormAzurirajLet_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormAzurirajLet_KeyDown);
             this.detaljiLetaGroupBox.ResumeLayout(false);
             this.detaljiLetaGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).EndInit();
@@ -293,8 +282,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button odustaniButton;
         private System.Windows.Forms.Label cijenaKarteLabel;
         private System.Windows.Forms.Label vrijemeDolaskaLabel;
         private System.Windows.Forms.Label vrijemePolaskaLabel;
