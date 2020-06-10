@@ -35,7 +35,6 @@
             this.oznakaOdabranogLetaLabel = new System.Windows.Forms.Label();
             this.detaljiLetaGroupBox = new System.Windows.Forms.GroupBox();
             this.obrisiLetButton = new System.Windows.Forms.Button();
-            this.odustaniButton = new System.Windows.Forms.Button();
             this.vrijemeDolaskaTextBox = new System.Windows.Forms.TextBox();
             this.vrijemeDolaskaLabel = new System.Windows.Forms.Label();
             this.vrijemePolaskaTextBox = new System.Windows.Forms.TextBox();
@@ -93,7 +92,6 @@
             // detaljiLetaGroupBox
             // 
             this.detaljiLetaGroupBox.Controls.Add(this.obrisiLetButton);
-            this.detaljiLetaGroupBox.Controls.Add(this.odustaniButton);
             this.detaljiLetaGroupBox.Controls.Add(this.vrijemeDolaskaTextBox);
             this.detaljiLetaGroupBox.Controls.Add(this.vrijemeDolaskaLabel);
             this.detaljiLetaGroupBox.Controls.Add(this.vrijemePolaskaTextBox);
@@ -116,24 +114,13 @@
             // obrisiLetButton
             // 
             this.obrisiLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.obrisiLetButton.Location = new System.Drawing.Point(30, 407);
+            this.obrisiLetButton.Location = new System.Drawing.Point(95, 412);
             this.obrisiLetButton.Name = "obrisiLetButton";
             this.obrisiLetButton.Size = new System.Drawing.Size(105, 34);
             this.obrisiLetButton.TabIndex = 57;
             this.obrisiLetButton.Text = "Obriši let";
             this.obrisiLetButton.UseVisualStyleBackColor = true;
             this.obrisiLetButton.Click += new System.EventHandler(this.obrisiLetButton_Click);
-            // 
-            // odustaniButton
-            // 
-            this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(174, 407);
-            this.odustaniButton.Name = "odustaniButton";
-            this.odustaniButton.Size = new System.Drawing.Size(96, 34);
-            this.odustaniButton.TabIndex = 56;
-            this.odustaniButton.Text = "Odustani";
-            this.odustaniButton.UseVisualStyleBackColor = true;
-            this.odustaniButton.Click += new System.EventHandler(this.odustaniButton_Click_1);
             // 
             // vrijemeDolaskaTextBox
             // 
@@ -250,10 +237,12 @@
             this.Controls.Add(this.detaljiLetaGroupBox);
             this.Controls.Add(this.popisLetovaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormObrisiLet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Obrisi let";
             this.Load += new System.EventHandler(this.FormObrisiLet_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormObrisiLet_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).EndInit();
             this.detaljiLetaGroupBox.ResumeLayout(false);
             this.detaljiLetaGroupBox.PerformLayout();
@@ -271,7 +260,6 @@
         private System.Windows.Forms.GroupBox detaljiLetaGroupBox;
         private System.Windows.Forms.Label popisLetovaLabel;
         private System.Windows.Forms.Button obrisiLetButton;
-        private System.Windows.Forms.Button odustaniButton;
         private System.Windows.Forms.TextBox vrijemeDolaskaTextBox;
         private System.Windows.Forms.Label vrijemeDolaskaLabel;
         private System.Windows.Forms.TextBox vrijemePolaskaTextBox;

@@ -44,11 +44,6 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.Columns[0].Visible = false;
         }
 
-        private void odustaniButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void popisLetovaDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
@@ -70,11 +65,6 @@ namespace SkyFlyReservation
             return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
         }
 
-        private void odustaniButton_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void obrisiLetButton_Click(object sender, EventArgs e)
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
@@ -86,6 +76,14 @@ namespace SkyFlyReservation
             {
                 MessageBox.Show($"Uspješno ste obrisali let {selektiraniLet.BrojLeta} | {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.");
                 this.Close();
+            }
+        }
+
+        private void FormObrisiLet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "ObrisiLet.htm");
             }
         }
     }
