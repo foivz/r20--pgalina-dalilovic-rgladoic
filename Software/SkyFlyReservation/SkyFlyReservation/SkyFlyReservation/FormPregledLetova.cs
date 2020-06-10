@@ -14,7 +14,6 @@ namespace SkyFlyReservation
 {
     public partial class FormPregledLetova : Form
     {
-        private bool _F2Click = false;
         public FormPregledLetova()
         {
             InitializeComponent();
@@ -204,21 +203,9 @@ namespace SkyFlyReservation
 
         private void FormPregledLetova_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F2)
+            if(e.KeyCode == Keys.F1)
             {
-                if(_F2Click == false)
-                {
-                    MessageBox.Show("Otvorit help.");
-                    _F2Click = true;
-                    return;
-                }
-                if(_F2Click == true)
-                {
-                    MessageBox.Show("Zatvori help.");
-                    _F2Click = false;
-                    return;
-                    
-                }
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledLetova.htm");
             }
         }
     }

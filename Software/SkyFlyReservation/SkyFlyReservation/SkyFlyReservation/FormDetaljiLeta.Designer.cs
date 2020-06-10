@@ -184,7 +184,7 @@
             // zatvoriButton
             // 
             this.zatvoriButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zatvoriButton.Location = new System.Drawing.Point(104, 527);
+            this.zatvoriButton.Location = new System.Drawing.Point(105, 527);
             this.zatvoriButton.Name = "zatvoriButton";
             this.zatvoriButton.Size = new System.Drawing.Size(89, 34);
             this.zatvoriButton.TabIndex = 29;
