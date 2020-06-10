@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAAEB778-5A11-42B7-8363-5C793028EF41}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SkyFlyReservation</RootNamespace>
+    <AssemblyName>SkyFlyReservation</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Aerodrom.cs" />
+    <Compile Include="Class\Aviokompanija.cs" />
+    <Compile Include="Class\Avion.cs" />
+    <Compile Include="Class\BrojLetaGenerator.cs" />
+    <Compile Include="Class\Let.cs" />
+    <Compile Include="Class\Korisnik.cs" />
+    <Compile Include="Class\RepozitorijSkyFlyReservation.cs" />
+    <Compile Include="Class\Rezervacija.cs" />
+    <Compile Include="Class\Sjedalo.cs" />
+    <Compile Include="FormAzurirajAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAzurirajAvion.Designer.cs">
+      <DependentUpon>FormAzurirajAvion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAzurirajLet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAzurirajLet.Designer.cs">
+      <DependentUpon>FormAzurirajLet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetaljiLeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetaljiLeta.Designer.cs">
+      <DependentUpon>FormDetaljiLeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDodajAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDodajAvion.Designer.cs">
+      <DependentUpon>FormDodajAvion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDodajLet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDodajLet.Designer.cs">
+      <DependentUpon>FormDodajLet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormObrisiLet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormObrisiLet.Designer.cs">
+      <DependentUpon>FormObrisiLet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatiKartu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatiKartu.Designer.cs">
+      <DependentUpon>FormPlatiKartu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatiRezervaciju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatiRezervaciju.Designer.cs">
+      <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPregledAvionaAviokompanije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPregledAvionaAviokompanije.Designer.cs">
+      <DependentUpon>FormPregledAvionaAviokompanije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPregledLetova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPregledLetova.Designer.cs">
+      <DependentUpon>FormPregledLetova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPregledRezervacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPregledRezervacija.Designer.cs">
+      <DependentUpon>FormPregledRezervacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRezervacijaKarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRezervacijaKarte.Designer.cs">
+      <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAzurirajAvion.resx">
+      <DependentUpon>FormAzurirajAvion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAzurirajLet.resx">
+      <DependentUpon>FormAzurirajLet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetaljiLeta.resx">
+      <DependentUpon>FormDetaljiLeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDodajAvion.resx">
+      <DependentUpon>FormDodajAvion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDodajLet.resx">
+      <DependentUpon>FormDodajLet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormObrisiLet.resx">
+      <DependentUpon>FormObrisiLet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatiKartu.resx">
+      <DependentUpon>FormPlatiKartu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatiRezervaciju.resx">
+      <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPregledAvionaAviokompanije.resx">
+      <DependentUpon>FormPregledAvionaAviokompanije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPregledLetova.resx">
+      <DependentUpon>FormPregledLetova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPregledRezervacija.resx">
+      <DependentUpon>FormPregledRezervacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRezervacijaKarte.resx">
+      <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database Access\Database Access.csproj">
+      <Project>{A4FB8562-331B-4105-A069-5B2A9884C0C4}</Project>
+      <Name>Database Access</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
