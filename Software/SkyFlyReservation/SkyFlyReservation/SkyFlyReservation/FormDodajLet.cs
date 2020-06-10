@@ -106,12 +106,21 @@ namespace SkyFlyReservation
                 MessageBox.Show("Cijena karte mora biti unesena.");
                 return false;
             }
+            else if(int.Parse(cijenaKarteTextBox.Text) < 0)
+            {
+                MessageBox.Show("Cijena karte ne može biti negativna.");
+                return false;
+            }
             return true;
         }
 
-        private void FormDodajLet_KeyPress(object sender, KeyPressEventArgs e)
+        private void FormDodajLet_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("Stisnut");
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajLet.htm");
+
+            }
         }
     }
 }
