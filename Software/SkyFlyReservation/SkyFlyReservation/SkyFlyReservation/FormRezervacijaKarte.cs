@@ -160,5 +160,13 @@ namespace SkyFlyReservation
                 this.Close();
             }
         }
+
+        private void FormRezervacijaKarte_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "RezervacijaKarte.htm");
+            }
+        }
     }
 }

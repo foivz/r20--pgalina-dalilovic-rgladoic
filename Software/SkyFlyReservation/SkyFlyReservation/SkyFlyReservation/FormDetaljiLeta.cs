@@ -41,5 +41,13 @@ namespace SkyFlyReservation
             cijenaKarteTextBox.Text = selektiraniLet.CijenaKarte.ToString();
             brojSlobodnihMjestaTextBox.Text = selektiraniLet.BrojSlobodnihMjesta.ToString();
         }
+
+        private void FormDetaljiLeta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DetaljiLeta.htm");
+            }
+        }
     }
 }

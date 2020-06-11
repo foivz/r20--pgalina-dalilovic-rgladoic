@@ -234,10 +234,12 @@
             this.Controls.Add(this.oznakaOdabranogLetaLabel);
             this.Controls.Add(this.detaljiLetaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormDetaljiLeta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalji leta";
             this.Load += new System.EventHandler(this.FormDetaljiLeta_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDetaljiLeta_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
