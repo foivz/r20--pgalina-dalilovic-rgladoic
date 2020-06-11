@@ -159,9 +159,11 @@
             this.Controls.Add(this.identifikatorAvionaLabel);
             this.Controls.Add(this.dodajAvionLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormDodajAvion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj avion";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDodajAvion_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

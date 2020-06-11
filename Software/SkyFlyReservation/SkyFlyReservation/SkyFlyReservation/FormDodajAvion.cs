@@ -87,8 +87,21 @@ namespace SkyFlyReservation
                 MessageBox.Show("Avion može imati maksimalno 174 sjedala.");
                 return false;
             }
+            if (int.Parse(brojSjedala) <= 0)
+            {
+                MessageBox.Show("Avion ne može imati 0 ili manje od 0 sjedala.");
+                return false;
+            }
 
             return true;
+        }
+
+        private void FormDodajAvion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajAvion.htm");
+            }
         }
     }
 }

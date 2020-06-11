@@ -159,9 +159,12 @@
             this.Controls.Add(this.identifikatorAvionaLabel);
             this.Controls.Add(this.azurirajAvionLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormAzurirajAvion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ažuriraj avion";
+            this.Load += new System.EventHandler(this.FormAzurirajAvion_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormAzurirajAvion_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

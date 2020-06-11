@@ -204,10 +204,12 @@
             this.Controls.Add(this.podaciZaPlacanjeGroupBox);
             this.Controls.Add(this.naslovLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormPlatiKartu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plati kartu";
             this.Load += new System.EventHandler(this.FormPlatiKartu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPlatiKartu_KeyDown);
             this.podaciZaPlacanjeGroupBox.ResumeLayout(false);
             this.podaciZaPlacanjeGroupBox.PerformLayout();
             this.ResumeLayout(false);

@@ -166,10 +166,12 @@
             this.Controls.Add(this.popisRezervacijaDataGridView);
             this.Controls.Add(this.popisRezervacijaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormPregledRezervacija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled rezervacija";
             this.Load += new System.EventHandler(this.FormPregledRezervacija_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPregledRezervacija_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.popisRezervacijaDataGridView)).EndInit();
             this.filtrirajPopisRezervacijaGroupBox.ResumeLayout(false);
             this.filtrirajPopisRezervacijaGroupBox.PerformLayout();

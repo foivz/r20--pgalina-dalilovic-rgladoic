@@ -168,5 +168,13 @@ namespace SkyFlyReservation
 
             client.Send(Msg);
         }
+
+        private void FormPlatiRezervaciju_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PlatiRezervaciju.htm");
+            }
+        }
     }
 }
