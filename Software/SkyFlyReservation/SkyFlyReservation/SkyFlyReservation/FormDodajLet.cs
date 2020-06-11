@@ -26,8 +26,13 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox(List<Aerodrom> aerodromi)
         {
             polazisniAerodromComboBox.DataSource = aerodromi.ToList();
+            polazisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             odredisniAerodromComboBox.DataSource = aerodromi.ToList();
+            odredisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -101,7 +106,20 @@ namespace SkyFlyReservation
                 MessageBox.Show("Cijena karte mora biti unesena.");
                 return false;
             }
+            else if(int.Parse(cijenaKarteTextBox.Text) < 0)
+            {
+                MessageBox.Show("Cijena karte ne može biti negativna.");
+                return false;
+            }
             return true;
+        }
+
+        private void FormDodajLet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajLet.htm");
+            }
         }
     }
 }

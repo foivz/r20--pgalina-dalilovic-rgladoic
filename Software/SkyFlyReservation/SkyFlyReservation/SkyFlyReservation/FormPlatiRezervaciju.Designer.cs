@@ -223,7 +223,7 @@
             // 
             // platiRezervacijuButton
             // 
-            this.platiRezervacijuButton.Location = new System.Drawing.Point(39, 307);
+            this.platiRezervacijuButton.Location = new System.Drawing.Point(39, 306);
             this.platiRezervacijuButton.Name = "platiRezervacijuButton";
             this.platiRezervacijuButton.Size = new System.Drawing.Size(110, 36);
             this.platiRezervacijuButton.TabIndex = 29;
@@ -298,10 +298,12 @@
             this.Controls.Add(this.rezervacijaGroupBox);
             this.Controls.Add(this.naslovLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormPlatiRezervaciju";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plati rezervaciju";
             this.Load += new System.EventHandler(this.FormPlatiRezervaciju_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPlatiRezervaciju_KeyDown);
             this.rezervacijaGroupBox.ResumeLayout(false);
             this.rezervacijaGroupBox.PerformLayout();
             this.podaciZaPlacanjeGroupBox.ResumeLayout(false);

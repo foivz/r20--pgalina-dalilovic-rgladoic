@@ -30,6 +30,7 @@ namespace SkyFlyReservation
             popisAvionaDataGridView.DataSource = avioniAviokompanije;
 
             popisAvionaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisAvionaDataGridView.ReadOnly = true;
 
             popisAvionaDataGridView.Columns[1].HeaderText = "Registarska oznaka";
             popisAvionaDataGridView.Columns[2].HeaderText = "Proizvođač";
@@ -53,6 +54,12 @@ namespace SkyFlyReservation
         {
             Avion selektiraniAvion = DohvatiSelektiraniAvion();
 
+            if(selektiraniAvion == null)
+            {
+                MessageBox.Show("Niste odabrali avion koji želite ažurirati.");
+                return;
+            }
+
             FormAzurirajAvion form = new FormAzurirajAvion(selektiraniAvion);
             form.ShowDialog();
 
@@ -61,12 +68,25 @@ namespace SkyFlyReservation
 
         private Avion DohvatiSelektiraniAvion()
         {
-            return popisAvionaDataGridView.CurrentRow.DataBoundItem as Avion;
+            Avion avion = null;
+
+            if(popisAvionaDataGridView.CurrentRow != null)
+            {
+                avion = popisAvionaDataGridView.CurrentRow.DataBoundItem as Avion;
+            }
+
+            return avion;
         }
 
         private void obrisiAvionButton_Click(object sender, EventArgs e)
         {
             Avion selektiraniAvion = DohvatiSelektiraniAvion();
+
+            if(selektiraniAvion == null)
+            {
+                MessageBox.Show("Niste odabrali avion koji želite obrisati.");
+                return;
+            }
 
             int numAffectedRows = RepozitorijSkyFlyReservation.ObrisiAvion(selektiraniAvion);
 
@@ -76,6 +96,14 @@ namespace SkyFlyReservation
             }
 
             OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+        }
+
+        private void FormPregledAvionaAviokompanije_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledAvionaAviokompanije.htm");
+            }
         }
     }
 }

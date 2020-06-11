@@ -62,6 +62,7 @@ namespace SkyFlyReservation
         private void FormPregledRezervacija_Load(object sender, EventArgs e)
         {
             OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiRezervacijeKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId));
+            prikaziSveRadio.Checked = true;
         }
 
         private void OsvjeziDGV(List<Rezervacija> rezervacijeKorisnika)
@@ -70,6 +71,7 @@ namespace SkyFlyReservation
             popisRezervacijaDataGridView.DataSource = rezervacijeKorisnika;
 
             popisRezervacijaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisRezervacijaDataGridView.ReadOnly = true;
 
             popisRezervacijaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisRezervacijaDataGridView.Columns[2].HeaderText = "Polaziši aerodrom";
@@ -127,6 +129,14 @@ namespace SkyFlyReservation
                     MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.OdredisniAerodrom.NazivAerodroma}.");
                     OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiRezervacijeKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId));
                 }
+            }
+        }
+
+        private void FormPregledRezervacija_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledRezervacija.htm");
             }
         }
     }

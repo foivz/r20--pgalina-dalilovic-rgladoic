@@ -112,10 +112,12 @@
             this.Controls.Add(this.popisAvionaDataGridView);
             this.Controls.Add(this.popisLetovaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormPregledAvionaAviokompanije";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled aviona";
             this.Load += new System.EventHandler(this.FormPregledAvionaAviokompanije_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPregledAvionaAviokompanije_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.popisAvionaDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

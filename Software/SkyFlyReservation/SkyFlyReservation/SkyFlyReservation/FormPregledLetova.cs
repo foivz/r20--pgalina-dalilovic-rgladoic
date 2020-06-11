@@ -43,6 +43,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = letovi;
 
             popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisLetovaDataGridView.Columns[2].HeaderText = "Polazišni aerodrom";
@@ -62,7 +63,10 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox(List<Aerodrom> aerodromi)
         {
             polazisniAerodromComboBox.DataSource = aerodromi.ToList();
+            polazisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
             odredisniAerodromComboBox.DataSource = aerodromi.ToList();
+            odredisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void pretraziLetoveButton_Click(object sender, EventArgs e)
@@ -195,6 +199,15 @@ namespace SkyFlyReservation
             form.ShowDialog();
 
             OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
+        }
+
+        private void FormPregledLetova_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledLetova.htm");
+
+            }
         }
     }
 }

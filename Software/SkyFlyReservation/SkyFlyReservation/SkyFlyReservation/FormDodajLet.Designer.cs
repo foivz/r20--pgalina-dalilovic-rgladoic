@@ -230,10 +230,12 @@
             this.Controls.Add(this.noviLetGroupBox);
             this.Controls.Add(this.dodajLetLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormDodajLet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj let";
             this.Load += new System.EventHandler(this.FormDodajLet_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDodajLet_KeyDown);
             this.noviLetGroupBox.ResumeLayout(false);
             this.noviLetGroupBox.PerformLayout();
             this.ResumeLayout(false);

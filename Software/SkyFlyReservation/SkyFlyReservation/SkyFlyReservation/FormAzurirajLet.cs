@@ -31,6 +31,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = letovi;
 
             popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
             popisLetovaDataGridView.Columns[2].HeaderText = "Polazišni aerodrom";
@@ -47,13 +48,13 @@ namespace SkyFlyReservation
         private void OsvjeziComboBox()
         {
             polazisniComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAerodrome().ToList();
-            odredisniComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAerodrome().ToList();
-            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
-        }
+            polazisniComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-        private void odustaniButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            odredisniComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAerodrome().ToList();
+            odredisniComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void azurirajLetButton_Click(object sender, EventArgs e)
@@ -178,6 +179,14 @@ namespace SkyFlyReservation
         private Let DohvatiSelektiraniLet()
         {
             return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+        }
+
+        private void FormAzurirajLet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "AzurirajLet.htm");
+            }
         }
     }
 }

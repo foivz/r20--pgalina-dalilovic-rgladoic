@@ -3157,10 +3157,12 @@
             this.Controls.Add(this.odaberiteSjedaloLabel);
             this.Controls.Add(this.mapaSjedalaAvionaPictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormRezervacijaKarte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rezervacija karte";
             this.Load += new System.EventHandler(this.FormRezervacijaKarte_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormRezervacijaKarte_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.mapaSjedalaAvionaPictureBox)).EndInit();
             this.detaljiLetaGroupBox.ResumeLayout(false);
             this.detaljiLetaGroupBox.PerformLayout();
