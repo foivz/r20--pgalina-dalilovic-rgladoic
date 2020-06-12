@@ -200,12 +200,12 @@ namespace SkyFlyReservation.Class
             return sjedalo;
         }
 
-        public static int DodajRezervacijuKarte(Let let, Sjedalo sjedalo, int korisnikId)
+        public static int DodajRezervacijuKarte(Rezervacija rezervacija)
         {
             Database.Instance.Connect();
 
             string sql = "INSERT INTO Rezervacija (IdKorisnik, IdLetaRezervacije, IdSjedalo, DatumVrijemeRezervacije, StatusRezervacije) " +
-                $"VALUES({korisnikId}, {let.LetId}, {sjedalo.SjedaloId}, '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}', 0);";
+                $"VALUES({rezervacija.KorisnikRezervacije.KorisnikId}, {rezervacija.LetRezervacije.LetId}, {rezervacija.RezerviranoSjedalo.SjedaloId}, '{rezervacija.DatumVrijemeRezervacije.ToString("yyyy-MM-dd HH:mm:ss")}', 0);";
 
             int numAffectedRows = Database.Instance.ExecuteCommand(sql);
 
@@ -633,8 +633,8 @@ namespace SkyFlyReservation.Class
                 {
                     RezervacijaId = (int)dataReader["rezervacijaId"],
                     LetRezervacije = let,
-                    PolazisniAerodrom = let.PolazisniAerodrom,
-                    OdredisniAerodrom = let.OdredisniAerodrom,
+                    //PolazisniAerodrom = let.PolazisniAerodrom,
+                    //OdredisniAerodrom = let.OdredisniAerodrom,
                     KorisnikRezervacije = RepozitorijSkyFlyReservation.prijavljeniKorisnik,
                     RezerviranoSjedalo = sjedalo,
                     DatumVrijemeRezervacije = (DateTime)dataReader["datumVrijemeRezervacije"],

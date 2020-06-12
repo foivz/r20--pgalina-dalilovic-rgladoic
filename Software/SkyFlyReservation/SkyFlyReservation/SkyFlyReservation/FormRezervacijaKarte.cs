@@ -90,7 +90,17 @@ namespace SkyFlyReservation
             {
                 Sjedalo sjedalo = RepozitorijSkyFlyReservation.DohvatiSjedalo(odabranoSjedalo.Name);
 
-                int numAffectedRowsInsert = RepozitorijSkyFlyReservation.DodajRezervacijuKarte(selektiraniLet, sjedalo, RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
+                Rezervacija rezervacija = new Rezervacija()
+                {
+                    LetRezervacije = selektiraniLet,
+                    //PolazisniAerodrom = selektiraniLet.PolazisniAerodrom,
+                    //OdredisniAerodrom = selektiraniLet.OdredisniAerodrom,
+                    KorisnikRezervacije = RepozitorijSkyFlyReservation.prijavljeniKorisnik,
+                    RezerviranoSjedalo = sjedalo,
+                    DatumVrijemeRezervacije = DateTime.Now
+                };
+
+                int numAffectedRowsInsert = RepozitorijSkyFlyReservation.DodajRezervacijuKarte(rezervacija);
                 int numAffectedRowsUpdate = RepozitorijSkyFlyReservation.AzurirajBrojSlobodnihMjesta(selektiraniLet);
 
                 if(numAffectedRowsInsert > 0 && numAffectedRowsUpdate > 0)
@@ -98,6 +108,12 @@ namespace SkyFlyReservation
                     MessageBox.Show($"Uspješno ste rezervirali sjedalo {sjedalo.OznakaSjedala} na letu {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.\n\nNa Vašu e-mail adresu poslani su podaci za plaćanje.");
                     PošaljiObavijest(selektiraniLet, sjedalo);
                     this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Dogodila se pogreška kod rezervacije sjedala.Rezervacija nije evidentirana.");
+                    this.Close();
+                    return;
                 }
             }
         }

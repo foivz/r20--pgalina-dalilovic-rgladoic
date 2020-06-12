@@ -17,8 +17,6 @@ namespace SkyFlyReservation.Class
     {
         public int RezervacijaId { get; set; }
         public Let LetRezervacije { get; set; }
-        public Aerodrom PolazisniAerodrom { get; set; }
-        public Aerodrom OdredisniAerodrom { get; set; }
         public Korisnik KorisnikRezervacije { get; set; }
         public Sjedalo RezerviranoSjedalo { get; set; }
         public DateTime DatumVrijemeRezervacije { get; set; }

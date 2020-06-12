@@ -59,6 +59,14 @@ namespace SkyFlyReservation
 
         private void azurirajLetButton_Click(object sender, EventArgs e)
         {
+            Let odabraniLet = DohvatiSelektiraniLet();
+
+            if(odabraniLet == null)
+            {
+                MessageBox.Show("Niste odabrali let koji želite ažurirati.");
+                return;
+            }
+
             Aerodrom polazisniAerodrom = polazisniComboBox.SelectedItem as Aerodrom;
             Aerodrom odredisniAerodrom = odredisniComboBox.SelectedItem as Aerodrom;
             Avion avionNaLetu = avionNaLetuComboBox.SelectedItem as Avion;
@@ -70,7 +78,6 @@ namespace SkyFlyReservation
 
             if(provjeraPodataka == true)
             {
-                Let odabraniLet = DohvatiSelektiraniLet();
                 int brojRezervacija = odabraniLet.AvionNaLetu.BrojMjesta - odabraniLet.BrojSlobodnihMjesta;
 
 
@@ -178,7 +185,14 @@ namespace SkyFlyReservation
 
         private Let DohvatiSelektiraniLet()
         {
-            return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            Let selektiraniLet = null;
+
+            if(popisLetovaDataGridView.CurrentRow != null)
+            {
+                selektiraniLet = popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            }
+
+            return selektiraniLet;
         }
 
         private void FormAzurirajLet_KeyDown(object sender, KeyEventArgs e)

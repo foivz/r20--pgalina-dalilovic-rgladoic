@@ -81,37 +81,46 @@ namespace SkyFlyReservation
 
         private bool ProvjeriPodatke(Aerodrom polazisniAerodrom, Aerodrom odredisniAerodrom, DateTime datumVrijemePolaska, DateTime datumVrijemeDolaska)
         {
+            bool ispravno = true;
+
             if(polazisniAerodrom.AerodromId == odredisniAerodrom.AerodromId)
             {
                 MessageBox.Show("Polazišni i odredišni aerodrom ne smiju biti isti.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemeDolaska < datumVrijemePolaska)
             {
                 MessageBox.Show("Datum dolaska ne smije biti manji od datuma polaska.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemePolaska < DateTime.Now)
             {
                 MessageBox.Show($"Datum polaska ne može biti manji od datuma {DateTime.Now.Date.ToString("dd/MM/yyyy")}.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemeDolaska < DateTime.Now)
             {
                 MessageBox.Show($"Datum dolaska ne može biti manji od datuma {DateTime.Now.Date.ToString("dd/MM/yyyy")}.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if(cijenaKarteTextBox.Text == "")
             {
                 MessageBox.Show("Cijena karte mora biti unesena.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if(int.Parse(cijenaKarteTextBox.Text) < 0)
             {
                 MessageBox.Show("Cijena karte ne može biti negativna.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
-            return true;
+
+            return ispravno;
         }
 
         private void FormDodajLet_KeyDown(object sender, KeyEventArgs e)

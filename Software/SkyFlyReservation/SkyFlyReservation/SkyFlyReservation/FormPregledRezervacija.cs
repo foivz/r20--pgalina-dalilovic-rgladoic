@@ -126,7 +126,7 @@ namespace SkyFlyReservation
 
                 if(numAffectedRows > 0)
                 {
-                    MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.OdredisniAerodrom.NazivAerodroma}.");
+                    MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.LetRezervacije.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.LetRezervacije.OdredisniAerodrom.NazivAerodroma}.");
                     OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiRezervacijeKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId));
                 }
             }

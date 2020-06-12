@@ -62,12 +62,25 @@ namespace SkyFlyReservation
 
         private Let DohvatiSelektiraniLet()
         {
-            return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            Let selektiraniLet = null;
+
+            if(popisLetovaDataGridView.CurrentRow != null)
+            {
+                selektiraniLet = popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            }
+
+            return selektiraniLet;
         }
 
         private void obrisiLetButton_Click(object sender, EventArgs e)
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
+
+            if(selektiraniLet == null)
+            {
+                MessageBox.Show("Niste odabrali let koji želite obrisati.");
+                return;
+            }
 
             RepozitorijSkyFlyReservation.ObrisiRezervacije(selektiraniLet);
             int numAffectedRows = RepozitorijSkyFlyReservation.ObrisiLet(selektiraniLet);

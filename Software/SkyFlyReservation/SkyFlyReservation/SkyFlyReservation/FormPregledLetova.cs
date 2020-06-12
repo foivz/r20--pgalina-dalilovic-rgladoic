@@ -29,12 +29,21 @@ namespace SkyFlyReservation
 
         private void OsvjeziKomponente()
         {
-            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik)
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik == null)
+            {
+                dodajLetButton.Visible = false;
+                azurirajLetButton.Visible = false;
+                obrisiLetButton.Visible = false;
+                rezervirajKartuButton.Visible = false;
+                kupiKartuButton.Visible = false;
+            }
+            else if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik)
             {
                 dodajLetButton.Visible = false;
                 azurirajLetButton.Visible = false;
                 obrisiLetButton.Visible = false;
             }
+            
         }
 
         private void OsvjeziDGV(List<Let> letovi)
@@ -177,6 +186,7 @@ namespace SkyFlyReservation
             OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
         }
 
+        //maknuti
         private void buttonAvioniAviokompanije_Click(object sender, EventArgs e)
         {
             FormPregledAvionaAviokompanije form = new FormPregledAvionaAviokompanije();
