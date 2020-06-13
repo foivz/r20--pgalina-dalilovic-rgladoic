@@ -85,7 +85,7 @@ namespace SkyFlyReservation
 
                 if (numAffectedRows > 0)
                 {
-                    MessageBox.Show($"Uspješno ste platili rezervaciju za sjedalo {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.OdredisniAerodrom.NazivAerodroma}.");
+                    MessageBox.Show($"Uspješno ste platili rezervaciju za sjedalo {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.LetRezervacije.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.LetRezervacije.OdredisniAerodrom.NazivAerodroma}.");
                     PošaljiKartu(selektiranaRezervacija);
                     this.Close();
                 }
@@ -118,8 +118,8 @@ namespace SkyFlyReservation
             XFont font = new XFont("Verdana", 8, XFontStyle.Bold);
 
             graph.DrawString($"{selektiranaRezervacija.KorisnikRezervacije.ImeKorisnika} {selektiranaRezervacija.KorisnikRezervacije.PrezimeKorisnika}", font, XBrushes.Black, new XRect(25, 72, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString($"{selektiranaRezervacija.PolazisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 110, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString($"{selektiranaRezervacija.OdredisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString($"{selektiranaRezervacija.LetRezervacije.PolazisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 110, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString($"{selektiranaRezervacija.LetRezervacije.OdredisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{selektiranaRezervacija.LetRezervacije.AvionNaLetu.Aviokompanija.NazivAviokompanije}", font, XBrushes.Black, new XRect(182, 110, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{selektiranaRezervacija.LetRezervacije.DatumPolaska.Date.ToString("dd MMMM")}", font, XBrushes.Black, new XRect(182, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{selektiranaRezervacija.LetRezervacije.DatumPolaska.ToString("HH:mm")}", font, XBrushes.Black, new XRect(282, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);

@@ -29,7 +29,7 @@ namespace SkyFlyReservation
             string proizvodacAviona = proizvodacAvionaTextBox.Text;
             string modelAviona = modelAvionaTextBox.Text;
             string brojSjedala = brojSjedalaTextBox.Text;
-            Aviokompanija aviokompanija = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija;
+            Aviokompanija aviokompanija = (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner) ? RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija : DohvatiSelektiranuAviokompaniju();
 
             bool provjeraPodataka = ProvjeriPodatke(identifikatorAviona, proizvodacAviona, modelAviona, brojSjedala);
 
@@ -42,7 +42,6 @@ namespace SkyFlyReservation
                     ModelAviona = modelAviona,
                     BrojMjesta = int.Parse(brojSjedala),
                     Aviokompanija = aviokompanija
-                    
                 };
 
                 int numAffectedRows = RepozitorijSkyFlyReservation.DodajAvion(avion);
@@ -53,6 +52,11 @@ namespace SkyFlyReservation
                     this.Close();
                 }
             }
+        }
+
+        private Aviokompanija DohvatiSelektiranuAviokompaniju()
+        {
+            return aviokompanijaComboBox.SelectedItem as Aviokompanija;
         }
 
         private bool ProvjeriPodatke(string identifikatorAviona, string proizvodacAviona, string modelAviona, string brojSjedala)
@@ -101,6 +105,20 @@ namespace SkyFlyReservation
             if(e.KeyCode == Keys.F1)
             {
                 Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajAvion.htm");
+            }
+        }
+
+        private void FormDodajAvion_Load(object sender, EventArgs e)
+        {
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                aviokompanijaLabel.Visible = false;
+                aviokompanijaComboBox.Visible = false;
+            }
+            else
+            {
+                aviokompanijaComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                aviokompanijaComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAviokompanije();
             }
         }
     }

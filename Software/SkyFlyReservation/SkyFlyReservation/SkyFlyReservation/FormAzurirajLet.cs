@@ -20,9 +20,19 @@ namespace SkyFlyReservation
 
         private void FormAzurirajLet_Load(object sender, EventArgs e)
         {
-            nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
-            OsvjeziComboBox();
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+                OsvjeziComboBox();
+            }
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
+                OsvjeziComboBox();
+            }
+            
         }
 
         private void OsvjeziDGV(List<Let> letovi)
@@ -112,10 +122,21 @@ namespace SkyFlyReservation
                 if (numAffectedRows > 0)
                 {
                     MessageBox.Show($"Let {polazisniAerodrom.NazivAerodroma}->{odredisniAerodrom.NazivAerodroma} je uspješno ažuriran.");
-                    this.Close();
                 }
             }
 
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+                OsvjeziComboBox();
+            }
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
+                OsvjeziComboBox();
+            }
         }
 
         private bool ProvjeriPodatke(Aerodrom polazisniAerodrom, Aerodrom odredisniAerodrom, DateTime datumVrijemePolaska, DateTime datumVrijemeDolaska)
@@ -168,6 +189,11 @@ namespace SkyFlyReservation
                 {
                     odredisniComboBox.SelectedIndex = i;
                 }
+            }
+
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(let.AvionNaLetu.Aviokompanija.AviokompanijaId);
             }
 
             for (int i = 0; i < avionNaLetuComboBox.Items.Count; i++)

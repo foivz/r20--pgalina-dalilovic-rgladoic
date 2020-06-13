@@ -20,8 +20,17 @@ namespace SkyFlyReservation
 
         private void FormObrisiLet_Load(object sender, EventArgs e)
         {
-            nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
+            }
+            
         }
 
         private void OsvjeziDGV(List<Let> letovi)
@@ -88,7 +97,17 @@ namespace SkyFlyReservation
             if (numAffectedRows > 0)
             {
                 MessageBox.Show($"Uspješno ste obrisali let {selektiraniLet.BrojLeta} | {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.");
-                this.Close();
+            }
+
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
             }
         }
 

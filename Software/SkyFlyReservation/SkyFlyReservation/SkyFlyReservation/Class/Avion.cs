@@ -17,7 +17,7 @@ namespace SkyFlyReservation.Class
 
         public override string ToString()
         {
-            return ProizvodacAviona + " " + ModelAviona;
+            return ProizvodacAviona + " " + ModelAviona + " (" + BrojMjesta + " sjedala)";
         }
     }
 }

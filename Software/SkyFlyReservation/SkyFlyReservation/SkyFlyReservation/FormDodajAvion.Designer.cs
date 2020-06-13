@@ -40,12 +40,14 @@
             this.proizvodacAvionaTextBox = new System.Windows.Forms.TextBox();
             this.modelAvionaTextBox = new System.Windows.Forms.TextBox();
             this.brojSjedalaTextBox = new System.Windows.Forms.TextBox();
+            this.aviokompanijaComboBox = new System.Windows.Forms.ComboBox();
+            this.aviokompanijaLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // odustaniButton
             // 
             this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(163, 334);
+            this.odustaniButton.Location = new System.Drawing.Point(163, 395);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(89, 42);
             this.odustaniButton.TabIndex = 46;
@@ -106,7 +108,7 @@
             // dodajAvionButton
             // 
             this.dodajAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dodajAvionButton.Location = new System.Drawing.Point(52, 334);
+            this.dodajAvionButton.Location = new System.Drawing.Point(52, 395);
             this.dodajAvionButton.Name = "dodajAvionButton";
             this.dodajAvionButton.Size = new System.Drawing.Size(89, 42);
             this.dodajAvionButton.TabIndex = 49;
@@ -142,11 +144,31 @@
             this.brojSjedalaTextBox.Size = new System.Drawing.Size(200, 22);
             this.brojSjedalaTextBox.TabIndex = 53;
             // 
+            // aviokompanijaComboBox
+            // 
+            this.aviokompanijaComboBox.FormattingEnabled = true;
+            this.aviokompanijaComboBox.Location = new System.Drawing.Point(52, 342);
+            this.aviokompanijaComboBox.Name = "aviokompanijaComboBox";
+            this.aviokompanijaComboBox.Size = new System.Drawing.Size(200, 24);
+            this.aviokompanijaComboBox.TabIndex = 54;
+            // 
+            // aviokompanijaLabel
+            // 
+            this.aviokompanijaLabel.AutoSize = true;
+            this.aviokompanijaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.aviokompanijaLabel.Location = new System.Drawing.Point(51, 322);
+            this.aviokompanijaLabel.Name = "aviokompanijaLabel";
+            this.aviokompanijaLabel.Size = new System.Drawing.Size(107, 17);
+            this.aviokompanijaLabel.TabIndex = 55;
+            this.aviokompanijaLabel.Text = "Aviokompanija :";
+            // 
             // FormDodajAvion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 406);
+            this.ClientSize = new System.Drawing.Size(309, 449);
+            this.Controls.Add(this.aviokompanijaLabel);
+            this.Controls.Add(this.aviokompanijaComboBox);
             this.Controls.Add(this.brojSjedalaTextBox);
             this.Controls.Add(this.modelAvionaTextBox);
             this.Controls.Add(this.proizvodacAvionaTextBox);
@@ -163,6 +185,7 @@
             this.Name = "FormDodajAvion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj avion";
+            this.Load += new System.EventHandler(this.FormDodajAvion_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDodajAvion_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,5 +204,7 @@
         private System.Windows.Forms.TextBox proizvodacAvionaTextBox;
         private System.Windows.Forms.TextBox modelAvionaTextBox;
         private System.Windows.Forms.TextBox brojSjedalaTextBox;
+        private System.Windows.Forms.ComboBox aviokompanijaComboBox;
+        private System.Windows.Forms.Label aviokompanijaLabel;
     }
 }

@@ -61,6 +61,7 @@ namespace SkyFlyReservation
 
         private void OsvjeziDetalje()
         {
+            oznakaOdabranogLetaLabel.Text = selektiraniLet.BrojLeta;
             odabraniPolazisniTextBox.Text = selektiraniLet.PolazisniAerodrom.NazivAerodroma;
             odabraniOdredisniTextBox.Text = selektiraniLet.OdredisniAerodrom.NazivAerodroma;
             avionNaLetuTextBox.Text = selektiraniLet.AvionNaLetu.ProizvodacAviona + " " + selektiraniLet.AvionNaLetu.ModelAviona;
@@ -93,8 +94,6 @@ namespace SkyFlyReservation
                 Rezervacija rezervacija = new Rezervacija()
                 {
                     LetRezervacije = selektiraniLet,
-                    //PolazisniAerodrom = selektiraniLet.PolazisniAerodrom,
-                    //OdredisniAerodrom = selektiraniLet.OdredisniAerodrom,
                     KorisnikRezervacije = RepozitorijSkyFlyReservation.prijavljeniKorisnik,
                     RezerviranoSjedalo = sjedalo,
                     DatumVrijemeRezervacije = DateTime.Now
