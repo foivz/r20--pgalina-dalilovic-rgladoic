@@ -72,7 +72,7 @@ namespace SkyFlyReservation
             {
                 selektiraniAvion.IdentifikatorAviona = identifikatorAviona;
                 selektiraniAvion.ProizvodacAviona = proizvodacAviona;
-                selektiraniAvion.ModelAviona = modelAviona;
+                selektiraniAvion.ModelAviona = modelAviona; 
                 selektiraniAvion.BrojMjesta = int.Parse(brojSjedala);
                 selektiraniAvion.Aviokompanija = aviokompanija;
 

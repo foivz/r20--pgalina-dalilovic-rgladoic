@@ -10,7 +10,7 @@ namespace SkyFlyReservation.Class
 {
     public static class RepozitorijSkyFlyReservation
     {
-        //Služi za testiranje -> objekti klase Korisnik se instancira nakon autentikacije
+        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
         public static Aviokompanija aviokompanija = new Aviokompanija()
         {
             AviokompanijaId = 1,
@@ -22,7 +22,7 @@ namespace SkyFlyReservation.Class
             EmailAviokompanije = "contact@croatiaairlines.hr"
         };
 
-        //Služi za testiranje -> objekti klase Korisnik se instancira nakon autentikacije
+        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
         public static Korisnik prijavljeniKorisnik = new Korisnik()
         {
             KorisnikId = 5,

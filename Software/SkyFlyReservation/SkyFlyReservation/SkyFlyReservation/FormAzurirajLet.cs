@@ -191,10 +191,9 @@ namespace SkyFlyReservation
                 }
             }
 
-            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
-            {
-                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(let.AvionNaLetu.Aviokompanija.AviokompanijaId);
-            }
+            //provjeriti !!!
+            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(let.AvionNaLetu.Aviokompanija.AviokompanijaId);
+
 
             for (int i = 0; i < avionNaLetuComboBox.Items.Count; i++)
             {
