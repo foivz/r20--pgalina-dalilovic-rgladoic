@@ -10,31 +10,47 @@ namespace SkyFlyReservation.Class
 {
     public static class RepozitorijSkyFlyReservation
     {
-        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
-        public static Aviokompanija aviokompanija = new Aviokompanija()
+        public static Korisnik prijavljeniKorisnik = new Korisnik();
+        public static Aviokompanija aviokompanija = new Aviokompanija();
+
+        public static void AutenticirajKorisnika(Korisnik korisnik)
         {
-            AviokompanijaId = 1,
-            NazivAviokompanije = "Croatia Airlines",
-            OIBAviokompanije = "24640993045",
-            IBANAviokompanije = "HR9825000097121816575",
-            AdresaAviokompanije = "Bani 75b, 10010, Zagreb",
-            KontaktAviokompanije = "072 500 50",
-            EmailAviokompanije = "contact@croatiaairlines.hr"
-        };
+            prijavljeniKorisnik = korisnik;
+            if(korisnik.Aviokompanija != null)
+            {
+                aviokompanija = korisnik.Aviokompanija;
+            }
+            else
+            {
+                aviokompanija = null;
+            }
+        }
 
         //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
-        public static Korisnik prijavljeniKorisnik = new Korisnik()
-        {
-            KorisnikId = 5,
-            ImeKorisnika = "Patrik",
-            PrezimeKorisnika = "Galina",
-            OIBKorisnika = "123123123",
-            AdresaKorisnika = "Madžarevo 212a",
-            KontaktTelefonKorisnika = "124124124",
-            EmailKorisnika = "pgalina@foi.hr",
-            UlogaKorisnika = UlogaKorisnika.Administrator,
-            Aviokompanija = aviokompanija
-        };
+        //public static Aviokompanija aviokompanija = new Aviokompanija()
+        //{
+            //AviokompanijaId = 1,
+            //NazivAviokompanije = "Croatia Airlines",
+            //OIBAviokompanije = "24640993045",
+            //IBANAviokompanije = "HR9825000097121816575",
+            //AdresaAviokompanije = "Bani 75b, 10010, Zagreb",
+            //KontaktAviokompanije = "072 500 50",
+            //EmailAviokompanije = "contact@croatiaairlines.hr"
+        //};
+
+        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
+        //public static Korisnik prijavljeniKorisnik = new Korisnik()
+        //{
+        //    KorisnikId = 5,
+        //    ImeKorisnika = "Patrik",
+        //    PrezimeKorisnika = "Galina",
+        //    OIBKorisnika = "123123123",
+        //    AdresaKorisnika = "Madžarevo 212a",
+        //    KontaktTelefonKorisnika = "124124124",
+        //    EmailKorisnika = "pgalina@foi.hr",
+        //    UlogaKorisnika = UlogaKorisnika.Administrator,
+        //    Aviokompanija = aviokompanija
+        //};
 
         public static List<Let> DohvatiLetove()
         {
@@ -367,7 +383,7 @@ namespace SkyFlyReservation.Class
         }
 
         public static List<Rezervacija> DohvatiRezervacijeKorisnika(int korisnikId)
-        { 
+        {
             string sql = "SELECT l.LetId as letId, l.BrojLeta as brojLeta, l.DatumVrijemePolaska as datumPolaska, l.DatumVrijemeDolaska as datumDolaska, l.CijenaKarte as cijenaKarte, l.BrojSlobodnihMjesta as brojSlobodnihMjesta, sa.SjedaloId as sjedaloId, sa.OznakaSjedala as oznakaSjedala, pa.AerodromId as polazisniAerodromId, pa.NazivAerodroma as polazisniNazivAerodroma, pa.OznakaAerodroma as polazisniOznakaAerodroma, pa.AdresaAerodroma as polazisniAdresaAerodroma, pa.OIBAerodroma as polazisniOibAerodroma, pa.KontaktTelefonAerodroma as polazisniAerodromKontakt, pa.EmailAerodroma as polazisniAerodromEmail, oa.AerodromId as odredisniAerodromId, oa.NazivAerodroma as odredisniNazivAerodroma, oa.OznakaAerodroma as odredisniOznakaAerodroma, oa.AdresaAerodroma as odredisniAdresaAerodroma, oa.OIBAerodroma as odredisniOibAerodroma, oa.KontaktTelefonAerodroma as odredisniAerodromKontakt, oa.EmailAerodroma as odredisniAerodromEmail, a.AvionId as avionId, a.RegistarskaOznakaAviona as identifikatorAviona, a.ProizvodacAviona as proizvodacAviona, a.ModelAviona as modelAviona, a.BrojSjedalaAviona as brojSjedalaAviona, ak.AviokompanijaId as aviokompanijaId, ak.NazivAviokompanije as nazivAviokompanije, ak.OIBAviokompanije as oibAviokomapnije, ak.IBANAviokompanije as ibanAviokompanije, ak.AdresaAviokompanije as adresaAviokompanije, ak.KontaktTelefonAviokompanije as kontaktTelefonAviokompanije, ak.EmailAviokompanije as emailAviokompanije, r.DatumVrijemeRezervacije as datumVrijemeRezervacije, r.RezervacijaId as rezervacijaId, r.StatusRezervacije as statusRezervacije FROM Rezervacija r " +
                 "INNER JOIN Let l ON r.IdLetaRezervacije = l.LetId " +
                 "INNER JOIN SjedaloUAvionu sa ON r.IdSjedalo = sa.SjedaloId " +
@@ -518,16 +534,16 @@ namespace SkyFlyReservation.Class
                     BrojSlobodnihMjesta = (int)dataReader["brojSlobodnihMjesta"]
                 };
 
-                if(let.DatumPolaska > DateTime.Now)
+                if (let.DatumPolaska > DateTime.Now)
                 {
                     letovi.Add(let);
                 }
-                
+
             }
 
             dataReader.Close();
             Database.Instance.Disconnect();
-            
+
             return letovi;
         }
 
@@ -645,7 +661,7 @@ namespace SkyFlyReservation.Class
 
                 StanjeRezervacije statusRezervacije = StanjeRezervacije.Plaćena;
 
-                if(dataReader["statusRezervacije"].ToString() == "0")
+                if (dataReader["statusRezervacije"].ToString() == "0")
                 {
                     if (let.DatumPolaska.CompareTo((DateTime)dataReader["datumVrijemeRezervacije"]) < 0)
                     {
@@ -702,6 +718,99 @@ namespace SkyFlyReservation.Class
             }
 
             return aviokompanije;
+        }
+
+        public static List<Korisnik> DohvatiSveKorisnike()
+        {
+            string sql = "SELECT * FROM Korisnik k INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId;";
+
+            List<Korisnik> korisnici = DohvatiPodatkeKorisnika(sql);
+
+            return korisnici;
+        }
+
+        private static List<Korisnik> DohvatiPodatkeKorisnika(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<Korisnik> korisnici = new List<Korisnik>();
+            while (dataReader.Read())
+            {
+                UlogaKorisnika uloga = new UlogaKorisnika();
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Administrator")
+                {
+                    uloga = UlogaKorisnika.Administrator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Moderator")
+                {
+                    uloga = UlogaKorisnika.Moderator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Owner")
+                {
+                    uloga = UlogaKorisnika.Owner;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Registrirani korisnik")
+                {
+                    uloga = UlogaKorisnika.RegistriraniKorisnik;
+                }
+                bool aviokompanijaNull = dataReader.IsDBNull(dataReader.GetOrdinal("AviokompanijaKorisnika"));
+                if (!aviokompanijaNull)
+                {
+                    Aviokompanija aviokompanija = new Aviokompanija()
+                    {
+                        AviokompanijaId = (int)dataReader["AviokompanijaId"],
+                        NazivAviokompanije = dataReader["NazivAviokompanije"].ToString(),
+                        OIBAviokompanije = dataReader["OIBAviokompanije"].ToString(),
+                        IBANAviokompanije = dataReader["IBANAviokompanije"].ToString(),
+                        AdresaAviokompanije = dataReader["AdresaAviokompanije"].ToString(),
+                        KontaktAviokompanije = dataReader["KontaktTelefonAviokompanije"].ToString(),
+                        EmailAviokompanije = dataReader["EmailAviokompanije"].ToString()
+                    };
+
+                    Korisnik korisnik = new Korisnik()
+                    {
+                        KorisnikId = (int)dataReader["KorisnikId"],
+                        UlogaKorisnika = uloga,
+                        Aviokompanija = aviokompanija,
+                        ImeKorisnika = dataReader["Ime"].ToString(),
+                        PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                        AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                        KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                        EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                        OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                        KorisnickoImeKorisnika = dataReader["KorisnickoIme"].ToString(),
+                        LozinkaKorisnika = dataReader["Lozinka"].ToString()
+
+                    };
+                    korisnici.Add(korisnik);
+                }
+                else
+                {
+                    Korisnik korisnik = new Korisnik()
+                    {
+                        KorisnikId = (int)dataReader["KorisnikId"],
+                        UlogaKorisnika = uloga,
+                        Aviokompanija = null,
+                        ImeKorisnika = dataReader["Ime"].ToString(),
+                        PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                        AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                        KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                        EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                        OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                        KorisnickoImeKorisnika = dataReader["KorisnickoIme"].ToString(),
+                        LozinkaKorisnika = dataReader["Lozinka"].ToString()
+
+                    };
+                    korisnici.Add(korisnik);
+                }
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return korisnici;
         }
     }
 }
