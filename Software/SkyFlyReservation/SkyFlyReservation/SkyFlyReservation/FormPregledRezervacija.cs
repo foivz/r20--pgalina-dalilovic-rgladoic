@@ -73,15 +73,13 @@ namespace SkyFlyReservation
             popisRezervacijaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             popisRezervacijaDataGridView.ReadOnly = true;
 
+            popisRezervacijaDataGridView.Columns[0].HeaderText = "ID rezervacije";
             popisRezervacijaDataGridView.Columns[1].HeaderText = "Broj leta";
-            popisRezervacijaDataGridView.Columns[2].HeaderText = "Polaziši aerodrom";
-            popisRezervacijaDataGridView.Columns[3].HeaderText = "Odredišni aerodrom";
-            popisRezervacijaDataGridView.Columns[5].HeaderText = "Rezervirano sjedalo";
-            popisRezervacijaDataGridView.Columns[6].HeaderText = "Datum i vrijeme rezervacije";
-            popisRezervacijaDataGridView.Columns[7].HeaderText = "Status rezervacije";
+            popisRezervacijaDataGridView.Columns[3].HeaderText = "Rezervirano sjedalo";
+            popisRezervacijaDataGridView.Columns[4].HeaderText = "Datum i vrijeme rezervacije";
+            popisRezervacijaDataGridView.Columns[5].HeaderText = "Status rezervacije";
 
-            popisRezervacijaDataGridView.Columns[0].Visible = false;
-            popisRezervacijaDataGridView.Columns[4].Visible = false;
+            popisRezervacijaDataGridView.Columns[2].Visible = false;
 
         }
 
@@ -126,7 +124,7 @@ namespace SkyFlyReservation
 
                 if(numAffectedRows > 0)
                 {
-                    MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.OdredisniAerodrom.NazivAerodroma}.");
+                    MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.LetRezervacije.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.LetRezervacije.OdredisniAerodrom.NazivAerodroma}.");
                     OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiRezervacijeKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId));
                 }
             }

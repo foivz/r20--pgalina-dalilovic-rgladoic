@@ -40,6 +40,8 @@
             this.proizvodacAvionaLabel = new System.Windows.Forms.Label();
             this.identifikatorAvionaLabel = new System.Windows.Forms.Label();
             this.azurirajAvionLabel = new System.Windows.Forms.Label();
+            this.aviokompanijaLabel = new System.Windows.Forms.Label();
+            this.aviokompanijaComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // brojSjedalaTextBox
@@ -73,7 +75,7 @@
             // azurirajAvionButton
             // 
             this.azurirajAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.azurirajAvionButton.Location = new System.Drawing.Point(52, 334);
+            this.azurirajAvionButton.Location = new System.Drawing.Point(52, 395);
             this.azurirajAvionButton.Name = "azurirajAvionButton";
             this.azurirajAvionButton.Size = new System.Drawing.Size(89, 42);
             this.azurirajAvionButton.TabIndex = 60;
@@ -84,7 +86,7 @@
             // odustaniButton
             // 
             this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(163, 334);
+            this.odustaniButton.Location = new System.Drawing.Point(163, 395);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(89, 42);
             this.odustaniButton.TabIndex = 59;
@@ -142,11 +144,31 @@
             this.azurirajAvionLabel.TabIndex = 54;
             this.azurirajAvionLabel.Text = "Ažuriraj avion";
             // 
+            // aviokompanijaLabel
+            // 
+            this.aviokompanijaLabel.AutoSize = true;
+            this.aviokompanijaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.aviokompanijaLabel.Location = new System.Drawing.Point(51, 326);
+            this.aviokompanijaLabel.Name = "aviokompanijaLabel";
+            this.aviokompanijaLabel.Size = new System.Drawing.Size(107, 17);
+            this.aviokompanijaLabel.TabIndex = 66;
+            this.aviokompanijaLabel.Text = "Aviokompanija :";
+            // 
+            // aviokompanijaComboBox
+            // 
+            this.aviokompanijaComboBox.FormattingEnabled = true;
+            this.aviokompanijaComboBox.Location = new System.Drawing.Point(52, 346);
+            this.aviokompanijaComboBox.Name = "aviokompanijaComboBox";
+            this.aviokompanijaComboBox.Size = new System.Drawing.Size(200, 24);
+            this.aviokompanijaComboBox.TabIndex = 65;
+            // 
             // FormAzurirajAvion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 406);
+            this.ClientSize = new System.Drawing.Size(309, 449);
+            this.Controls.Add(this.aviokompanijaLabel);
+            this.Controls.Add(this.aviokompanijaComboBox);
             this.Controls.Add(this.brojSjedalaTextBox);
             this.Controls.Add(this.modelAvionaTextBox);
             this.Controls.Add(this.proizvodacAvionaTextBox);
@@ -183,5 +205,7 @@
         private System.Windows.Forms.Label proizvodacAvionaLabel;
         private System.Windows.Forms.Label identifikatorAvionaLabel;
         private System.Windows.Forms.Label azurirajAvionLabel;
+        private System.Windows.Forms.Label aviokompanijaLabel;
+        private System.Windows.Forms.ComboBox aviokompanijaComboBox;
     }
 }

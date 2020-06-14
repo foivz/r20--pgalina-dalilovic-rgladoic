@@ -31,7 +31,30 @@ namespace SkyFlyReservation
             odredisniAerodromComboBox.DataSource = aerodromi.ToList();
             odredisniAerodromComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                aviokompanijaLabel.Visible = false;
+                aviokompanijeComboBox.Visible = false;
+
+                avionNaLetuLabel.Location = new Point(50,235);
+                avionNaLetuComboBox.Location = new Point(50, 250);
+
+                cijenaKarteLabel.Location = new Point(50, 290);
+                cijenaKarteTextBox.Location = new Point(50, 305);
+
+                valutaTextBox.Location = new Point(150, 305);
+
+                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione().ToList();
+            }
+            else
+            {
+                aviokompanijeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                aviokompanijeComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAviokompanije();
+
+                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiSveAvione();
+            }
+
             avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -81,37 +104,46 @@ namespace SkyFlyReservation
 
         private bool ProvjeriPodatke(Aerodrom polazisniAerodrom, Aerodrom odredisniAerodrom, DateTime datumVrijemePolaska, DateTime datumVrijemeDolaska)
         {
+            bool ispravno = true;
+
             if(polazisniAerodrom.AerodromId == odredisniAerodrom.AerodromId)
             {
                 MessageBox.Show("Polazišni i odredišni aerodrom ne smiju biti isti.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemeDolaska < datumVrijemePolaska)
             {
                 MessageBox.Show("Datum dolaska ne smije biti manji od datuma polaska.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemePolaska < DateTime.Now)
             {
                 MessageBox.Show($"Datum polaska ne može biti manji od datuma {DateTime.Now.Date.ToString("dd/MM/yyyy")}.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if (datumVrijemeDolaska < DateTime.Now)
             {
                 MessageBox.Show($"Datum dolaska ne može biti manji od datuma {DateTime.Now.Date.ToString("dd/MM/yyyy")}.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if(cijenaKarteTextBox.Text == "")
             {
                 MessageBox.Show("Cijena karte mora biti unesena.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
             else if(int.Parse(cijenaKarteTextBox.Text) < 0)
             {
                 MessageBox.Show("Cijena karte ne može biti negativna.");
-                return false;
+                ispravno = false;
+                return ispravno;
             }
-            return true;
+
+            return ispravno;
         }
 
         private void FormDodajLet_KeyDown(object sender, KeyEventArgs e)
@@ -120,6 +152,18 @@ namespace SkyFlyReservation
             {
                 Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajLet.htm");
             }
+        }
+
+        private void aviokompanijeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Aviokompanija aviokompanija = DohvatiSelektiranuAviokompaniju();
+
+            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(aviokompanija.AviokompanijaId);
+        }
+
+        private Aviokompanija DohvatiSelektiranuAviokompaniju()
+        {
+            return aviokompanijeComboBox.SelectedItem as Aviokompanija;
         }
     }
 }

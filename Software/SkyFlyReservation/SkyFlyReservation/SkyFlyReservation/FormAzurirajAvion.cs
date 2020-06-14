@@ -31,6 +31,24 @@ namespace SkyFlyReservation
             proizvodacAvionaTextBox.Text = selektiraniAvion.ProizvodacAviona;
             modelAvionaTextBox.Text = selektiraniAvion.ModelAviona;
             brojSjedalaTextBox.Text = selektiraniAvion.BrojMjesta.ToString();
+            aviokompanijaLabel.Visible = false;
+            aviokompanijaComboBox.Visible = false;
+
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                aviokompanijaLabel.Visible = true;
+                aviokompanijaComboBox.Visible = true;
+
+                aviokompanijaComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAviokompanije().ToList();
+
+                for (int i = 0; i < aviokompanijaComboBox.Items.Count; i++)
+                {
+                    if (((Aviokompanija)aviokompanijaComboBox.Items[i]).AviokompanijaId == selektiraniAvion.Aviokompanija.AviokompanijaId)
+                    {
+                        aviokompanijaComboBox.SelectedIndex = i;
+                    }
+                }
+            }
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -44,7 +62,7 @@ namespace SkyFlyReservation
             string proizvodacAviona = proizvodacAvionaTextBox.Text;
             string modelAviona = modelAvionaTextBox.Text;
             string brojSjedala = brojSjedalaTextBox.Text;
-            Aviokompanija aviokompanija = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija;
+            Aviokompanija aviokompanija = (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner) ? RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija : DohvatiSelektiranuAviokompaniju();
 
             bool provjeraPodataka = ProvjeriPodatke(identifikatorAviona, proizvodacAviona, modelAviona, brojSjedala);
 
@@ -54,8 +72,9 @@ namespace SkyFlyReservation
             {
                 selektiraniAvion.IdentifikatorAviona = identifikatorAviona;
                 selektiraniAvion.ProizvodacAviona = proizvodacAviona;
-                selektiraniAvion.ModelAviona = modelAviona;
+                selektiraniAvion.ModelAviona = modelAviona; 
                 selektiraniAvion.BrojMjesta = int.Parse(brojSjedala);
+                selektiraniAvion.Aviokompanija = aviokompanija;
 
                 int numAffectedRows = RepozitorijSkyFlyReservation.AzurirajAvion(selektiraniAvion);
 
@@ -65,6 +84,11 @@ namespace SkyFlyReservation
                     this.Close();
                 }
             }
+        }
+
+        private Aviokompanija DohvatiSelektiranuAviokompaniju()
+        {
+            return aviokompanijaComboBox.SelectedItem as Aviokompanija;
         }
 
         private bool ProvjeriPodatke(string identifikatorAviona, string proizvodacAviona, string modelAviona, string brojSjedala)

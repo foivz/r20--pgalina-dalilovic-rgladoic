@@ -46,6 +46,8 @@
             this.odredisniAerodromComboBox = new System.Windows.Forms.ComboBox();
             this.odredisniAerodromLabel = new System.Windows.Forms.Label();
             this.polazisniAerodromComboBox = new System.Windows.Forms.ComboBox();
+            this.aviokompanijeComboBox = new System.Windows.Forms.ComboBox();
+            this.aviokompanijaLabel = new System.Windows.Forms.Label();
             this.noviLetGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +73,8 @@
             // 
             // noviLetGroupBox
             // 
+            this.noviLetGroupBox.Controls.Add(this.aviokompanijeComboBox);
+            this.noviLetGroupBox.Controls.Add(this.aviokompanijaLabel);
             this.noviLetGroupBox.Controls.Add(this.valutaTextBox);
             this.noviLetGroupBox.Controls.Add(this.dodajLetButton);
             this.noviLetGroupBox.Controls.Add(this.odustaniButton);
@@ -88,7 +92,7 @@
             this.noviLetGroupBox.Controls.Add(this.polazisniAerodromLabel);
             this.noviLetGroupBox.Location = new System.Drawing.Point(27, 68);
             this.noviLetGroupBox.Name = "noviLetGroupBox";
-            this.noviLetGroupBox.Size = new System.Drawing.Size(366, 512);
+            this.noviLetGroupBox.Size = new System.Drawing.Size(366, 540);
             this.noviLetGroupBox.TabIndex = 23;
             this.noviLetGroupBox.TabStop = false;
             this.noviLetGroupBox.Text = "Novi let :";
@@ -96,7 +100,7 @@
             // valutaTextBox
             // 
             this.valutaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.valutaTextBox.Location = new System.Drawing.Point(190, 380);
+            this.valutaTextBox.Location = new System.Drawing.Point(190, 432);
             this.valutaTextBox.Name = "valutaTextBox";
             this.valutaTextBox.ReadOnly = true;
             this.valutaTextBox.Size = new System.Drawing.Size(56, 22);
@@ -106,7 +110,7 @@
             // dodajLetButton
             // 
             this.dodajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dodajLetButton.Location = new System.Drawing.Point(66, 452);
+            this.dodajLetButton.Location = new System.Drawing.Point(66, 486);
             this.dodajLetButton.Name = "dodajLetButton";
             this.dodajLetButton.Size = new System.Drawing.Size(103, 37);
             this.dodajLetButton.TabIndex = 35;
@@ -117,7 +121,7 @@
             // odustaniButton
             // 
             this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(213, 452);
+            this.odustaniButton.Location = new System.Drawing.Point(213, 486);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(102, 37);
             this.odustaniButton.TabIndex = 34;
@@ -127,7 +131,7 @@
             // 
             // cijenaKarteTextBox
             // 
-            this.cijenaKarteTextBox.Location = new System.Drawing.Point(66, 380);
+            this.cijenaKarteTextBox.Location = new System.Drawing.Point(66, 432);
             this.cijenaKarteTextBox.Name = "cijenaKarteTextBox";
             this.cijenaKarteTextBox.Size = new System.Drawing.Size(118, 22);
             this.cijenaKarteTextBox.TabIndex = 33;
@@ -135,7 +139,7 @@
             // cijenaKarteLabel
             // 
             this.cijenaKarteLabel.AutoSize = true;
-            this.cijenaKarteLabel.Location = new System.Drawing.Point(69, 359);
+            this.cijenaKarteLabel.Location = new System.Drawing.Point(63, 411);
             this.cijenaKarteLabel.Name = "cijenaKarteLabel";
             this.cijenaKarteLabel.Size = new System.Drawing.Size(91, 17);
             this.cijenaKarteLabel.TabIndex = 32;
@@ -144,7 +148,7 @@
             // avionNaLetuComboBox
             // 
             this.avionNaLetuComboBox.FormattingEnabled = true;
-            this.avionNaLetuComboBox.Location = new System.Drawing.Point(66, 312);
+            this.avionNaLetuComboBox.Location = new System.Drawing.Point(66, 367);
             this.avionNaLetuComboBox.Name = "avionNaLetuComboBox";
             this.avionNaLetuComboBox.Size = new System.Drawing.Size(249, 24);
             this.avionNaLetuComboBox.TabIndex = 31;
@@ -152,7 +156,7 @@
             // avionNaLetuLabel
             // 
             this.avionNaLetuLabel.AutoSize = true;
-            this.avionNaLetuLabel.Location = new System.Drawing.Point(66, 291);
+            this.avionNaLetuLabel.Location = new System.Drawing.Point(63, 346);
             this.avionNaLetuLabel.Name = "avionNaLetuLabel";
             this.avionNaLetuLabel.Size = new System.Drawing.Size(51, 17);
             this.avionNaLetuLabel.TabIndex = 30;
@@ -222,11 +226,29 @@
             this.polazisniAerodromComboBox.Size = new System.Drawing.Size(249, 24);
             this.polazisniAerodromComboBox.TabIndex = 23;
             // 
+            // aviokompanijeComboBox
+            // 
+            this.aviokompanijeComboBox.FormattingEnabled = true;
+            this.aviokompanijeComboBox.Location = new System.Drawing.Point(66, 306);
+            this.aviokompanijeComboBox.Name = "aviokompanijeComboBox";
+            this.aviokompanijeComboBox.Size = new System.Drawing.Size(249, 24);
+            this.aviokompanijeComboBox.TabIndex = 38;
+            this.aviokompanijeComboBox.SelectedIndexChanged += new System.EventHandler(this.aviokompanijeComboBox_SelectedIndexChanged);
+            // 
+            // aviokompanijaLabel
+            // 
+            this.aviokompanijaLabel.AutoSize = true;
+            this.aviokompanijaLabel.Location = new System.Drawing.Point(63, 284);
+            this.aviokompanijaLabel.Name = "aviokompanijaLabel";
+            this.aviokompanijaLabel.Size = new System.Drawing.Size(107, 17);
+            this.aviokompanijaLabel.TabIndex = 37;
+            this.aviokompanijaLabel.Text = "Aviokompanija :";
+            // 
             // FormDodajLet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 603);
+            this.ClientSize = new System.Drawing.Size(427, 620);
             this.Controls.Add(this.noviLetGroupBox);
             this.Controls.Add(this.dodajLetLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -262,5 +284,7 @@
         private System.Windows.Forms.Label odredisniAerodromLabel;
         private System.Windows.Forms.ComboBox polazisniAerodromComboBox;
         private System.Windows.Forms.TextBox valutaTextBox;
+        private System.Windows.Forms.ComboBox aviokompanijeComboBox;
+        private System.Windows.Forms.Label aviokompanijaLabel;
     }
 }

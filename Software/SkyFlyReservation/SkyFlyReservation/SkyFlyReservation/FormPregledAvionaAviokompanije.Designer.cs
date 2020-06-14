@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPregledAvionaAviokompanije));
             this.popisAvionaDataGridView = new System.Windows.Forms.DataGridView();
-            this.popisLetovaLabel = new System.Windows.Forms.Label();
+            this.popisAvionaLabel = new System.Windows.Forms.Label();
             this.nazivAviokompanijeLabel = new System.Windows.Forms.Label();
             this.azurirajAvionButton = new System.Windows.Forms.Button();
             this.obrisiAvionButton = new System.Windows.Forms.Button();
@@ -48,15 +48,15 @@
             this.popisAvionaDataGridView.Size = new System.Drawing.Size(793, 461);
             this.popisAvionaDataGridView.TabIndex = 3;
             // 
-            // popisLetovaLabel
+            // popisAvionaLabel
             // 
-            this.popisLetovaLabel.AutoSize = true;
-            this.popisLetovaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.popisLetovaLabel.Location = new System.Drawing.Point(23, 25);
-            this.popisLetovaLabel.Name = "popisLetovaLabel";
-            this.popisLetovaLabel.Size = new System.Drawing.Size(269, 24);
-            this.popisLetovaLabel.TabIndex = 2;
-            this.popisLetovaLabel.Text = "Popis aviona aviokompanije";
+            this.popisAvionaLabel.AutoSize = true;
+            this.popisAvionaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.popisAvionaLabel.Location = new System.Drawing.Point(23, 25);
+            this.popisAvionaLabel.Name = "popisAvionaLabel";
+            this.popisAvionaLabel.Size = new System.Drawing.Size(269, 24);
+            this.popisAvionaLabel.TabIndex = 2;
+            this.popisAvionaLabel.Text = "Popis aviona aviokompanije";
             // 
             // nazivAviokompanijeLabel
             // 
@@ -110,7 +110,7 @@
             this.Controls.Add(this.dodajAvionButton);
             this.Controls.Add(this.nazivAviokompanijeLabel);
             this.Controls.Add(this.popisAvionaDataGridView);
-            this.Controls.Add(this.popisLetovaLabel);
+            this.Controls.Add(this.popisAvionaLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormPregledAvionaAviokompanije";
@@ -127,7 +127,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView popisAvionaDataGridView;
-        private System.Windows.Forms.Label popisLetovaLabel;
+        private System.Windows.Forms.Label popisAvionaLabel;
         private System.Windows.Forms.Label nazivAviokompanijeLabel;
         private System.Windows.Forms.Button azurirajAvionButton;
         private System.Windows.Forms.Button obrisiAvionButton;

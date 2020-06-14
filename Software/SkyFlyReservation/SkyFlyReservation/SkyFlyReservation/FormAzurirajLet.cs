@@ -20,9 +20,19 @@ namespace SkyFlyReservation
 
         private void FormAzurirajLet_Load(object sender, EventArgs e)
         {
-            nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
-            OsvjeziComboBox();
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+                OsvjeziComboBox();
+            }
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
+                OsvjeziComboBox();
+            }
+            
         }
 
         private void OsvjeziDGV(List<Let> letovi)
@@ -59,6 +69,14 @@ namespace SkyFlyReservation
 
         private void azurirajLetButton_Click(object sender, EventArgs e)
         {
+            Let odabraniLet = DohvatiSelektiraniLet();
+
+            if(odabraniLet == null)
+            {
+                MessageBox.Show("Niste odabrali let koji želite ažurirati.");
+                return;
+            }
+
             Aerodrom polazisniAerodrom = polazisniComboBox.SelectedItem as Aerodrom;
             Aerodrom odredisniAerodrom = odredisniComboBox.SelectedItem as Aerodrom;
             Avion avionNaLetu = avionNaLetuComboBox.SelectedItem as Avion;
@@ -70,7 +88,6 @@ namespace SkyFlyReservation
 
             if(provjeraPodataka == true)
             {
-                Let odabraniLet = DohvatiSelektiraniLet();
                 int brojRezervacija = odabraniLet.AvionNaLetu.BrojMjesta - odabraniLet.BrojSlobodnihMjesta;
 
 
@@ -105,10 +122,21 @@ namespace SkyFlyReservation
                 if (numAffectedRows > 0)
                 {
                     MessageBox.Show($"Let {polazisniAerodrom.NazivAerodroma}->{odredisniAerodrom.NazivAerodroma} je uspješno ažuriran.");
-                    this.Close();
                 }
             }
 
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+                OsvjeziComboBox();
+            }
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisLetovaLabel.Text = "Popis letova";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveLetove());
+                OsvjeziComboBox();
+            }
         }
 
         private bool ProvjeriPodatke(Aerodrom polazisniAerodrom, Aerodrom odredisniAerodrom, DateTime datumVrijemePolaska, DateTime datumVrijemeDolaska)
@@ -163,6 +191,10 @@ namespace SkyFlyReservation
                 }
             }
 
+            //provjeriti !!!
+            avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(let.AvionNaLetu.Aviokompanija.AviokompanijaId);
+
+
             for (int i = 0; i < avionNaLetuComboBox.Items.Count; i++)
             {
                 if (((Avion)avionNaLetuComboBox.Items[i]).AvionId == let.AvionNaLetu.AvionId)
@@ -178,7 +210,14 @@ namespace SkyFlyReservation
 
         private Let DohvatiSelektiraniLet()
         {
-            return popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            Let selektiraniLet = null;
+
+            if(popisLetovaDataGridView.CurrentRow != null)
+            {
+                selektiraniLet = popisLetovaDataGridView.CurrentRow.DataBoundItem as Let;
+            }
+
+            return selektiraniLet;
         }
 
         private void FormAzurirajLet_KeyDown(object sender, KeyEventArgs e)

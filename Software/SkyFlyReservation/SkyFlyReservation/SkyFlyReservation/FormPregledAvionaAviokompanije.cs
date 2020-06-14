@@ -20,8 +20,17 @@ namespace SkyFlyReservation
 
         private void FormPregledAvionaAviokompanije_Load(object sender, EventArgs e)
         {
-            nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                nazivAviokompanijeLabel.Text = RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.NazivAviokompanije;
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                popisAvionaLabel.Text = "Popis aviona";
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveAvione());
+            }
+            
         }
 
         private void OsvjeziDGV(List<Avion> avioniAviokompanije)
@@ -47,7 +56,14 @@ namespace SkyFlyReservation
             FormDodajAvion form = new FormDodajAvion();
             form.ShowDialog();
 
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            else
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveAvione());
+            }
         }
 
         private void azurirajAvionButton_Click(object sender, EventArgs e)
@@ -63,7 +79,14 @@ namespace SkyFlyReservation
             FormAzurirajAvion form = new FormAzurirajAvion(selektiraniAvion);
             form.ShowDialog();
 
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            else
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveAvione());
+            }
         }
 
         private Avion DohvatiSelektiraniAvion()
@@ -95,7 +118,14 @@ namespace SkyFlyReservation
                 MessageBox.Show($"Uspješno ste obrisali avion {selektiraniAvion.ProizvodacAviona} {selektiraniAvion.ModelAviona} | {selektiraniAvion.IdentifikatorAviona}.");
             }
 
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika != UlogaKorisnika.Owner)
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiAvione(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId));
+            }
+            else
+            {
+                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiSveAvione());
+            }
         }
 
         private void FormPregledAvionaAviokompanije_KeyDown(object sender, KeyEventArgs e)

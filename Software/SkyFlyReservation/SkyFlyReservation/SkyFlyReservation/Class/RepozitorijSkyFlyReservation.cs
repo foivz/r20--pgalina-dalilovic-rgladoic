@@ -10,7 +10,7 @@ namespace SkyFlyReservation.Class
 {
     public static class RepozitorijSkyFlyReservation
     {
-        //Služi za testiranje -> objekti klase Korisnik se instancira nakon autentikacije
+        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
         public static Aviokompanija aviokompanija = new Aviokompanija()
         {
             AviokompanijaId = 1,
@@ -22,7 +22,7 @@ namespace SkyFlyReservation.Class
             EmailAviokompanije = "contact@croatiaairlines.hr"
         };
 
-        //Služi za testiranje -> objekti klase Korisnik se instancira nakon autentikacije
+        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
         public static Korisnik prijavljeniKorisnik = new Korisnik()
         {
             KorisnikId = 5,
@@ -89,6 +89,28 @@ namespace SkyFlyReservation.Class
             List<Let> letovi = DohvatiPodatkeLetova(sql);
 
             return letovi;
+        }
+
+        public static List<Let> DohvatiSveLetove()
+        {
+            string sql = "SELECT LetId as letId, BrojLeta as brojLeta, DatumVrijemePolaska as datumVrijemePolaska, DatumVrijemeDolaska as datumVrijemeDolaska, CijenaKarte as cijenaKarte, BrojSlobodnihMjesta as brojSlobodnihMjesta , polazisni.AerodromId as idPolazisnogAerodroma, polazisni.NazivAerodroma as nazivPolazisnogAerodroma, polazisni.OznakaAerodroma as oznakaPolazisnogAerodroma, polazisni.AdresaAerodroma as adresaPolazisnogAerodroma, polazisni.OIBAerodroma as oibPolazisnogAerodroma, polazisni.KontaktTelefonAerodroma as kontaktPolazisnogAerodroma, polazisni.EmailAerodroma as emailPolazisnogAerodroma, odredisni.AerodromId as idOdredisnogAerodroma, odredisni.NazivAerodroma as nazivOdredisnoAerodroma, odredisni.OznakaAerodroma as oznakaOdredisnogAerodroma, odredisni.AdresaAerodroma as adresaOdredisnogAerodroma, odredisni.OIBAerodroma as oibOdredisnogAerodroma, odredisni.KontaktTelefonAerodroma as kontaktOdredisnogAerodroma, odredisni.EmailAerodroma as emailOdreisnogAerodroma, a.AvionId as idAviona, a.RegistarskaOznakaAviona as identifikatorAviona, a.ProizvodacAviona as proizvodacAviona, a.ModelAviona as modelAviona, a.BrojSjedalaAviona as brojMjesta, ak.AviokompanijaId as idAviokompanije, ak.NazivAviokompanije as nazivAviokompanije, ak.OIBAviokompanije as oibAviokompanijem, ak.AdresaAviokompanije as adresaAviokompanije, ak.KontaktTelefonAviokompanije as kontaktAviokompanije, ak.EmailAviokompanije as emailAviokompanije, ak.IBANAviokompanije as ibanAviokompanije FROM Let l " +
+                "INNER JOIN Aerodrom polazisni ON l.PolazisniAerodrom = polazisni.AerodromId " +
+                "INNER JOIN Aerodrom odredisni ON l.OdredisniAerodrom = odredisni.AerodromId " +
+                "INNER JOIN Avion a ON l.IdAvion = a.AvionId " +
+                "INNER JOIN Aviokompanija ak ON a.IdAviokompanije = ak.AviokompanijaId;";
+
+            List<Let> letovi = DohvatiPodatkeLetova(sql);
+
+            return letovi;
+        }
+
+        public static List<Aviokompanija> DohvatiAviokompanije()
+        {
+            string sql = "SELECT * FROM Aviokompanija;";
+
+            List<Aviokompanija> aviokompanije = DohvatiPodatkeAviokompanija(sql);
+
+            return aviokompanije;
         }
 
         public static int DodajLet(Let let)
@@ -177,6 +199,16 @@ namespace SkyFlyReservation.Class
             return avioni;
         }
 
+        public static List<Avion> DohvatiSveAvione()
+        {
+            string sql = "SELECT * FROM Avion " +
+                "INNER JOIN Aviokompanija ON IdAviokompanije = AviokompanijaId;";
+
+            List<Avion> avioni = DohvatiPodatkeAviona(sql);
+
+            return avioni;
+        }
+
         public static List<Sjedalo> DohvatiRezerviranaSjedala(Let let)
         {
             string sql = "SELECT SjedaloId as sjedaloId, OznakaSjedala as oznakaSjedala, BrojSlobodnihMjesta as brojSlobodnihMjesta, BrojSjedalaAviona as brojSjedalaAviona FROM Rezervacija r " +
@@ -200,12 +232,12 @@ namespace SkyFlyReservation.Class
             return sjedalo;
         }
 
-        public static int DodajRezervacijuKarte(Let let, Sjedalo sjedalo, int korisnikId)
+        public static int DodajRezervacijuKarte(Rezervacija rezervacija)
         {
             Database.Instance.Connect();
 
             string sql = "INSERT INTO Rezervacija (IdKorisnik, IdLetaRezervacije, IdSjedalo, DatumVrijemeRezervacije, StatusRezervacije) " +
-                $"VALUES({korisnikId}, {let.LetId}, {sjedalo.SjedaloId}, '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}', 0);";
+                $"VALUES({rezervacija.KorisnikRezervacije.KorisnikId}, {rezervacija.LetRezervacije.LetId}, {rezervacija.RezerviranoSjedalo.SjedaloId}, '{rezervacija.DatumVrijemeRezervacije.ToString("yyyy-MM-dd HH:mm:ss")}', 0);";
 
             int numAffectedRows = Database.Instance.ExecuteCommand(sql);
 
@@ -311,7 +343,7 @@ namespace SkyFlyReservation.Class
         {
             Database.Instance.Connect();
 
-            string sql = $"UPDATE Avion SET RegistarskaOznakaAviona = '{avion.IdentifikatorAviona}', ProizvodacAviona = '{avion.ProizvodacAviona}', ModelAviona = '{avion.ModelAviona}', BrojSjedalaAviona = {avion.BrojMjesta} " +
+            string sql = $"UPDATE Avion SET RegistarskaOznakaAviona = '{avion.IdentifikatorAviona}', ProizvodacAviona = '{avion.ProizvodacAviona}', ModelAviona = '{avion.ModelAviona}', BrojSjedalaAviona = {avion.BrojMjesta}, IdAviokompanije = {avion.Aviokompanija.AviokompanijaId} " +
                 $"WHERE AvionId = {avion.AvionId};";
 
             int numAffectedRows = Database.Instance.ExecuteCommand(sql);
@@ -633,8 +665,6 @@ namespace SkyFlyReservation.Class
                 {
                     RezervacijaId = (int)dataReader["rezervacijaId"],
                     LetRezervacije = let,
-                    PolazisniAerodrom = let.PolazisniAerodrom,
-                    OdredisniAerodrom = let.OdredisniAerodrom,
                     KorisnikRezervacije = RepozitorijSkyFlyReservation.prijavljeniKorisnik,
                     RezerviranoSjedalo = sjedalo,
                     DatumVrijemeRezervacije = (DateTime)dataReader["datumVrijemeRezervacije"],
@@ -645,6 +675,33 @@ namespace SkyFlyReservation.Class
             }
 
             return rezervacijeKorisnika;
+        }
+
+        private static List<Aviokompanija> DohvatiPodatkeAviokompanija(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<Aviokompanija> aviokompanije = new List<Aviokompanija>();
+
+            while (dataReader.Read())
+            {
+                Aviokompanija aviokompanija = new Aviokompanija()
+                {
+                    AviokompanijaId = (int)dataReader["AviokompanijaId"],
+                    NazivAviokompanije = dataReader["NazivAviokompanije"].ToString(),
+                    OIBAviokompanije = dataReader["OIBAviokompanije"].ToString(),
+                    IBANAviokompanije = dataReader["IBANAviokompanije"].ToString(),
+                    AdresaAviokompanije = dataReader["AdresaAviokompanije"].ToString(),
+                    KontaktAviokompanije = dataReader["KontaktTelefonAviokompanije"].ToString(),
+                    EmailAviokompanije = dataReader["EmailAviokompanije"].ToString()
+                };
+
+                aviokompanije.Add(aviokompanija);
+            }
+
+            return aviokompanije;
         }
     }
 }
