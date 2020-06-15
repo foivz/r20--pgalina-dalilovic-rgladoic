@@ -40,22 +40,74 @@ namespace SkyFlyReservation
             string ime = imeTextBox.Text;
             string prezime = prezimeTextBox.Text;
             string oib = oibTextBox.Text;
-            string brojKartice = brojKarticeTextBox.Text;
+            string brojKartice = brojKarticeTextBox.Text.Replace(" ", "");
 
             bool provjeraPodataka = ProvjeriPodatke(ime, prezime, oib, brojKartice);
 
             if(provjeraPodataka == true)
             {
-                int numAffectedRowsInsert = RepozitorijSkyFlyReservation.DodajKupnjuKarte(selektiraniLet, selektiranoSjedalo, RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
-                int numAffectedRowsUpdate = RepozitorijSkyFlyReservation.AzurirajBrojSlobodnihMjesta(selektiraniLet);
 
-                if (numAffectedRowsInsert > 0 && numAffectedRowsUpdate > 0)
+                bool provjeraOIB = (RepozitorijSkyFlyReservation.prijavljeniKorisnik.OIBKorisnika == oib) ? true : false;
+                bool provjeraKartice = ProvjerRacun(brojKartice);
+                bool provjeraStanja = ProvjeriStanje();
+                Racun racun = RepozitorijSkyFlyReservation.DohvatiRacunKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
+
+                if (provjeraOIB == false)
                 {
-                    MessageBox.Show($"Uspješno ste kupili kartu za sjedalo {selektiranoSjedalo.OznakaSjedala} na letu {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.\n\nNa Vašu e-mail adresu poslani su detalji o kupljenoj karti.");
-                    PošaljiKartu(selektiraniLet, selektiranoSjedalo);
-                    this.Close();
+                    MessageBox.Show("Unijeli ste pogrešan OIB.");
+                    return;
+                }
+                if(provjeraKartice == false)
+                {
+                    MessageBox.Show("Unijeli ste pogrešan broj kartice.");
+                    return;
+                }
+                if (provjeraStanja == false)
+                {
+                    MessageBox.Show($"Nedovoljan iznos na računu za provođenje transakcije.\nStanje racuna: {racun.StanjeRacuna} HRK");
+                    return;
+                }
+                else
+                {
+                    int numAffectedRowsInsert = RepozitorijSkyFlyReservation.DodajKupnjuKarte(selektiraniLet, selektiranoSjedalo, RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
+                    int numAffectedRowsUpdate = RepozitorijSkyFlyReservation.AzurirajBrojSlobodnihMjesta(selektiraniLet);
+                    int numAffectedRowsUpdateStanjeRacunaPlatitelja = RepozitorijSkyFlyReservation.AzurirajStanjeRacunaPlatitelja(racun, selektiraniLet);
+                    int numAffectedRowsUpdateStanjeRacunaPrimatelja = RepozitorijSkyFlyReservation.AzurirajStanjeRacunaPrimatelja(selektiraniLet);
+
+                    if (numAffectedRowsInsert > 0 && numAffectedRowsUpdate > 0 && numAffectedRowsUpdateStanjeRacunaPlatitelja > 0 && numAffectedRowsUpdateStanjeRacunaPrimatelja > 0)
+                    {
+                        MessageBox.Show($"Uspješno ste kupili kartu za sjedalo {selektiranoSjedalo.OznakaSjedala} na letu {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.\n\nNa Vašu e-mail adresu poslani su detalji o kupljenoj karti.");
+                        PošaljiKartu(selektiraniLet, selektiranoSjedalo);
+                        this.Close();
+                    }
                 }
             }
+        }
+
+        private bool ProvjeriStanje()
+        {
+            bool provjeraStanja = false;
+            Racun racun = RepozitorijSkyFlyReservation.DohvatiRacunKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
+
+            if(racun.StanjeRacuna >= selektiraniLet.CijenaKarte)
+            {
+                provjeraStanja = true;
+            }
+
+            return provjeraStanja;
+        }
+
+        private bool ProvjerRacun(string brojKartice)
+        {
+            bool provjeraKartice = false;
+            Racun racun = RepozitorijSkyFlyReservation.DohvatiRacunKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
+
+            if(racun.BrojRacuna == brojKartice)
+            {
+                provjeraKartice = true;
+            }
+
+            return provjeraKartice;
         }
 
         private bool ProvjeriPodatke(string ime, string prezime, string oib, string brojKartice)
@@ -75,12 +127,20 @@ namespace SkyFlyReservation
                 MessageBox.Show("Niste unijeli OIB.");
                 return false;
             }
+            if(oib.Length > 20 || oib.Length < 5)
+            {
+                MessageBox.Show("Niste unijeli ispravan OIB.");
+                return false;
+            }
             if(brojKartice == "")
             {
                 MessageBox.Show("Niste unijeli broj kartice.");
                 return false;
             }
-
+            if(brojKartice.Length != 16)
+            {
+                MessageBox.Show("Unijeli ste neispravan broj kartice.\nBroj kartice nalazi se na poleđini vaše kartice u formatu:\nXXXX XXXX XXXX XXXX");
+            }
             return true;
         }
 
@@ -114,13 +174,13 @@ namespace SkyFlyReservation
             graph.DrawString($"{let.PolazisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 110, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.OdredisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(25, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.AvionNaLetu.Aviokompanija.NazivAviokompanije}", font, XBrushes.Black, new XRect(182, 110, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString($"{let.DatumPolaska.Date.ToString("dd MMMM")}", font, XBrushes.Black, new XRect(182, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString($"{let.DatumPolaska.Date.ToString("dd. MMMM")}", font, XBrushes.Black, new XRect(182, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.DatumPolaska.ToString("HH:mm")}", font, XBrushes.Black, new XRect(282, 150, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
             graph.DrawString($"{RepozitorijSkyFlyReservation.prijavljeniKorisnik.ImeKorisnika} {RepozitorijSkyFlyReservation.prijavljeniKorisnik.PrezimeKorisnika}", font, XBrushes.Black, new XRect(448, 72, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.PolazisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(448, 97, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.OdredisniAerodrom.NazivAerodroma}", font, XBrushes.Black, new XRect(448, 125, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString($"{let.DatumPolaska.Date.ToString("dd MMMM")}", font, XBrushes.Black, new XRect(448, 152, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString($"{let.DatumPolaska.Date.ToString("dd.MM")}", font, XBrushes.Black, new XRect(448, 152, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString($"{let.DatumPolaska.ToString("HH:mm")}", font, XBrushes.Black, new XRect(495, 152, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
             graph.DrawString($"{let.BrojLeta}", font, XBrushes.Black, new XRect(25, 190, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
@@ -130,7 +190,7 @@ namespace SkyFlyReservation
             graph.DrawString($"{let.DatumPolaska.Add(new TimeSpan(0, -45, 0)).ToString("HH:mm")}", font, XBrushes.Black, new XRect(495, 182, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
             pdf.Save("karta.pdf");
-
+            pdf.Dispose();
 
             SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
 
@@ -160,6 +220,7 @@ namespace SkyFlyReservation
             client.EnableSsl = true;
 
             client.Send(Msg);
+            client.Dispose();
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)

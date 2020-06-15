@@ -174,6 +174,12 @@ namespace SkyFlyReservation
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
 
+            if(selektiraniLet == null)
+            {
+                MessageBox.Show("Niste odabrali let koji želite ažurirati.");
+                return;
+            }
+
             AzurirajDetalje(selektiraniLet);
         }
 

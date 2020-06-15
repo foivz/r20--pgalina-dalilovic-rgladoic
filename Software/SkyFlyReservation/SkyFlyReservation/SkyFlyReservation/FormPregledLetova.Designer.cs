@@ -106,9 +106,9 @@
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.polazisniAerodromComboBox);
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.polazisniAerodromLabel);
             this.pretrazivanjeLetovaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pretrazivanjeLetovaGroupBox.Location = new System.Drawing.Point(907, 61);
+            this.pretrazivanjeLetovaGroupBox.Location = new System.Drawing.Point(901, 61);
             this.pretrazivanjeLetovaGroupBox.Name = "pretrazivanjeLetovaGroupBox";
-            this.pretrazivanjeLetovaGroupBox.Size = new System.Drawing.Size(298, 360);
+            this.pretrazivanjeLetovaGroupBox.Size = new System.Drawing.Size(309, 371);
             this.pretrazivanjeLetovaGroupBox.TabIndex = 5;
             this.pretrazivanjeLetovaGroupBox.TabStop = false;
             this.pretrazivanjeLetovaGroupBox.Text = "Pretraživanje letova :";
@@ -210,7 +210,7 @@
             // 
             // pregledRezervacijaButton
             // 
-            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1114, 471);
+            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1111, 517);
             this.pregledRezervacijaButton.Name = "pregledRezervacijaButton";
             this.pregledRezervacijaButton.Size = new System.Drawing.Size(90, 51);
             this.pregledRezervacijaButton.TabIndex = 9;
@@ -253,7 +253,7 @@
             // 
             // buttonAvioniAviokompanije
             // 
-            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(959, 471);
+            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(954, 517);
             this.buttonAvioniAviokompanije.Name = "buttonAvioniAviokompanije";
             this.buttonAvioniAviokompanije.Size = new System.Drawing.Size(123, 51);
             this.buttonAvioniAviokompanije.TabIndex = 12;

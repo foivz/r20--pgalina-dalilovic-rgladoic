@@ -23,6 +23,8 @@ namespace SkyFlyReservation.Class
         public string AdresaKorisnika { get; set; }
         public string KontaktTelefonKorisnika { get; set; }
         public string EmailKorisnika { get; set; }
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
         public UlogaKorisnika UlogaKorisnika { get; set; }
         public Aviokompanija Aviokompanija { get; set; }
 
