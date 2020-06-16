@@ -10,31 +10,7 @@ namespace SkyFlyReservation.Class
 {
     public static class RepozitorijSkyFlyReservation
     {
-        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
-        public static Aviokompanija aviokompanija = new Aviokompanija()
-        {
-            AviokompanijaId = 1,
-            NazivAviokompanije = "Croatia Airlines",
-            OIBAviokompanije = "24640993045",
-            IBANAviokompanije = "HR9825000097121816575",
-            AdresaAviokompanije = "Bani 75b, 10010, Zagreb",
-            KontaktAviokompanije = "072 500 50",
-            EmailAviokompanije = "contact@croatiaairlines.hr"
-        };
-
-        //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
-        public static Korisnik prijavljeniKorisnik = new Korisnik()
-        {
-            KorisnikId = 5,
-            ImeKorisnika = "Patrik",
-            PrezimeKorisnika = "Galina",
-            OIBKorisnika = "25735805780",
-            AdresaKorisnika = "Madžarevo 212a",
-            KontaktTelefonKorisnika = "124124124",
-            EmailKorisnika = "pgalina@foi.hr",
-            UlogaKorisnika = UlogaKorisnika.Administrator,
-            Aviokompanija = aviokompanija
-        };
+        public static Korisnik prijavljeniKorisnik;
 
         public static List<Let> DohvatiLetove()
         {
@@ -47,6 +23,99 @@ namespace SkyFlyReservation.Class
             List<Let> letovi = DohvatiPodatkeLetova(sql);
 
             return letovi;
+        }
+
+        public static List<Korisnik> DohvatiSveKorisnike()
+        {
+            string sql = "SELECT * FROM Korisnik;";
+
+            List<Korisnik> korisnik = DohvatiPodatkeKorisnika(sql);
+
+            return korisnik;
+        }
+
+        private static List<Korisnik> DohvatiPodatkeKorisnika(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<Korisnik> korisnici = new List<Korisnik>();
+            while (dataReader.Read())
+            {
+                UlogaKorisnika uloga = new UlogaKorisnika();
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Administrator")
+                {
+                    uloga = UlogaKorisnika.Administrator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Moderator")
+                {
+                    uloga = UlogaKorisnika.Moderator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Owner")
+                {
+                    uloga = UlogaKorisnika.Owner;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Registrirani korisnik")
+                {
+                    uloga = UlogaKorisnika.RegistriraniKorisnik;
+                }
+                bool aviokompanijaNull = dataReader.IsDBNull(dataReader.GetOrdinal("AviokompanijaKorisnika"));
+                if (!aviokompanijaNull)
+                {
+                    Aviokompanija aviokompanija = new Aviokompanija()
+                    {
+                        AviokompanijaId = (int)dataReader["AviokompanijaId"],
+                        NazivAviokompanije = dataReader["NazivAviokompanije"].ToString(),
+                        OIBAviokompanije = dataReader["OIBAviokompanije"].ToString(),
+                        IBANAviokompanije = dataReader["IBANAviokompanije"].ToString(),
+                        AdresaAviokompanije = dataReader["AdresaAviokompanije"].ToString(),
+                        KontaktAviokompanije = dataReader["KontaktTelefonAviokompanije"].ToString(),
+                        EmailAviokompanije = dataReader["EmailAviokompanije"].ToString()
+                    };
+
+                    Korisnik korisnik = new Korisnik()
+                    {
+                        KorisnikId = (int)dataReader["KorisnikId"],
+                        UlogaKorisnika = uloga,
+                        Aviokompanija = aviokompanija,
+                        ImeKorisnika = dataReader["Ime"].ToString(),
+                        PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                        AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                        KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                        EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                        OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                        KorisnickoImeKorisnika = dataReader["KorisnickoIme"].ToString(),
+                        LozinkaKorisnika = dataReader["Lozinka"].ToString()
+
+                    };
+                    korisnici.Add(korisnik);
+                }
+                else
+                {
+                    Korisnik korisnik = new Korisnik()
+                    {
+                        KorisnikId = (int)dataReader["KorisnikId"],
+                        UlogaKorisnika = uloga,
+                        Aviokompanija = null,
+                        ImeKorisnika = dataReader["Ime"].ToString(),
+                        PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                        AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                        KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                        EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                        OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                        KorisnickoImeKorisnika = dataReader["KorisnickoIme"].ToString(),
+                        LozinkaKorisnika = dataReader["Lozinka"].ToString()
+
+                    };
+                    korisnici.Add(korisnik);
+                }
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return korisnici;
         }
 
         public static List<Let> DohvatiLetove(Aerodrom polazisniAerodrom, Aerodrom odredisniAerodrom)
