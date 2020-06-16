@@ -389,6 +389,7 @@
             // 
             // rezervirajSjedaloButton
             // 
+            this.rezervirajSjedaloButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rezervirajSjedaloButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rezervirajSjedaloButton.Location = new System.Drawing.Point(1431, 528);
             this.rezervirajSjedaloButton.Name = "rezervirajSjedaloButton";
@@ -3130,6 +3131,7 @@
             // 
             // kupiKartuButton
             // 
+            this.kupiKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.kupiKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kupiKartuButton.Location = new System.Drawing.Point(1535, 528);
             this.kupiKartuButton.Name = "kupiKartuButton";
@@ -3156,8 +3158,10 @@
             this.Controls.Add(this.rezervirajSjedaloButton);
             this.Controls.Add(this.odaberiteSjedaloLabel);
             this.Controls.Add(this.mapaSjedalaAvionaPictureBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormRezervacijaKarte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rezervacija karte";

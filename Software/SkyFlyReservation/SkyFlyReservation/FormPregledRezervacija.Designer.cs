@@ -55,16 +55,20 @@
             // 
             // popisRezervacijaDataGridView
             // 
+            this.popisRezervacijaDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.popisRezervacijaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.popisRezervacijaDataGridView.Location = new System.Drawing.Point(27, 61);
             this.popisRezervacijaDataGridView.Name = "popisRezervacijaDataGridView";
             this.popisRezervacijaDataGridView.RowHeadersWidth = 51;
             this.popisRezervacijaDataGridView.RowTemplate.Height = 24;
-            this.popisRezervacijaDataGridView.Size = new System.Drawing.Size(1104, 469);
+            this.popisRezervacijaDataGridView.Size = new System.Drawing.Size(981, 469);
             this.popisRezervacijaDataGridView.TabIndex = 2;
             // 
             // platiRezervacijuButton
             // 
+            this.platiRezervacijuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.platiRezervacijuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.platiRezervacijuButton.Location = new System.Drawing.Point(27, 536);
             this.platiRezervacijuButton.Name = "platiRezervacijuButton";
@@ -76,15 +80,16 @@
             // 
             // filtrirajPopisRezervacijaGroupBox
             // 
+            this.filtrirajPopisRezervacijaGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrirajPopisRezervacijaGroupBox.Controls.Add(this.prikaziSveRadio);
             this.filtrirajPopisRezervacijaGroupBox.Controls.Add(this.filtrirajPopisRezervacijaButton);
             this.filtrirajPopisRezervacijaGroupBox.Controls.Add(this.nisuPlaceneRezervacijeRadio);
             this.filtrirajPopisRezervacijaGroupBox.Controls.Add(this.placeneRezervacijeRadio);
             this.filtrirajPopisRezervacijaGroupBox.Controls.Add(this.istekleRezervacijeRadio);
             this.filtrirajPopisRezervacijaGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.filtrirajPopisRezervacijaGroupBox.Location = new System.Drawing.Point(1147, 61);
+            this.filtrirajPopisRezervacijaGroupBox.Location = new System.Drawing.Point(1038, 61);
             this.filtrirajPopisRezervacijaGroupBox.Name = "filtrirajPopisRezervacijaGroupBox";
-            this.filtrirajPopisRezervacijaGroupBox.Size = new System.Drawing.Size(211, 279);
+            this.filtrirajPopisRezervacijaGroupBox.Size = new System.Drawing.Size(238, 279);
             this.filtrirajPopisRezervacijaGroupBox.TabIndex = 4;
             this.filtrirajPopisRezervacijaGroupBox.TabStop = false;
             this.filtrirajPopisRezervacijaGroupBox.Text = "Filtiriraj popis rezervacija :";
@@ -146,6 +151,7 @@
             // 
             // obrisiRezervacijuButton
             // 
+            this.obrisiRezervacijuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.obrisiRezervacijuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.obrisiRezervacijuButton.Location = new System.Drawing.Point(178, 536);
             this.obrisiRezervacijuButton.Name = "obrisiRezervacijuButton";
@@ -159,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 602);
+            this.ClientSize = new System.Drawing.Size(1304, 602);
             this.Controls.Add(this.obrisiRezervacijuButton);
             this.Controls.Add(this.filtrirajPopisRezervacijaGroupBox);
             this.Controls.Add(this.platiRezervacijuButton);

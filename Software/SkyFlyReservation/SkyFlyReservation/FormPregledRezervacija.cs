@@ -70,7 +70,7 @@ namespace SkyFlyReservation
             popisRezervacijaDataGridView.DataSource = null;
             popisRezervacijaDataGridView.DataSource = rezervacijeKorisnika;
 
-            popisRezervacijaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisRezervacijaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             popisRezervacijaDataGridView.ReadOnly = true;
 
             popisRezervacijaDataGridView.Columns[0].HeaderText = "ID rezervacije";
@@ -122,7 +122,7 @@ namespace SkyFlyReservation
             {
                 int numAffectedRows = RepozitorijSkyFlyReservation.ObrisiRezervacijuKarte(selektiranaRezervacija);
 
-                if(numAffectedRows > 0)
+                if (numAffectedRows > 0)
                 {
                     MessageBox.Show($"Obrisali ste rezervaciju sjedala {selektiranaRezervacija.RezerviranoSjedalo.OznakaSjedala} na letu {selektiranaRezervacija.LetRezervacije.PolazisniAerodrom.NazivAerodroma}->{selektiranaRezervacija.LetRezervacije.OdredisniAerodrom.NazivAerodroma}.");
                     OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiRezervacijeKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId));
@@ -134,7 +134,8 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledRezervacija.htm");
+                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
+                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledRezervacija.htm");
             }
         }
     }

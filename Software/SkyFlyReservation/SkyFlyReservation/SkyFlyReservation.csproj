@@ -61,6 +61,7 @@
     <Compile Include="Class\BrojLetaGenerator.cs" />
     <Compile Include="Class\Let.cs" />
     <Compile Include="Class\Korisnik.cs" />
+    <Compile Include="Class\Racun.cs" />
     <Compile Include="Class\RepozitorijSkyFlyReservation.cs" />
     <Compile Include="Class\Rezervacija.cs" />
     <Compile Include="Class\Sjedalo.cs" />
@@ -192,6 +193,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Help\SkyFlyReservationUserManual.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -211,6 +213,10 @@
       <Project>{A4FB8562-331B-4105-A069-5B2A9884C0C4}</Project>
       <Name>Database Access</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BoardingPass\BoardingPassTemplate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

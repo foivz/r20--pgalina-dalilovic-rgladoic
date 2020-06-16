@@ -46,28 +46,28 @@
             // 
             // brojSjedalaTextBox
             // 
-            this.brojSjedalaTextBox.Location = new System.Drawing.Point(52, 283);
+            this.brojSjedalaTextBox.Location = new System.Drawing.Point(76, 283);
             this.brojSjedalaTextBox.Name = "brojSjedalaTextBox";
             this.brojSjedalaTextBox.Size = new System.Drawing.Size(200, 22);
             this.brojSjedalaTextBox.TabIndex = 64;
             // 
             // modelAvionaTextBox
             // 
-            this.modelAvionaTextBox.Location = new System.Drawing.Point(52, 219);
+            this.modelAvionaTextBox.Location = new System.Drawing.Point(76, 219);
             this.modelAvionaTextBox.Name = "modelAvionaTextBox";
             this.modelAvionaTextBox.Size = new System.Drawing.Size(200, 22);
             this.modelAvionaTextBox.TabIndex = 63;
             // 
             // proizvodacAvionaTextBox
             // 
-            this.proizvodacAvionaTextBox.Location = new System.Drawing.Point(52, 156);
+            this.proizvodacAvionaTextBox.Location = new System.Drawing.Point(76, 156);
             this.proizvodacAvionaTextBox.Name = "proizvodacAvionaTextBox";
             this.proizvodacAvionaTextBox.Size = new System.Drawing.Size(200, 22);
             this.proizvodacAvionaTextBox.TabIndex = 62;
             // 
             // identifikatorAvionaTextBox
             // 
-            this.identifikatorAvionaTextBox.Location = new System.Drawing.Point(52, 94);
+            this.identifikatorAvionaTextBox.Location = new System.Drawing.Point(76, 94);
             this.identifikatorAvionaTextBox.Name = "identifikatorAvionaTextBox";
             this.identifikatorAvionaTextBox.Size = new System.Drawing.Size(200, 22);
             this.identifikatorAvionaTextBox.TabIndex = 61;
@@ -75,7 +75,7 @@
             // azurirajAvionButton
             // 
             this.azurirajAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.azurirajAvionButton.Location = new System.Drawing.Point(52, 395);
+            this.azurirajAvionButton.Location = new System.Drawing.Point(76, 395);
             this.azurirajAvionButton.Name = "azurirajAvionButton";
             this.azurirajAvionButton.Size = new System.Drawing.Size(89, 42);
             this.azurirajAvionButton.TabIndex = 60;
@@ -86,7 +86,7 @@
             // odustaniButton
             // 
             this.odustaniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odustaniButton.Location = new System.Drawing.Point(163, 395);
+            this.odustaniButton.Location = new System.Drawing.Point(187, 395);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(89, 42);
             this.odustaniButton.TabIndex = 59;
@@ -98,7 +98,7 @@
             // 
             this.brojSjedalaLabel.AutoSize = true;
             this.brojSjedalaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.brojSjedalaLabel.Location = new System.Drawing.Point(49, 263);
+            this.brojSjedalaLabel.Location = new System.Drawing.Point(73, 263);
             this.brojSjedalaLabel.Name = "brojSjedalaLabel";
             this.brojSjedalaLabel.Size = new System.Drawing.Size(90, 17);
             this.brojSjedalaLabel.TabIndex = 58;
@@ -108,7 +108,7 @@
             // 
             this.modelAvionaLabel.AutoSize = true;
             this.modelAvionaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.modelAvionaLabel.Location = new System.Drawing.Point(49, 199);
+            this.modelAvionaLabel.Location = new System.Drawing.Point(73, 199);
             this.modelAvionaLabel.Name = "modelAvionaLabel";
             this.modelAvionaLabel.Size = new System.Drawing.Size(54, 17);
             this.modelAvionaLabel.TabIndex = 57;
@@ -118,7 +118,7 @@
             // 
             this.proizvodacAvionaLabel.AutoSize = true;
             this.proizvodacAvionaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.proizvodacAvionaLabel.Location = new System.Drawing.Point(49, 136);
+            this.proizvodacAvionaLabel.Location = new System.Drawing.Point(73, 136);
             this.proizvodacAvionaLabel.Name = "proizvodacAvionaLabel";
             this.proizvodacAvionaLabel.Size = new System.Drawing.Size(86, 17);
             this.proizvodacAvionaLabel.TabIndex = 56;
@@ -128,7 +128,7 @@
             // 
             this.identifikatorAvionaLabel.AutoSize = true;
             this.identifikatorAvionaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.identifikatorAvionaLabel.Location = new System.Drawing.Point(49, 73);
+            this.identifikatorAvionaLabel.Location = new System.Drawing.Point(73, 73);
             this.identifikatorAvionaLabel.Name = "identifikatorAvionaLabel";
             this.identifikatorAvionaLabel.Size = new System.Drawing.Size(141, 17);
             this.identifikatorAvionaLabel.TabIndex = 55;
@@ -138,7 +138,7 @@
             // 
             this.azurirajAvionLabel.AutoSize = true;
             this.azurirajAvionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.azurirajAvionLabel.Location = new System.Drawing.Point(21, 30);
+            this.azurirajAvionLabel.Location = new System.Drawing.Point(45, 30);
             this.azurirajAvionLabel.Name = "azurirajAvionLabel";
             this.azurirajAvionLabel.Size = new System.Drawing.Size(137, 24);
             this.azurirajAvionLabel.TabIndex = 54;
@@ -148,7 +148,7 @@
             // 
             this.aviokompanijaLabel.AutoSize = true;
             this.aviokompanijaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.aviokompanijaLabel.Location = new System.Drawing.Point(51, 326);
+            this.aviokompanijaLabel.Location = new System.Drawing.Point(75, 326);
             this.aviokompanijaLabel.Name = "aviokompanijaLabel";
             this.aviokompanijaLabel.Size = new System.Drawing.Size(107, 17);
             this.aviokompanijaLabel.TabIndex = 66;
@@ -157,7 +157,7 @@
             // aviokompanijaComboBox
             // 
             this.aviokompanijaComboBox.FormattingEnabled = true;
-            this.aviokompanijaComboBox.Location = new System.Drawing.Point(52, 346);
+            this.aviokompanijaComboBox.Location = new System.Drawing.Point(76, 346);
             this.aviokompanijaComboBox.Name = "aviokompanijaComboBox";
             this.aviokompanijaComboBox.Size = new System.Drawing.Size(200, 24);
             this.aviokompanijaComboBox.TabIndex = 65;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 449);
+            this.ClientSize = new System.Drawing.Size(346, 457);
             this.Controls.Add(this.aviokompanijaLabel);
             this.Controls.Add(this.aviokompanijaComboBox);
             this.Controls.Add(this.brojSjedalaTextBox);
@@ -180,8 +180,10 @@
             this.Controls.Add(this.proizvodacAvionaLabel);
             this.Controls.Add(this.identifikatorAvionaLabel);
             this.Controls.Add(this.azurirajAvionLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormAzurirajAvion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ažuriraj avion";
