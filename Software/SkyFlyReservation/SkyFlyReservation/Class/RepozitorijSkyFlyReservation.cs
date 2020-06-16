@@ -25,6 +25,83 @@ namespace SkyFlyReservation.Class
             return letovi;
         }
 
+        public static Korisnik DohvatiKorisnika(string korIme)
+        {
+            string sql = "SELECT * FROM Korisnik k " +
+                "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
+                $"LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId WHERE KorisnickoIme = '{korIme}';";
+
+            Korisnik korisnik = DohvatiPodatkeOdabranogKorisnika(sql);
+
+            return korisnik;
+        }
+
+        private static Korisnik DohvatiPodatkeOdabranogKorisnika(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            bool recvData = dataReader.Read();
+            if (recvData == false)
+            {
+                dataReader.Close();
+                Database.Instance.Disconnect();
+                return null;
+            }
+            else {
+                UlogaKorisnika uloga = new UlogaKorisnika();
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Administrator")
+                {
+                    uloga = UlogaKorisnika.Administrator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Moderator")
+                {
+                    uloga = UlogaKorisnika.Moderator;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Owner")
+                {
+                    uloga = UlogaKorisnika.Owner;
+                }
+                if (dataReader["NazivUlogeKorisnika"].ToString() == "Registrirani korisnik")
+                {
+                    uloga = UlogaKorisnika.RegistriraniKorisnik;
+                }
+                Korisnik korisnik = new Korisnik()
+                {
+                    KorisnikId = (int)dataReader["KorisnikId"],
+                    UlogaKorisnika = uloga,
+                    Aviokompanija = null,
+                    ImeKorisnika = dataReader["Ime"].ToString(),
+                    PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                    AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                    KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                    EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                    OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                    KorisnickoImeKorisnika = dataReader["KorisnickoIme"].ToString(),
+                    LozinkaKorisnika = dataReader["Lozinka"].ToString()
+
+                };
+                dataReader.Close();
+                Database.Instance.Disconnect();
+                return korisnik;
+            }
+        }
+
+        public static int DodajKorisnika(Korisnik korisnik)
+        {
+            Database.Instance.Connect();
+            string sqlNULL = "NULL";
+            string sql = "INSERT INTO Korisnik (IdUlogaKorisnika, AviokompanijaKorisnika, Ime, Prezime, AdresaKorisnika, KontaktTelefon, EmailAdresaKorisnika, OIBKorisnika, KorisnickoIme, Lozinka) " +
+                $"VALUES('{1}', {sqlNULL}, '{korisnik.ImeKorisnika}', '{korisnik.PrezimeKorisnika}', '{korisnik.AdresaKorisnika}', '{korisnik.KontaktTelefonKorisnika}', '{korisnik.EmailKorisnika}', '{korisnik.OIBKorisnika}', '{korisnik.KorisnickoImeKorisnika}', '{korisnik.LozinkaKorisnika}');";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
         public static List<Korisnik> DohvatiSveKorisnike()
         {
             string sql = "SELECT * FROM Korisnik k " +
