@@ -27,7 +27,9 @@ namespace SkyFlyReservation.Class
 
         public static List<Korisnik> DohvatiSveKorisnike()
         {
-            string sql = "SELECT * FROM Korisnik;";
+            string sql = "SELECT * FROM Korisnik k " +
+                "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
+                "LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId;";
 
             List<Korisnik> korisnik = DohvatiPodatkeKorisnika(sql);
 
