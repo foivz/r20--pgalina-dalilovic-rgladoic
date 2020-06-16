@@ -106,7 +106,7 @@ namespace SkyFlyReservation
                 {
                     MessageBox.Show($"Uspješno ste rezervirali sjedalo {sjedalo.OznakaSjedala} na letu {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.\n\nNa Vašu e-mail adresu poslani su podaci za plaćanje.");
                     PošaljiObavijest(selektiraniLet, sjedalo);
-                    this.Close();
+                    OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
                 }
                 else
                 {
@@ -172,7 +172,7 @@ namespace SkyFlyReservation
                 FormPlatiKartu form = new FormPlatiKartu(selektiraniLet, sjedalo);
                 form.ShowDialog();
 
-                this.Close();
+                OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
             }
         }
 
@@ -180,7 +180,8 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "RezervacijaKupnjaKarte.htm");
+                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
+                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "RezervacijaKupnjaKarte.htm");
             }
         }
     }

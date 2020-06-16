@@ -40,6 +40,9 @@
             // 
             // popisAvionaDataGridView
             // 
+            this.popisAvionaDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.popisAvionaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.popisAvionaDataGridView.Location = new System.Drawing.Point(27, 61);
             this.popisAvionaDataGridView.Name = "popisAvionaDataGridView";
@@ -69,6 +72,7 @@
             // 
             // azurirajAvionButton
             // 
+            this.azurirajAvionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.azurirajAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.azurirajAvionButton.Location = new System.Drawing.Point(585, 528);
             this.azurirajAvionButton.Name = "azurirajAvionButton";
@@ -80,6 +84,7 @@
             // 
             // obrisiAvionButton
             // 
+            this.obrisiAvionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.obrisiAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.obrisiAvionButton.Location = new System.Drawing.Point(708, 528);
             this.obrisiAvionButton.Name = "obrisiAvionButton";
@@ -91,6 +96,7 @@
             // 
             // dodajAvionButton
             // 
+            this.dodajAvionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dodajAvionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dodajAvionButton.Location = new System.Drawing.Point(472, 528);
             this.dodajAvionButton.Name = "dodajAvionButton";

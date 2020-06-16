@@ -51,7 +51,7 @@
             // cijenaKarteTextBox
             // 
             this.cijenaKarteTextBox.Enabled = false;
-            this.cijenaKarteTextBox.Location = new System.Drawing.Point(54, 411);
+            this.cijenaKarteTextBox.Location = new System.Drawing.Point(81, 411);
             this.cijenaKarteTextBox.Name = "cijenaKarteTextBox";
             this.cijenaKarteTextBox.ReadOnly = true;
             this.cijenaKarteTextBox.Size = new System.Drawing.Size(200, 22);
@@ -61,7 +61,7 @@
             // 
             this.cijenaKarteLabel.AutoSize = true;
             this.cijenaKarteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cijenaKarteLabel.Location = new System.Drawing.Point(51, 391);
+            this.cijenaKarteLabel.Location = new System.Drawing.Point(78, 391);
             this.cijenaKarteLabel.Name = "cijenaKarteLabel";
             this.cijenaKarteLabel.Size = new System.Drawing.Size(91, 17);
             this.cijenaKarteLabel.TabIndex = 27;
@@ -70,7 +70,7 @@
             // vrijemeDolaskaTextBox
             // 
             this.vrijemeDolaskaTextBox.Enabled = false;
-            this.vrijemeDolaskaTextBox.Location = new System.Drawing.Point(54, 348);
+            this.vrijemeDolaskaTextBox.Location = new System.Drawing.Point(81, 348);
             this.vrijemeDolaskaTextBox.Name = "vrijemeDolaskaTextBox";
             this.vrijemeDolaskaTextBox.ReadOnly = true;
             this.vrijemeDolaskaTextBox.Size = new System.Drawing.Size(200, 22);
@@ -80,7 +80,7 @@
             // 
             this.vrijemeDolaskaLabel.AutoSize = true;
             this.vrijemeDolaskaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vrijemeDolaskaLabel.Location = new System.Drawing.Point(51, 327);
+            this.vrijemeDolaskaLabel.Location = new System.Drawing.Point(78, 327);
             this.vrijemeDolaskaLabel.Name = "vrijemeDolaskaLabel";
             this.vrijemeDolaskaLabel.Size = new System.Drawing.Size(116, 17);
             this.vrijemeDolaskaLabel.TabIndex = 25;
@@ -89,7 +89,7 @@
             // vrijemePolaskaTextBox
             // 
             this.vrijemePolaskaTextBox.Enabled = false;
-            this.vrijemePolaskaTextBox.Location = new System.Drawing.Point(54, 284);
+            this.vrijemePolaskaTextBox.Location = new System.Drawing.Point(81, 284);
             this.vrijemePolaskaTextBox.Name = "vrijemePolaskaTextBox";
             this.vrijemePolaskaTextBox.ReadOnly = true;
             this.vrijemePolaskaTextBox.Size = new System.Drawing.Size(200, 22);
@@ -99,7 +99,7 @@
             // 
             this.vrijemePolaskaLabel.AutoSize = true;
             this.vrijemePolaskaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vrijemePolaskaLabel.Location = new System.Drawing.Point(51, 264);
+            this.vrijemePolaskaLabel.Location = new System.Drawing.Point(78, 264);
             this.vrijemePolaskaLabel.Name = "vrijemePolaskaLabel";
             this.vrijemePolaskaLabel.Size = new System.Drawing.Size(116, 17);
             this.vrijemePolaskaLabel.TabIndex = 23;
@@ -108,7 +108,7 @@
             // avionNaLetuTextBox
             // 
             this.avionNaLetuTextBox.Enabled = false;
-            this.avionNaLetuTextBox.Location = new System.Drawing.Point(54, 220);
+            this.avionNaLetuTextBox.Location = new System.Drawing.Point(81, 220);
             this.avionNaLetuTextBox.Name = "avionNaLetuTextBox";
             this.avionNaLetuTextBox.ReadOnly = true;
             this.avionNaLetuTextBox.Size = new System.Drawing.Size(200, 22);
@@ -118,7 +118,7 @@
             // 
             this.avionNaLetuLabel.AutoSize = true;
             this.avionNaLetuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.avionNaLetuLabel.Location = new System.Drawing.Point(51, 200);
+            this.avionNaLetuLabel.Location = new System.Drawing.Point(78, 200);
             this.avionNaLetuLabel.Name = "avionNaLetuLabel";
             this.avionNaLetuLabel.Size = new System.Drawing.Size(98, 17);
             this.avionNaLetuLabel.TabIndex = 21;
@@ -127,7 +127,7 @@
             // odabraniOdredisniTextBox
             // 
             this.odabraniOdredisniTextBox.Enabled = false;
-            this.odabraniOdredisniTextBox.Location = new System.Drawing.Point(54, 157);
+            this.odabraniOdredisniTextBox.Location = new System.Drawing.Point(81, 157);
             this.odabraniOdredisniTextBox.Name = "odabraniOdredisniTextBox";
             this.odabraniOdredisniTextBox.ReadOnly = true;
             this.odabraniOdredisniTextBox.Size = new System.Drawing.Size(200, 22);
@@ -137,7 +137,7 @@
             // 
             this.odabraniOdredisniLabel.AutoSize = true;
             this.odabraniOdredisniLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odabraniOdredisniLabel.Location = new System.Drawing.Point(51, 136);
+            this.odabraniOdredisniLabel.Location = new System.Drawing.Point(78, 136);
             this.odabraniOdredisniLabel.Name = "odabraniOdredisniLabel";
             this.odabraniOdredisniLabel.Size = new System.Drawing.Size(142, 17);
             this.odabraniOdredisniLabel.TabIndex = 19;
@@ -146,7 +146,7 @@
             // odabraniPolazisniTextBox
             // 
             this.odabraniPolazisniTextBox.Enabled = false;
-            this.odabraniPolazisniTextBox.Location = new System.Drawing.Point(54, 94);
+            this.odabraniPolazisniTextBox.Location = new System.Drawing.Point(81, 94);
             this.odabraniPolazisniTextBox.Name = "odabraniPolazisniTextBox";
             this.odabraniPolazisniTextBox.ReadOnly = true;
             this.odabraniPolazisniTextBox.Size = new System.Drawing.Size(200, 22);
@@ -156,7 +156,7 @@
             // 
             this.odabraniPolazisniLabel.AutoSize = true;
             this.odabraniPolazisniLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.odabraniPolazisniLabel.Location = new System.Drawing.Point(51, 73);
+            this.odabraniPolazisniLabel.Location = new System.Drawing.Point(78, 73);
             this.odabraniPolazisniLabel.Name = "odabraniPolazisniLabel";
             this.odabraniPolazisniLabel.Size = new System.Drawing.Size(137, 17);
             this.odabraniPolazisniLabel.TabIndex = 17;
@@ -166,7 +166,7 @@
             // 
             this.oznakaOdabranogLetaLabel.AutoSize = true;
             this.oznakaOdabranogLetaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.oznakaOdabranogLetaLabel.Location = new System.Drawing.Point(135, 30);
+            this.oznakaOdabranogLetaLabel.Location = new System.Drawing.Point(162, 30);
             this.oznakaOdabranogLetaLabel.Name = "oznakaOdabranogLetaLabel";
             this.oznakaOdabranogLetaLabel.Size = new System.Drawing.Size(0, 24);
             this.oznakaOdabranogLetaLabel.TabIndex = 16;
@@ -175,7 +175,7 @@
             // 
             this.detaljiLetaLabel.AutoSize = true;
             this.detaljiLetaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.detaljiLetaLabel.Location = new System.Drawing.Point(23, 30);
+            this.detaljiLetaLabel.Location = new System.Drawing.Point(50, 30);
             this.detaljiLetaLabel.Name = "detaljiLetaLabel";
             this.detaljiLetaLabel.Size = new System.Drawing.Size(106, 24);
             this.detaljiLetaLabel.TabIndex = 15;
@@ -184,7 +184,7 @@
             // zatvoriButton
             // 
             this.zatvoriButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zatvoriButton.Location = new System.Drawing.Point(105, 527);
+            this.zatvoriButton.Location = new System.Drawing.Point(132, 527);
             this.zatvoriButton.Name = "zatvoriButton";
             this.zatvoriButton.Size = new System.Drawing.Size(89, 34);
             this.zatvoriButton.TabIndex = 29;
@@ -195,7 +195,7 @@
             // brojSlobodnihMjestaTextBox
             // 
             this.brojSlobodnihMjestaTextBox.Enabled = false;
-            this.brojSlobodnihMjestaTextBox.Location = new System.Drawing.Point(54, 477);
+            this.brojSlobodnihMjestaTextBox.Location = new System.Drawing.Point(81, 477);
             this.brojSlobodnihMjestaTextBox.Name = "brojSlobodnihMjestaTextBox";
             this.brojSlobodnihMjestaTextBox.ReadOnly = true;
             this.brojSlobodnihMjestaTextBox.Size = new System.Drawing.Size(200, 22);
@@ -205,7 +205,7 @@
             // 
             this.brojSlobodnihMjestaLabel.AutoSize = true;
             this.brojSlobodnihMjestaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.brojSlobodnihMjestaLabel.Location = new System.Drawing.Point(51, 457);
+            this.brojSlobodnihMjestaLabel.Location = new System.Drawing.Point(78, 457);
             this.brojSlobodnihMjestaLabel.Name = "brojSlobodnihMjestaLabel";
             this.brojSlobodnihMjestaLabel.Size = new System.Drawing.Size(151, 17);
             this.brojSlobodnihMjestaLabel.TabIndex = 30;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 585);
+            this.ClientSize = new System.Drawing.Size(351, 585);
             this.Controls.Add(this.brojSlobodnihMjestaTextBox);
             this.Controls.Add(this.brojSlobodnihMjestaLabel);
             this.Controls.Add(this.zatvoriButton);
@@ -233,8 +233,10 @@
             this.Controls.Add(this.odabraniPolazisniLabel);
             this.Controls.Add(this.oznakaOdabranogLetaLabel);
             this.Controls.Add(this.detaljiLetaLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormDetaljiLeta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalji leta";

@@ -38,7 +38,7 @@ namespace SkyFlyReservation
             popisAvionaDataGridView.DataSource = null;
             popisAvionaDataGridView.DataSource = avioniAviokompanije;
 
-            popisAvionaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisAvionaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             popisAvionaDataGridView.ReadOnly = true;
 
             popisAvionaDataGridView.Columns[1].HeaderText = "Registarska oznaka";
@@ -132,7 +132,8 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledAvionaAviokompanije.htm");
+                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
+                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledAvionaAviokompanije.htm");
             }
         }
     }

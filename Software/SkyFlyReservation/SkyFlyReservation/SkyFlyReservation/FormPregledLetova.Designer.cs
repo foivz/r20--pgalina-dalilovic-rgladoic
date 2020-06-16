@@ -65,6 +65,9 @@
             // 
             // popisLetovaDataGridView
             // 
+            this.popisLetovaDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.popisLetovaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.popisLetovaDataGridView.Location = new System.Drawing.Point(27, 61);
             this.popisLetovaDataGridView.Name = "popisLetovaDataGridView";
@@ -75,6 +78,7 @@
             // 
             // detaljiLetaButton
             // 
+            this.detaljiLetaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.detaljiLetaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.detaljiLetaButton.Location = new System.Drawing.Point(788, 528);
             this.detaljiLetaButton.Name = "detaljiLetaButton";
@@ -86,6 +90,7 @@
             // 
             // rezervirajKartuButton
             // 
+            this.rezervirajKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rezervirajKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rezervirajKartuButton.Location = new System.Drawing.Point(27, 528);
             this.rezervirajKartuButton.Name = "rezervirajKartuButton";
@@ -97,6 +102,7 @@
             // 
             // pretrazivanjeLetovaGroupBox
             // 
+            this.pretrazivanjeLetovaGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.pretraziPremaDatumuCheckBox);
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.pretraziLetoveButton);
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.datumPolaskaLabel);
@@ -188,6 +194,7 @@
             // 
             // dodajLetButton
             // 
+            this.dodajLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dodajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dodajLetButton.Location = new System.Drawing.Point(561, 13);
             this.dodajLetButton.Name = "dodajLetButton";
@@ -199,6 +206,7 @@
             // 
             // kupiKartuButton
             // 
+            this.kupiKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.kupiKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kupiKartuButton.Location = new System.Drawing.Point(131, 528);
             this.kupiKartuButton.Name = "kupiKartuButton";
@@ -210,7 +218,12 @@
             // 
             // pregledRezervacijaButton
             // 
+
             this.pregledRezervacijaButton.Location = new System.Drawing.Point(1114, 471);
+
+            this.pregledRezervacijaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1111, 517);
+
             this.pregledRezervacijaButton.Name = "pregledRezervacijaButton";
             this.pregledRezervacijaButton.Size = new System.Drawing.Size(90, 51);
             this.pregledRezervacijaButton.TabIndex = 9;
@@ -220,6 +233,7 @@
             // 
             // obrisiLetButton
             // 
+            this.obrisiLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.obrisiLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.obrisiLetButton.Location = new System.Drawing.Point(788, 13);
             this.obrisiLetButton.Name = "obrisiLetButton";
@@ -231,6 +245,7 @@
             // 
             // azurirajLetButton
             // 
+            this.azurirajLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.azurirajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.azurirajLetButton.Location = new System.Drawing.Point(665, 13);
             this.azurirajLetButton.Name = "azurirajLetButton";
@@ -242,6 +257,7 @@
             // 
             // prikaziSveButton
             // 
+            this.prikaziSveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.prikaziSveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.prikaziSveButton.Location = new System.Drawing.Point(628, 528);
             this.prikaziSveButton.Name = "prikaziSveButton";
@@ -253,7 +269,12 @@
             // 
             // buttonAvioniAviokompanije
             // 
+
             this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(959, 471);
+
+            this.buttonAvioniAviokompanije.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(954, 517);
+
             this.buttonAvioniAviokompanije.Name = "buttonAvioniAviokompanije";
             this.buttonAvioniAviokompanije.Size = new System.Drawing.Size(123, 51);
             this.buttonAvioniAviokompanije.TabIndex = 12;

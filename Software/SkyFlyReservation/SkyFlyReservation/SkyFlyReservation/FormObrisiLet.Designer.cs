@@ -61,6 +61,9 @@
             // 
             // popisLetovaDataGridView
             // 
+            this.popisLetovaDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.popisLetovaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.popisLetovaDataGridView.Location = new System.Drawing.Point(16, 62);
             this.popisLetovaDataGridView.Name = "popisLetovaDataGridView";
@@ -91,6 +94,7 @@
             // 
             // detaljiLetaGroupBox
             // 
+            this.detaljiLetaGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.detaljiLetaGroupBox.Controls.Add(this.obrisiLetButton);
             this.detaljiLetaGroupBox.Controls.Add(this.vrijemeDolaskaTextBox);
             this.detaljiLetaGroupBox.Controls.Add(this.vrijemeDolaskaLabel);
