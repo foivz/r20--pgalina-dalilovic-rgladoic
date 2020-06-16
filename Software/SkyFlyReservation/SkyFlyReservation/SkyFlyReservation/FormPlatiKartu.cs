@@ -48,7 +48,7 @@ namespace SkyFlyReservation
             {
 
                 bool provjeraOIB = (RepozitorijSkyFlyReservation.prijavljeniKorisnik.OIBKorisnika == oib) ? true : false;
-                bool provjeraKartice = ProvjerRacun(brojKartice);
+                bool provjeraKartice = ProvjeriRacun(brojKartice);
                 bool provjeraStanja = ProvjeriStanje();
                 Racun racun = RepozitorijSkyFlyReservation.DohvatiRacunKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
 
@@ -97,7 +97,7 @@ namespace SkyFlyReservation
             return provjeraStanja;
         }
 
-        private bool ProvjerRacun(string brojKartice)
+        private bool ProvjeriRacun(string brojKartice)
         {
             bool provjeraKartice = false;
             Racun racun = RepozitorijSkyFlyReservation.DohvatiRacunKorisnika(RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnikId);
