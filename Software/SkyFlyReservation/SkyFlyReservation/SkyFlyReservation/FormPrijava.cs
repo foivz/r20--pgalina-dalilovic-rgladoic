@@ -44,8 +44,8 @@ namespace SkyFlyReservation
 
             if(Autentikacija == true)
             {
-                RepozitorijSkyFlyReservation.AutenticirajKorisnika(korisnik);
-                FormPregledRezervacija form = new FormPregledRezervacija();
+                RepozitorijSkyFlyReservation.prijavljeniKorisnik = korisnik;
+                FormPregledLetova form = new FormPregledLetova();
                 form.ShowDialog();
             }
             else

@@ -11,20 +11,6 @@ namespace SkyFlyReservation.Class
     public static class RepozitorijSkyFlyReservation
     {
         public static Korisnik prijavljeniKorisnik = new Korisnik();
-        public static Aviokompanija aviokompanija = new Aviokompanija();
-
-        public static void AutenticirajKorisnika(Korisnik korisnik)
-        {
-            prijavljeniKorisnik = korisnik;
-            if(korisnik.Aviokompanija != null)
-            {
-                aviokompanija = korisnik.Aviokompanija;
-            }
-            else
-            {
-                aviokompanija = null;
-            }
-        }
 
         //Služi za testiranje -> objekt klase Korisnik se instancira nakon autentikacije
         //public static Aviokompanija aviokompanija = new Aviokompanija()
