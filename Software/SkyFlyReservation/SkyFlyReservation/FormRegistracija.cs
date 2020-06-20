@@ -38,14 +38,18 @@ namespace SkyFlyReservation
             ValidacijaRegistracije validacija = new ValidacijaRegistracije();
 
             string poruka = validacija.Validiraj(validiraj);
-
+            Korisnik dohvaceniKorisnik = RepozitorijSkyFlyReservation.DohvatiKorisnika(txtKorIme.Text);
             if (poruka != "")
             {
                 MessageBox.Show(poruka);
             }
-            else if(RepozitorijSkyFlyReservation.DohvatiKorisnika(txtKorIme.Text) != null)
+            else if(dohvaceniKorisnik != null)
             {
                 MessageBox.Show("Korisničko ime je zauzeto!");
+            }
+            else if(dohvaceniKorisnik.EmailKorisnika == txtEmail.Text)
+            {
+                MessageBox.Show("Taj email već koristi drugi račun!");
             }
             else
             {
@@ -63,13 +67,13 @@ namespace SkyFlyReservation
 
                 int numAffectedRowsKorisnik = RepozitorijSkyFlyReservation.DodajKorisnika(korisnik);
 
-                Korisnik dohvaceniKorisnik = RepozitorijSkyFlyReservation.DohvatiKorisnika(txtKorIme.Text);
+                Korisnik DohvaceniKorisnik = RepozitorijSkyFlyReservation.DohvatiKorisnika(txtKorIme.Text);
 
-                int numAffectedRowsRacun = RepozitorijSkyFlyReservation.DodajRacun(dohvaceniKorisnik.KorisnikId.ToString());
+                int numAffectedRowsRacun = RepozitorijSkyFlyReservation.DodajRacun(DohvaceniKorisnik.KorisnikId.ToString());
 
                 if(numAffectedRowsKorisnik != 0 && numAffectedRowsRacun == 0)
                 {
-                    RepozitorijSkyFlyReservation.ObrisiKorisnika(dohvaceniKorisnik.KorisnikId.ToString());
+                    RepozitorijSkyFlyReservation.ObrisiKorisnika(DohvaceniKorisnik.KorisnikId.ToString());
                 }
 
                 if (numAffectedRowsKorisnik != 0 && numAffectedRowsRacun != 0)

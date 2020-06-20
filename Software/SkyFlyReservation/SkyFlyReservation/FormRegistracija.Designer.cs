@@ -56,7 +56,7 @@
             // KontaktLabel
             // 
             this.KontaktLabel.AutoSize = true;
-            this.KontaktLabel.Location = new System.Drawing.Point(203, 226);
+            this.KontaktLabel.Location = new System.Drawing.Point(91, 226);
             this.KontaktLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.KontaktLabel.Name = "KontaktLabel";
             this.KontaktLabel.Size = new System.Drawing.Size(60, 17);
@@ -65,7 +65,7 @@
             // 
             // txtKontakt
             // 
-            this.txtKontakt.Location = new System.Drawing.Point(275, 222);
+            this.txtKontakt.Location = new System.Drawing.Point(163, 222);
             this.txtKontakt.Margin = new System.Windows.Forms.Padding(4);
             this.txtKontakt.Name = "txtKontakt";
             this.txtKontakt.Size = new System.Drawing.Size(261, 22);
@@ -73,7 +73,7 @@
             // 
             // btnNatrag
             // 
-            this.btnNatrag.Location = new System.Drawing.Point(415, 394);
+            this.btnNatrag.Location = new System.Drawing.Point(303, 394);
             this.btnNatrag.Margin = new System.Windows.Forms.Padding(4);
             this.btnNatrag.Name = "btnNatrag";
             this.btnNatrag.Size = new System.Drawing.Size(125, 43);
@@ -86,7 +86,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(334, 55);
+            this.label1.Location = new System.Drawing.Point(222, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 25);
@@ -95,7 +95,7 @@
             // 
             // btnRegistrirajSe
             // 
-            this.btnRegistrirajSe.Location = new System.Drawing.Point(279, 394);
+            this.btnRegistrirajSe.Location = new System.Drawing.Point(167, 394);
             this.btnRegistrirajSe.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrirajSe.Name = "btnRegistrirajSe";
             this.btnRegistrirajSe.Size = new System.Drawing.Size(125, 43);
@@ -106,7 +106,7 @@
             // 
             // txtPonovljenaLozinka
             // 
-            this.txtPonovljenaLozinka.Location = new System.Drawing.Point(277, 346);
+            this.txtPonovljenaLozinka.Location = new System.Drawing.Point(165, 346);
             this.txtPonovljenaLozinka.Margin = new System.Windows.Forms.Padding(4);
             this.txtPonovljenaLozinka.Name = "txtPonovljenaLozinka";
             this.txtPonovljenaLozinka.Size = new System.Drawing.Size(261, 22);
@@ -115,7 +115,7 @@
             // PonovljenaLozinkaLabel
             // 
             this.PonovljenaLozinkaLabel.AutoSize = true;
-            this.PonovljenaLozinkaLabel.Location = new System.Drawing.Point(143, 350);
+            this.PonovljenaLozinkaLabel.Location = new System.Drawing.Point(31, 350);
             this.PonovljenaLozinkaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PonovljenaLozinkaLabel.Name = "PonovljenaLozinkaLabel";
             this.PonovljenaLozinkaLabel.Size = new System.Drawing.Size(130, 17);
@@ -124,7 +124,7 @@
             // 
             // txtLozinka
             // 
-            this.txtLozinka.Location = new System.Drawing.Point(277, 314);
+            this.txtLozinka.Location = new System.Drawing.Point(165, 314);
             this.txtLozinka.Margin = new System.Windows.Forms.Padding(4);
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(261, 22);
@@ -133,7 +133,7 @@
             // LozinkaLabel
             // 
             this.LozinkaLabel.AutoSize = true;
-            this.LozinkaLabel.Location = new System.Drawing.Point(207, 318);
+            this.LozinkaLabel.Location = new System.Drawing.Point(95, 318);
             this.LozinkaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LozinkaLabel.Name = "LozinkaLabel";
             this.LozinkaLabel.Size = new System.Drawing.Size(61, 17);
@@ -142,7 +142,7 @@
             // 
             // txtKorIme
             // 
-            this.txtKorIme.Location = new System.Drawing.Point(277, 282);
+            this.txtKorIme.Location = new System.Drawing.Point(165, 282);
             this.txtKorIme.Margin = new System.Windows.Forms.Padding(4);
             this.txtKorIme.Name = "txtKorIme";
             this.txtKorIme.Size = new System.Drawing.Size(261, 22);
@@ -151,7 +151,7 @@
             // KorImeLabel
             // 
             this.KorImeLabel.AutoSize = true;
-            this.KorImeLabel.Location = new System.Drawing.Point(165, 286);
+            this.KorImeLabel.Location = new System.Drawing.Point(53, 286);
             this.KorImeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.KorImeLabel.Name = "KorImeLabel";
             this.KorImeLabel.Size = new System.Drawing.Size(103, 17);
@@ -160,7 +160,7 @@
             // 
             // txtAdresa
             // 
-            this.txtAdresa.Location = new System.Drawing.Point(275, 190);
+            this.txtAdresa.Location = new System.Drawing.Point(163, 190);
             this.txtAdresa.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(261, 22);
@@ -169,7 +169,7 @@
             // AdresaLabel
             // 
             this.AdresaLabel.AutoSize = true;
-            this.AdresaLabel.Location = new System.Drawing.Point(210, 194);
+            this.AdresaLabel.Location = new System.Drawing.Point(98, 194);
             this.AdresaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdresaLabel.Name = "AdresaLabel";
             this.AdresaLabel.Size = new System.Drawing.Size(57, 17);
@@ -178,7 +178,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(275, 158);
+            this.txtEmail.Location = new System.Drawing.Point(163, 158);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 22);
@@ -187,7 +187,7 @@
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(221, 162);
+            this.EmailLabel.Location = new System.Drawing.Point(109, 162);
             this.EmailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(46, 17);
@@ -196,7 +196,7 @@
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(277, 126);
+            this.txtPrezime.Location = new System.Drawing.Point(165, 126);
             this.txtPrezime.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(261, 22);
@@ -205,7 +205,7 @@
             // PrezimeLabel
             // 
             this.PrezimeLabel.AutoSize = true;
-            this.PrezimeLabel.Location = new System.Drawing.Point(205, 130);
+            this.PrezimeLabel.Location = new System.Drawing.Point(93, 130);
             this.PrezimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PrezimeLabel.Name = "PrezimeLabel";
             this.PrezimeLabel.Size = new System.Drawing.Size(63, 17);
@@ -214,7 +214,7 @@
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(275, 94);
+            this.txtIme.Location = new System.Drawing.Point(163, 94);
             this.txtIme.Margin = new System.Windows.Forms.Padding(4);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(261, 22);
@@ -223,7 +223,7 @@
             // ImeLabel
             // 
             this.ImeLabel.AutoSize = true;
-            this.ImeLabel.Location = new System.Drawing.Point(231, 98);
+            this.ImeLabel.Location = new System.Drawing.Point(119, 98);
             this.ImeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ImeLabel.Name = "ImeLabel";
             this.ImeLabel.Size = new System.Drawing.Size(34, 17);
@@ -233,7 +233,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(228, 255);
+            this.label2.Location = new System.Drawing.Point(116, 255);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 17);
@@ -242,7 +242,7 @@
             // 
             // txtOib
             // 
-            this.txtOib.Location = new System.Drawing.Point(275, 252);
+            this.txtOib.Location = new System.Drawing.Point(163, 252);
             this.txtOib.Margin = new System.Windows.Forms.Padding(4);
             this.txtOib.Name = "txtOib";
             this.txtOib.Size = new System.Drawing.Size(261, 22);
@@ -251,7 +251,7 @@
             // btnSeePassword1
             // 
             this.btnSeePassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword1.Location = new System.Drawing.Point(546, 314);
+            this.btnSeePassword1.Location = new System.Drawing.Point(434, 314);
             this.btnSeePassword1.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword1.Name = "btnSeePassword1";
             this.btnSeePassword1.Size = new System.Drawing.Size(40, 23);
@@ -263,7 +263,7 @@
             // btnSeePassword2
             // 
             this.btnSeePassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword2.Location = new System.Drawing.Point(546, 346);
+            this.btnSeePassword2.Location = new System.Drawing.Point(434, 346);
             this.btnSeePassword2.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword2.Name = "btnSeePassword2";
             this.btnSeePassword2.Size = new System.Drawing.Size(40, 23);
@@ -276,7 +276,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 489);
+            this.ClientSize = new System.Drawing.Size(577, 516);
             this.Controls.Add(this.btnSeePassword2);
             this.Controls.Add(this.btnSeePassword1);
             this.Controls.Add(this.txtOib);
@@ -300,8 +300,10 @@
             this.Controls.Add(this.PrezimeLabel);
             this.Controls.Add(this.txtIme);
             this.Controls.Add(this.ImeLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormRegistracija";
-            this.Text = "FormRegistracija";
+            this.Text = "Registracija";
             this.Load += new System.EventHandler(this.FormRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -113,6 +113,12 @@
     <Compile Include="FormPlatiRezervaciju.Designer.cs">
       <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPocetna.Designer.cs">
+      <DependentUpon>FormPocetna.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPregledAvionaAviokompanije.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,12 @@
     <Compile Include="FormRezervacijaKarte.Designer.cs">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormZaboravljenaLozinka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZaboravljenaLozinka.Designer.cs">
+      <DependentUpon>FormZaboravljenaLozinka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAzurirajAvion.resx">
@@ -175,6 +187,9 @@
     <EmbeddedResource Include="FormPlatiRezervaciju.resx">
       <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPocetna.resx">
+      <DependentUpon>FormPocetna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPregledAvionaAviokompanije.resx">
       <DependentUpon>FormPregledAvionaAviokompanije.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRezervacijaKarte.resx">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZaboravljenaLozinka.resx">
+      <DependentUpon>FormZaboravljenaLozinka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

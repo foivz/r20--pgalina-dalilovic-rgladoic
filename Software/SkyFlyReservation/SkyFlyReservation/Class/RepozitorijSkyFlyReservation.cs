@@ -25,6 +25,89 @@ namespace SkyFlyReservation.Class
             return letovi;
         }
 
+        internal static int AzurirajKorisnika(string email, string lozinka)
+        {
+            Database.Instance.Connect();
+
+            string sql = $"UPDATE Korisnik SET Lozinka = '{lozinka}' " +
+                $"WHERE EmailAdresaKorisnika = '{email}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        internal static Korisnik ProvjeriEmail(string email)
+        {
+            string sql = "SELECT * FROM Korisnik k " +
+                "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
+                $"LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId WHERE EmailAdresaKorisnika = '{email}';";
+
+            Korisnik korisnik = DohvatiPodatkeOdabranogKorisnika(sql);
+            
+            return korisnik;
+        }
+
+        internal static List<Let> DohvatiNajpopularnijeLetove()
+        {
+            List<Let> dohvaceniLetovi = DohvatiLetove();
+
+            string sql = "SELECT COUNT(RezervacijaId) as brojRezervacija, LetId FROM Let l " +
+                "LEFT JOIN Rezervacija r ON r.IdLetaRezervacije = l.LetId " +
+                "GROUP BY LetId ORDER BY brojRezervacija DESC; ";
+
+            Dictionary<int, int> BrojRezervacijaLeta = new Dictionary<int, int>();
+            BrojRezervacijaLeta = DohvatiPodatkeRezervacijaLeta(sql);
+
+            Dictionary<int, int> RezervacijeLeta = new Dictionary<int, int>();
+
+            foreach (var item in BrojRezervacijaLeta)
+            {
+                if(item.Value != 0)
+                {
+                    RezervacijeLeta.Add(item.Key, item.Value);
+                }
+            }
+
+            List<Let> letovi = new List<Let>();
+
+            foreach (var item in dohvaceniLetovi)
+            {
+                if (RezervacijeLeta.ContainsKey(item.LetId))
+                {
+                    letovi.Add(item);
+                }
+            }
+
+            int range = letovi.Count();
+            if(range > 10)
+            {
+                range = 10;
+            }
+
+            letovi = letovi.GetRange(0, range);
+
+            return letovi;
+        }
+
+        private static Dictionary<int, int> DohvatiPodatkeRezervacijaLeta(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            Dictionary<int, int> brojRezervacijaLeta = new Dictionary<int, int>();
+
+            while (dataReader.Read())
+            {
+                brojRezervacijaLeta.Add((int)dataReader["LetId"], (int)dataReader["brojRezervacija"]);
+            }
+
+            return brojRezervacijaLeta;
+        }
+
         public static Korisnik DohvatiKorisnika(string korIme)
         {
             string sql = "SELECT * FROM Korisnik k " +

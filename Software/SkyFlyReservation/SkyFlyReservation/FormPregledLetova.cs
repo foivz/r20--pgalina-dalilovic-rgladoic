@@ -149,13 +149,6 @@ namespace SkyFlyReservation
             return null;
         }
 
-        //SAMO ZA PRISTUP FORMU! MAKNUTI U KONAČNOJ IMPLEMENTACIJI
-        private void pregledRezervacijaButton_Click(object sender, EventArgs e)
-        {
-            FormPregledRezervacija form = new FormPregledRezervacija();
-            form.ShowDialog();
-        }
-
         private void kupiKartuButton_Click(object sender, EventArgs e)
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
@@ -185,15 +178,6 @@ namespace SkyFlyReservation
         {
             OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
             OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
-        }
-
-        //maknuti
-        private void buttonAvioniAviokompanije_Click(object sender, EventArgs e)
-        {
-            FormPregledAvionaAviokompanije form = new FormPregledAvionaAviokompanije();
-            form.ShowDialog();
-
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
         }
 
         private void azurirajLetButton_Click(object sender, EventArgs e)
