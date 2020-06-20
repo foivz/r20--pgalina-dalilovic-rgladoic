@@ -102,6 +102,27 @@ namespace SkyFlyReservation.Class
             return numAffectedRows;
         }
 
+        public static int DodajRacun(string id)
+        {
+            string brojRacuna = "";
+            Random r = new Random();
+            r.Next();
+
+            for (int i = 0; i < 16; i++)
+            {
+                brojRacuna += r.Next(0,9);
+            }
+
+            Database.Instance.Connect();
+            string sql = "INSERT INTO Racun (IdKorisnik, BrojRacuna, StanjeRacuna)" +
+                $"VALUES('{id}','{brojRacuna}', '5000');";
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
         public static List<Korisnik> DohvatiSveKorisnike()
         {
             string sql = "SELECT * FROM Korisnik k " +
@@ -300,6 +321,13 @@ namespace SkyFlyReservation.Class
 
             Database.Instance.Disconnect();
 
+        }
+
+        public static void ObrisiKorisnika(string id)
+        {
+            string sql = "DELETE FROM Korisnik " +
+                $"WHERE KorisnikId = '{id}';";
+            Database.Instance.ExecuteCommand(sql);
         }
 
         public static int ObrisiLet(Let let)

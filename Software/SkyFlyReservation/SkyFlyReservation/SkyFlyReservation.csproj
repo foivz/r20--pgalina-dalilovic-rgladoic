@@ -222,6 +222,10 @@
       <Project>{A4FB8562-331B-4105-A069-5B2A9884C0C4}</Project>
       <Name>Database Access</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Validation\Validation.csproj">
+      <Project>{200613D1-913A-4024-9EDF-B098320036BE}</Project>
+      <Name>Validation</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
