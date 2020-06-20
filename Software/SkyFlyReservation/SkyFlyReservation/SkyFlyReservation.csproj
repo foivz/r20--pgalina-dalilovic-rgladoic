@@ -95,6 +95,18 @@
     <Compile Include="FormDodajLet.Designer.cs">
       <DependentUpon>FormDodajLet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKorisnickiRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKorisnickiRacun.Designer.cs">
+      <DependentUpon>FormKorisnickiRacun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLozinka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLozinka.Designer.cs">
+      <DependentUpon>FormLozinka.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormObrisiLet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDodajLet.resx">
       <DependentUpon>FormDodajLet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKorisnickiRacun.resx">
+      <DependentUpon>FormKorisnickiRacun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLozinka.resx">
+      <DependentUpon>FormLozinka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormObrisiLet.resx">
       <DependentUpon>FormObrisiLet.cs</DependentUpon>

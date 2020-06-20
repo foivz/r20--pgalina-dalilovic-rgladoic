@@ -92,7 +92,8 @@ namespace SkyFlyReservation
             }
             else
             {
-                MessageBox.Show("Ovdje dolazi korisnički račun!");
+                FormKorisnickiRacun form = new FormKorisnickiRacun();
+                form.ShowDialog();
             }
         }
 

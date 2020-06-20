@@ -92,6 +92,21 @@ namespace SkyFlyReservation.Class
             return letovi;
         }
 
+        internal static int AzurirajKorisnika(int Id, Korisnik korisnik)
+        {
+            Database.Instance.Connect();
+
+            string sql = $"UPDATE Korisnik SET Ime = '{korisnik.ImeKorisnika}', Prezime = '{korisnik.PrezimeKorisnika}', AdresaKorisnika = '{korisnik.AdresaKorisnika}', KontaktTelefon = '{korisnik.KontaktTelefonKorisnika}', " +
+                $"EmailAdresaKorisnika = '{korisnik.EmailKorisnika}', OIBKorisnika = '{korisnik.OIBKorisnika}', KorisnickoIme = '{korisnik.KorisnickoImeKorisnika}', Lozinka = '{korisnik.LozinkaKorisnika}' " +
+                $"WHERE KorisnikId = {Id};";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
         private static Dictionary<int, int> DohvatiPodatkeRezervacijaLeta(string sql)
         {
             Database.Instance.Connect();
