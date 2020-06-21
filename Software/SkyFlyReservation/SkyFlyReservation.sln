@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database Access", "Database
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserHelp Controler", "UserHelpControler\UserHelp Controler.csproj", "{9F11C64D-826F-4869-B062-9C839C49A435}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Validation\Validation.csproj", "{11C34197-5118-426B-90FA-0BF78C46142D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9F11C64D-826F-4869-B062-9C839C49A435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F11C64D-826F-4869-B062-9C839C49A435}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F11C64D-826F-4869-B062-9C839C49A435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C34197-5118-426B-90FA-0BF78C46142D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C34197-5118-426B-90FA-0BF78C46142D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C34197-5118-426B-90FA-0BF78C46142D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C34197-5118-426B-90FA-0BF78C46142D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

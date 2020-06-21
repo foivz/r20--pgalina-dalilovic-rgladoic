@@ -97,7 +97,7 @@
             this.btnPregledRezervacija.Name = "btnPregledRezervacija";
             this.btnPregledRezervacija.Size = new System.Drawing.Size(144, 42);
             this.btnPregledRezervacija.TabIndex = 56;
-            this.btnPregledRezervacija.Text = "PregledRezervacija";
+            this.btnPregledRezervacija.Text = "Pregled rezervacija";
             this.btnPregledRezervacija.UseVisualStyleBackColor = true;
             this.btnPregledRezervacija.Click += new System.EventHandler(this.btnPregledRezervacija_Click);
             // 
@@ -108,7 +108,7 @@
             this.btnPregledLetova.Name = "btnPregledLetova";
             this.btnPregledLetova.Size = new System.Drawing.Size(144, 42);
             this.btnPregledLetova.TabIndex = 55;
-            this.btnPregledLetova.Text = "PregledLetova";
+            this.btnPregledLetova.Text = "Pregled letova";
             this.btnPregledLetova.UseVisualStyleBackColor = true;
             this.btnPregledLetova.Click += new System.EventHandler(this.btnPregledLetova_Click);
             // 
@@ -174,6 +174,7 @@
             this.Controls.Add(this.btnPrijava);
             this.Controls.Add(this.picMenu);
             this.Name = "FormPocetna";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SkyFlyReservation";
             this.Load += new System.EventHandler(this.FormPocetna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNajpopularnijiLetovi)).EndInit();

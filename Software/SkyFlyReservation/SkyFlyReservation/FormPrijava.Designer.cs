@@ -123,10 +123,10 @@
             // btnSeePassword
             // 
             this.btnSeePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword.Location = new System.Drawing.Point(538, 181);
+            this.btnSeePassword.Location = new System.Drawing.Point(547, 179);
             this.btnSeePassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword.Name = "btnSeePassword";
-            this.btnSeePassword.Size = new System.Drawing.Size(40, 22);
+            this.btnSeePassword.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword.TabIndex = 48;
             this.btnSeePassword.Text = "👁";
             this.btnSeePassword.UseVisualStyleBackColor = true;
@@ -149,6 +149,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormPrijava";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
             this.ResumeLayout(false);
             this.PerformLayout();

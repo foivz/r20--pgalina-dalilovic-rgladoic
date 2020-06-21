@@ -251,10 +251,10 @@
             // btnSeePassword1
             // 
             this.btnSeePassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword1.Location = new System.Drawing.Point(434, 314);
+            this.btnSeePassword1.Location = new System.Drawing.Point(434, 312);
             this.btnSeePassword1.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword1.Name = "btnSeePassword1";
-            this.btnSeePassword1.Size = new System.Drawing.Size(40, 23);
+            this.btnSeePassword1.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword1.TabIndex = 11;
             this.btnSeePassword1.Text = "👁";
             this.btnSeePassword1.UseVisualStyleBackColor = true;
@@ -263,10 +263,10 @@
             // btnSeePassword2
             // 
             this.btnSeePassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword2.Location = new System.Drawing.Point(434, 346);
+            this.btnSeePassword2.Location = new System.Drawing.Point(434, 344);
             this.btnSeePassword2.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword2.Name = "btnSeePassword2";
-            this.btnSeePassword2.Size = new System.Drawing.Size(40, 23);
+            this.btnSeePassword2.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword2.TabIndex = 12;
             this.btnSeePassword2.Text = "👁";
             this.btnSeePassword2.UseVisualStyleBackColor = true;
@@ -303,6 +303,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormRegistracija";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
             this.Load += new System.EventHandler(this.FormRegistracija_Load);
             this.ResumeLayout(false);

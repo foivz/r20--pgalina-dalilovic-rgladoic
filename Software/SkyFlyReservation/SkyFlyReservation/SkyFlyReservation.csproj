@@ -95,6 +95,18 @@
     <Compile Include="FormDodajLet.Designer.cs">
       <DependentUpon>FormDodajLet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKorisnickiRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKorisnickiRacun.Designer.cs">
+      <DependentUpon>FormKorisnickiRacun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLozinka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLozinka.Designer.cs">
+      <DependentUpon>FormLozinka.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormObrisiLet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     </Compile>
     <Compile Include="FormPlatiRezervaciju.Designer.cs">
       <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPocetna.Designer.cs">
+      <DependentUpon>FormPocetna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPregledAvionaAviokompanije.cs">
       <SubType>Form</SubType>
@@ -137,11 +155,23 @@
     <Compile Include="FormPrijava.Designer.cs">
       <DependentUpon>FormPrijava.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistracija.Designer.cs">
+      <DependentUpon>FormRegistracija.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRezervacijaKarte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRezervacijaKarte.Designer.cs">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormZaboravljenaLozinka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZaboravljenaLozinka.Designer.cs">
+      <DependentUpon>FormZaboravljenaLozinka.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,6 +190,12 @@
     <EmbeddedResource Include="FormDodajLet.resx">
       <DependentUpon>FormDodajLet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormKorisnickiRacun.resx">
+      <DependentUpon>FormKorisnickiRacun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLozinka.resx">
+      <DependentUpon>FormLozinka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormObrisiLet.resx">
       <DependentUpon>FormObrisiLet.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlatiRezervaciju.resx">
       <DependentUpon>FormPlatiRezervaciju.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPocetna.resx">
+      <DependentUpon>FormPocetna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPregledAvionaAviokompanije.resx">
       <DependentUpon>FormPregledAvionaAviokompanije.cs</DependentUpon>
@@ -181,8 +220,14 @@
     <EmbeddedResource Include="FormPrijava.resx">
       <DependentUpon>FormPrijava.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistracija.resx">
+      <DependentUpon>FormRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRezervacijaKarte.resx">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZaboravljenaLozinka.resx">
+      <DependentUpon>FormZaboravljenaLozinka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -216,6 +261,10 @@
     <ProjectReference Include="..\UserHelpControler\UserHelp Controler.csproj">
       <Project>{9F11C64D-826F-4869-B062-9C839C49A435}</Project>
       <Name>UserHelp Controler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validation\Validation.csproj">
+      <Project>{11C34197-5118-426B-90FA-0BF78C46142D}</Project>
+      <Name>Validation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -242,10 +242,10 @@
             // btnSeePassword1
             // 
             this.btnSeePassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword1.Location = new System.Drawing.Point(433, 319);
+            this.btnSeePassword1.Location = new System.Drawing.Point(433, 317);
             this.btnSeePassword1.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword1.Name = "btnSeePassword1";
-            this.btnSeePassword1.Size = new System.Drawing.Size(40, 23);
+            this.btnSeePassword1.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword1.TabIndex = 100;
             this.btnSeePassword1.Text = "👁";
             this.btnSeePassword1.UseVisualStyleBackColor = true;
@@ -280,6 +280,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormKorisnickiRacun";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormKorisnickiRacun";
             this.Load += new System.EventHandler(this.FormKorisnickiRacun_Load);
             this.ResumeLayout(false);

@@ -41,7 +41,7 @@
             // 
             // txtLozinka
             // 
-            this.txtLozinka.Location = new System.Drawing.Point(144, 97);
+            this.txtLozinka.Location = new System.Drawing.Point(144, 87);
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(261, 22);
             this.txtLozinka.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 100);
+            this.label1.Location = new System.Drawing.Point(77, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             // btnNatrag
             // 
-            this.btnNatrag.Location = new System.Drawing.Point(280, 154);
+            this.btnNatrag.Location = new System.Drawing.Point(280, 166);
             this.btnNatrag.Margin = new System.Windows.Forms.Padding(4);
             this.btnNatrag.Name = "btnNatrag";
             this.btnNatrag.Size = new System.Drawing.Size(125, 43);
@@ -84,7 +84,7 @@
             // 
             // btnRegistrirajSe
             // 
-            this.btnRegistrirajSe.Location = new System.Drawing.Point(144, 154);
+            this.btnRegistrirajSe.Location = new System.Drawing.Point(144, 166);
             this.btnRegistrirajSe.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrirajSe.Name = "btnRegistrirajSe";
             this.btnRegistrirajSe.Size = new System.Drawing.Size(125, 43);
@@ -97,7 +97,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(171, 45);
+            this.label3.Location = new System.Drawing.Point(171, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(210, 25);
@@ -107,10 +107,10 @@
             // btnSeePassword2
             // 
             this.btnSeePassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword2.Location = new System.Drawing.Point(412, 125);
+            this.btnSeePassword2.Location = new System.Drawing.Point(412, 123);
             this.btnSeePassword2.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword2.Name = "btnSeePassword2";
-            this.btnSeePassword2.Size = new System.Drawing.Size(40, 23);
+            this.btnSeePassword2.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword2.TabIndex = 95;
             this.btnSeePassword2.Text = "👁";
             this.btnSeePassword2.UseVisualStyleBackColor = true;
@@ -119,10 +119,10 @@
             // btnSeePassword1
             // 
             this.btnSeePassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword1.Location = new System.Drawing.Point(412, 96);
+            this.btnSeePassword1.Location = new System.Drawing.Point(412, 85);
             this.btnSeePassword1.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword1.Name = "btnSeePassword1";
-            this.btnSeePassword1.Size = new System.Drawing.Size(40, 23);
+            this.btnSeePassword1.Size = new System.Drawing.Size(40, 27);
             this.btnSeePassword1.TabIndex = 94;
             this.btnSeePassword1.Text = "👁";
             this.btnSeePassword1.UseVisualStyleBackColor = true;
@@ -143,6 +143,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLozinka);
             this.Name = "FormLozinka";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLozinka";
             this.Load += new System.EventHandler(this.FormLozinka_Load);
             this.ResumeLayout(false);
