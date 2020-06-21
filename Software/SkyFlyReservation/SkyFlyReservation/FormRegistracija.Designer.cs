@@ -107,7 +107,7 @@
             // 
             // txtPonovljenaLozinka
             // 
-            this.txtPonovljenaLozinka.Location = new System.Drawing.Point(165, 346);
+            this.txtPonovljenaLozinka.Location = new System.Drawing.Point(163, 346);
             this.txtPonovljenaLozinka.Margin = new System.Windows.Forms.Padding(4);
             this.txtPonovljenaLozinka.Name = "txtPonovljenaLozinka";
             this.txtPonovljenaLozinka.Size = new System.Drawing.Size(261, 22);
@@ -125,7 +125,7 @@
             // 
             // txtLozinka
             // 
-            this.txtLozinka.Location = new System.Drawing.Point(165, 314);
+            this.txtLozinka.Location = new System.Drawing.Point(163, 314);
             this.txtLozinka.Margin = new System.Windows.Forms.Padding(4);
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(261, 22);
@@ -143,7 +143,7 @@
             // 
             // txtKorIme
             // 
-            this.txtKorIme.Location = new System.Drawing.Point(165, 282);
+            this.txtKorIme.Location = new System.Drawing.Point(163, 282);
             this.txtKorIme.Margin = new System.Windows.Forms.Padding(4);
             this.txtKorIme.Name = "txtKorIme";
             this.txtKorIme.Size = new System.Drawing.Size(261, 22);
@@ -197,7 +197,7 @@
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(165, 126);
+            this.txtPrezime.Location = new System.Drawing.Point(163, 127);
             this.txtPrezime.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(261, 22);

@@ -3158,7 +3158,6 @@
             this.Controls.Add(this.rezervirajSjedaloButton);
             this.Controls.Add(this.odaberiteSjedaloLabel);
             this.Controls.Add(this.mapaSjedalaAvionaPictureBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;

@@ -207,8 +207,11 @@ namespace SkyFlyReservation
 
         private void FormPocetna_KeyDown(object sender, KeyEventArgs e)
         {
-            Controler controler = new Controler();
-            controler.OtvoriUserHelp(this, "OAplikaciji.htm");
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+                controler.OtvoriUserHelp(this, "OAplikaciji.htm");
+            }
         }
     }
 }
