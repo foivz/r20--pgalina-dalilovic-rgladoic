@@ -27,7 +27,9 @@ namespace SkyFlyReservation
         private void FormRezervacijaKarte_Load(object sender, EventArgs e)
         {
             OsvjeziDetalje();
-            OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
+
+            List<Sjedalo> rezerviranaSjedala = RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet);
+            OsvjeziSjedalaUAvionu(rezerviranaSjedala);
         }
 
         private void OsvjeziSjedalaUAvionu(List<Sjedalo> rezerviranaSjedala)
