@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -200,25 +202,78 @@ namespace SkyFlyReservation.Class
             return numAffectedRows;
         }
 
-        public static int DodajRacun(string id)
+        public static int DodajRacun(string id, string email)
         {
-            string brojRacuna = "";
-            Random r = new Random();
-            r.Next();
-
-            for (int i = 0; i < 16; i++)
-            {
-                brojRacuna += r.Next(0,9);
-            }
+            string brojRacuna = GenerirajBrojRacuna();
 
             Database.Instance.Connect();
+
             string sql = "INSERT INTO Racun (IdKorisnik, BrojRacuna, StanjeRacuna)" +
                 $"VALUES('{id}','{brojRacuna}', '5000');";
             int numAffectedRows = Database.Instance.ExecuteCommand(sql);
 
             Database.Instance.Disconnect();
 
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
+
+            client.UseDefaultCredentials = false;
+            NetworkCredential cred = new NetworkCredential("skyflyreservation@gmail.com", "sj6IWP3o");
+
+            MailMessage Msg = new MailMessage();
+
+            Msg.From = new MailAddress("skyflyreservation@gmail.com");
+
+            Msg.To.Add($"{email}");
+
+            Msg.Subject = "Virtualni račun";
+
+            Msg.Body = $"Poštovani,\n\n" +
+                $"Broj računa za vaš korisnički račun je: {brojRacuna}\n" +
+                "Ovaj broj računa se koristi prilikom kupnje karata ili plaćanja rezervacija. Trenutno stanje računa je 500HRK.\n\n" +
+                "S poštovanjem,\n" +
+                "SkyFlyReservation";
+
+            client.Credentials = cred;
+
+            client.EnableSsl = true;
+
+            client.Send(Msg);
+            client.Dispose();
+
             return numAffectedRows;
+        }
+
+        private static string GenerirajBrojRacuna()
+        {
+            Database.Instance.Connect();
+            string brojRacuna = "";
+
+            bool novi = true;
+
+            while (novi)
+            {
+                
+                Random r = new Random();
+                r.Next();
+
+                for (int i = 0; i < 16; i++)
+                {
+                    brojRacuna += r.Next(0, 9);
+                }
+
+                string sqlSelect = $"SELECT * FROM Racun WHERE BrojRacuna = '{brojRacuna}';";
+
+                IDataReader dataReader = Database.Instance.GetDataReader(sqlSelect);
+
+                if (!dataReader.Read())
+                {
+                    novi = false;
+                }
+
+                dataReader.Close();
+            }
+            Database.Instance.Disconnect();
+            return brojRacuna;
         }
 
         public static List<Korisnik> DohvatiSveKorisnike()

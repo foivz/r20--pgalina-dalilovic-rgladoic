@@ -49,10 +49,6 @@ namespace SkyFlyReservation
             {
                 MessageBox.Show("Korisničko ime je zauzeto!");
             }
-            else if(dohvaceniKorisnik.EmailKorisnika == txtEmail.Text)
-            {
-                MessageBox.Show("Taj email već koristi drugi račun!");
-            }
             else
             {
                 Korisnik korisnik = new Korisnik()
@@ -71,7 +67,7 @@ namespace SkyFlyReservation
 
                 Korisnik DohvaceniKorisnik = RepozitorijSkyFlyReservation.DohvatiKorisnika(txtKorIme.Text);
 
-                int numAffectedRowsRacun = RepozitorijSkyFlyReservation.DodajRacun(DohvaceniKorisnik.KorisnikId.ToString());
+                int numAffectedRowsRacun = RepozitorijSkyFlyReservation.DodajRacun(DohvaceniKorisnik.KorisnikId.ToString(), DohvaceniKorisnik.EmailKorisnika.ToString());
 
                 if(numAffectedRowsKorisnik != 0 && numAffectedRowsRacun == 0)
                 {
@@ -80,9 +76,9 @@ namespace SkyFlyReservation
 
                 if (numAffectedRowsKorisnik != 0 && numAffectedRowsRacun != 0)
                 {
-                    MessageBox.Show("Uspješna registracija!");
-                    FormPregledLetova form = new FormPregledLetova();
-                    form.ShowDialog();
+                    MessageBox.Show("Uspješna registracija! Podaci o virtualnom računu su poslani na email račun.");
+
+                    this.Close();
                 }
                 else
                 {
