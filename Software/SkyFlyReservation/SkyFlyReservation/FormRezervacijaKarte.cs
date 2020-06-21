@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -26,7 +27,9 @@ namespace SkyFlyReservation
         private void FormRezervacijaKarte_Load(object sender, EventArgs e)
         {
             OsvjeziDetalje();
-            OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
+
+            List<Sjedalo> rezerviranaSjedala = RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet);
+            OsvjeziSjedalaUAvionu(rezerviranaSjedala);
         }
 
         private void OsvjeziSjedalaUAvionu(List<Sjedalo> rezerviranaSjedala)
@@ -106,7 +109,7 @@ namespace SkyFlyReservation
                 {
                     MessageBox.Show($"Uspješno ste rezervirali sjedalo {sjedalo.OznakaSjedala} na letu {selektiraniLet.PolazisniAerodrom.NazivAerodroma}->{selektiraniLet.OdredisniAerodrom.NazivAerodroma}.\n\nNa Vašu e-mail adresu poslani su podaci za plaćanje.");
                     PošaljiObavijest(selektiraniLet, sjedalo);
-                    this.Close();
+                    OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
                 }
                 else
                 {
@@ -172,7 +175,7 @@ namespace SkyFlyReservation
                 FormPlatiKartu form = new FormPlatiKartu(selektiraniLet, sjedalo);
                 form.ShowDialog();
 
-                this.Close();
+                OsvjeziSjedalaUAvionu(RepozitorijSkyFlyReservation.DohvatiRezerviranaSjedala(selektiraniLet));
             }
         }
 
@@ -180,7 +183,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "RezervacijaKupnjaKarte.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "RezervacijaKupnjaKarte.htm");
             }
         }
     }

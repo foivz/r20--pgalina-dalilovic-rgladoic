@@ -128,7 +128,7 @@
             this.podaciZaPlacanjeGroupBox.Controls.Add(this.imeLabel);
             this.podaciZaPlacanjeGroupBox.Controls.Add(this.imeTextBox);
             this.podaciZaPlacanjeGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.podaciZaPlacanjeGroupBox.Location = new System.Drawing.Point(60, 132);
+            this.podaciZaPlacanjeGroupBox.Location = new System.Drawing.Point(77, 132);
             this.podaciZaPlacanjeGroupBox.Name = "podaciZaPlacanjeGroupBox";
             this.podaciZaPlacanjeGroupBox.Size = new System.Drawing.Size(275, 380);
             this.podaciZaPlacanjeGroupBox.TabIndex = 21;
@@ -178,7 +178,7 @@
             // 
             this.naslovOznakaOdabranogSjedalaLabel.AutoSize = true;
             this.naslovOznakaOdabranogSjedalaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.naslovOznakaOdabranogSjedalaLabel.Location = new System.Drawing.Point(28, 85);
+            this.naslovOznakaOdabranogSjedalaLabel.Location = new System.Drawing.Point(45, 85);
             this.naslovOznakaOdabranogSjedalaLabel.Name = "naslovOznakaOdabranogSjedalaLabel";
             this.naslovOznakaOdabranogSjedalaLabel.Size = new System.Drawing.Size(213, 17);
             this.naslovOznakaOdabranogSjedalaLabel.TabIndex = 23;
@@ -188,7 +188,7 @@
             // 
             this.oznakaOdabranogSjedalaLabel.AutoSize = true;
             this.oznakaOdabranogSjedalaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.oznakaOdabranogSjedalaLabel.Location = new System.Drawing.Point(253, 86);
+            this.oznakaOdabranogSjedalaLabel.Location = new System.Drawing.Point(270, 86);
             this.oznakaOdabranogSjedalaLabel.Name = "oznakaOdabranogSjedalaLabel";
             this.oznakaOdabranogSjedalaLabel.Size = new System.Drawing.Size(0, 17);
             this.oznakaOdabranogSjedalaLabel.TabIndex = 24;
@@ -197,14 +197,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 538);
+            this.ClientSize = new System.Drawing.Size(417, 538);
             this.Controls.Add(this.oznakaOdabranogSjedalaLabel);
             this.Controls.Add(this.naslovOznakaOdabranogSjedalaLabel);
             this.Controls.Add(this.oznakaLetaLabel);
             this.Controls.Add(this.podaciZaPlacanjeGroupBox);
             this.Controls.Add(this.naslovLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormPlatiKartu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plati kartu";

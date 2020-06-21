@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -38,7 +39,7 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = null;
             popisLetovaDataGridView.DataSource = letovi;
 
-            popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
@@ -115,7 +116,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "ObrisiLet.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "ObrisiLet.htm");
             }
         }
     }

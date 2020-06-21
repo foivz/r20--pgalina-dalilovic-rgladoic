@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -22,9 +23,13 @@ namespace SkyFlyReservation
         
         private void FormPregledLetova_Load(object sender, EventArgs e)
         {
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
-            OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
+            List<Aerodrom> aerodromi = RepozitorijSkyFlyReservation.DohvatiAerodrome();
+            OsvjeziComboBox(aerodromi);
+
             OsvjeziKomponente();
+
+            List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove();
+            OsvjeziDGV(letovi);
         }
 
         private void OsvjeziKomponente()
@@ -51,7 +56,8 @@ namespace SkyFlyReservation
             popisLetovaDataGridView.DataSource = null;
             popisLetovaDataGridView.DataSource = letovi;
 
-            popisLetovaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisLetovaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             popisLetovaDataGridView.ReadOnly = true;
 
             popisLetovaDataGridView.Columns[1].HeaderText = "Broj leta";
@@ -98,12 +104,13 @@ namespace SkyFlyReservation
                     MessageBox.Show($"Datum polaska ne može biti manji od datuma {datum.ToString("dd/MM/yyyy")}.");
                     return;
                 }
-
-                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom, datumVrijemePolaska.ToString("yyyy-MM-dd")));
+                List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom, datumVrijemePolaska.ToString("yyyy-MM-dd"));
+                OsvjeziDGV(letovi);
             }
             else
             {
-                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom));
+                List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom);
+                OsvjeziDGV(letovi);
             }
             
         }
@@ -148,13 +155,6 @@ namespace SkyFlyReservation
             return null;
         }
 
-        //SAMO ZA PRISTUP FORMU! MAKNUTI U KONAČNOJ IMPLEMENTACIJI
-        private void pregledRezervacijaButton_Click(object sender, EventArgs e)
-        {
-            FormPregledRezervacija form = new FormPregledRezervacija();
-            form.ShowDialog();
-        }
-
         private void kupiKartuButton_Click(object sender, EventArgs e)
         {
             Let selektiraniLet = DohvatiSelektiraniLet();
@@ -186,15 +186,6 @@ namespace SkyFlyReservation
             OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
         }
 
-        //maknuti
-        private void buttonAvioniAviokompanije_Click(object sender, EventArgs e)
-        {
-            FormPregledAvionaAviokompanije form = new FormPregledAvionaAviokompanije();
-            form.ShowDialog();
-
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
-        }
-
         private void azurirajLetButton_Click(object sender, EventArgs e)
         {
             FormAzurirajLet form = new FormAzurirajLet();
@@ -215,8 +206,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledLetova.htm");
+                Controler controler = new Controler();
 
+                controler.OtvoriUserHelp(this, "PregledLetova.htm");
             }
         }
     }

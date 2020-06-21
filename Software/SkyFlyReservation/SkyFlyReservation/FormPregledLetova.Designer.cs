@@ -44,11 +44,9 @@
             this.polazisniAerodromLabel = new System.Windows.Forms.Label();
             this.dodajLetButton = new System.Windows.Forms.Button();
             this.kupiKartuButton = new System.Windows.Forms.Button();
-            this.pregledRezervacijaButton = new System.Windows.Forms.Button();
             this.obrisiLetButton = new System.Windows.Forms.Button();
             this.azurirajLetButton = new System.Windows.Forms.Button();
             this.prikaziSveButton = new System.Windows.Forms.Button();
-            this.buttonAvioniAviokompanije = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).BeginInit();
             this.pretrazivanjeLetovaGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +63,9 @@
             // 
             // popisLetovaDataGridView
             // 
+            this.popisLetovaDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.popisLetovaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.popisLetovaDataGridView.Location = new System.Drawing.Point(27, 61);
             this.popisLetovaDataGridView.Name = "popisLetovaDataGridView";
@@ -75,6 +76,7 @@
             // 
             // detaljiLetaButton
             // 
+            this.detaljiLetaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.detaljiLetaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.detaljiLetaButton.Location = new System.Drawing.Point(788, 528);
             this.detaljiLetaButton.Name = "detaljiLetaButton";
@@ -86,6 +88,7 @@
             // 
             // rezervirajKartuButton
             // 
+            this.rezervirajKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rezervirajKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rezervirajKartuButton.Location = new System.Drawing.Point(27, 528);
             this.rezervirajKartuButton.Name = "rezervirajKartuButton";
@@ -97,6 +100,7 @@
             // 
             // pretrazivanjeLetovaGroupBox
             // 
+            this.pretrazivanjeLetovaGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.pretraziPremaDatumuCheckBox);
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.pretraziLetoveButton);
             this.pretrazivanjeLetovaGroupBox.Controls.Add(this.datumPolaskaLabel);
@@ -188,6 +192,7 @@
             // 
             // dodajLetButton
             // 
+            this.dodajLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dodajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dodajLetButton.Location = new System.Drawing.Point(561, 13);
             this.dodajLetButton.Name = "dodajLetButton";
@@ -199,6 +204,7 @@
             // 
             // kupiKartuButton
             // 
+            this.kupiKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.kupiKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kupiKartuButton.Location = new System.Drawing.Point(131, 528);
             this.kupiKartuButton.Name = "kupiKartuButton";
@@ -208,18 +214,9 @@
             this.kupiKartuButton.UseVisualStyleBackColor = true;
             this.kupiKartuButton.Click += new System.EventHandler(this.kupiKartuButton_Click);
             // 
-            // pregledRezervacijaButton
-            // 
-            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1114, 471);
-            this.pregledRezervacijaButton.Name = "pregledRezervacijaButton";
-            this.pregledRezervacijaButton.Size = new System.Drawing.Size(90, 51);
-            this.pregledRezervacijaButton.TabIndex = 9;
-            this.pregledRezervacijaButton.Text = "Pregled rezervacija";
-            this.pregledRezervacijaButton.UseVisualStyleBackColor = true;
-            this.pregledRezervacijaButton.Click += new System.EventHandler(this.pregledRezervacijaButton_Click);
-            // 
             // obrisiLetButton
             // 
+            this.obrisiLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.obrisiLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.obrisiLetButton.Location = new System.Drawing.Point(788, 13);
             this.obrisiLetButton.Name = "obrisiLetButton";
@@ -231,6 +228,7 @@
             // 
             // azurirajLetButton
             // 
+            this.azurirajLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.azurirajLetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.azurirajLetButton.Location = new System.Drawing.Point(665, 13);
             this.azurirajLetButton.Name = "azurirajLetButton";
@@ -242,6 +240,7 @@
             // 
             // prikaziSveButton
             // 
+            this.prikaziSveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.prikaziSveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.prikaziSveButton.Location = new System.Drawing.Point(628, 528);
             this.prikaziSveButton.Name = "prikaziSveButton";
@@ -251,26 +250,14 @@
             this.prikaziSveButton.UseVisualStyleBackColor = true;
             this.prikaziSveButton.Click += new System.EventHandler(this.prikaziSveButton_Click);
             // 
-            // buttonAvioniAviokompanije
-            // 
-            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(959, 471);
-            this.buttonAvioniAviokompanije.Name = "buttonAvioniAviokompanije";
-            this.buttonAvioniAviokompanije.Size = new System.Drawing.Size(123, 51);
-            this.buttonAvioniAviokompanije.TabIndex = 12;
-            this.buttonAvioniAviokompanije.Text = "Avioni aviokompanije";
-            this.buttonAvioniAviokompanije.UseVisualStyleBackColor = true;
-            this.buttonAvioniAviokompanije.Click += new System.EventHandler(this.buttonAvioniAviokompanije_Click);
-            // 
             // FormPregledLetova
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 602);
-            this.Controls.Add(this.buttonAvioniAviokompanije);
             this.Controls.Add(this.prikaziSveButton);
             this.Controls.Add(this.azurirajLetButton);
             this.Controls.Add(this.obrisiLetButton);
-            this.Controls.Add(this.pregledRezervacijaButton);
             this.Controls.Add(this.kupiKartuButton);
             this.Controls.Add(this.dodajLetButton);
             this.Controls.Add(this.pretrazivanjeLetovaGroupBox);
@@ -309,11 +296,9 @@
         private System.Windows.Forms.Label polazisniAerodromLabel;
         private System.Windows.Forms.Button kupiKartuButton;
         private System.Windows.Forms.Button dodajLetButton;
-        private System.Windows.Forms.Button pregledRezervacijaButton;
         private System.Windows.Forms.Button obrisiLetButton;
         private System.Windows.Forms.Button azurirajLetButton;
         private System.Windows.Forms.Button prikaziSveButton;
-        private System.Windows.Forms.Button buttonAvioniAviokompanije;
         private System.Windows.Forms.CheckBox pretraziPremaDatumuCheckBox;
     }
 }

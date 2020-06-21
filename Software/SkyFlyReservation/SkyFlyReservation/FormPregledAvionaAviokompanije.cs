@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -38,7 +39,7 @@ namespace SkyFlyReservation
             popisAvionaDataGridView.DataSource = null;
             popisAvionaDataGridView.DataSource = avioniAviokompanije;
 
-            popisAvionaDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            popisAvionaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             popisAvionaDataGridView.ReadOnly = true;
 
             popisAvionaDataGridView.Columns[1].HeaderText = "Registarska oznaka";
@@ -132,7 +133,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledAvionaAviokompanije.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "PregledAvionaAviokompanije.htm");
             }
         }
     }

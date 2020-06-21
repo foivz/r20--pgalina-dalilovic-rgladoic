@@ -297,8 +297,10 @@
             this.Controls.Add(this.podaciZaPlacanjeGroupBox);
             this.Controls.Add(this.rezervacijaGroupBox);
             this.Controls.Add(this.naslovLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormPlatiRezervaciju";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plati rezervaciju";

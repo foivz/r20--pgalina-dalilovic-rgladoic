@@ -16,7 +16,7 @@ namespace SkyFlyReservation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPregledLetova());
+            Application.Run(new FormPocetna());
         }
     }
 }
