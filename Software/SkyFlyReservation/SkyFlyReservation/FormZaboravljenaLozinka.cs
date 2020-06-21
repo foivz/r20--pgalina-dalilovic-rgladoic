@@ -10,6 +10,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -17,6 +18,7 @@ namespace SkyFlyReservation
     {
         public FormZaboravljenaLozinka()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -77,6 +79,16 @@ namespace SkyFlyReservation
             else
             {
                 MessageBox.Show("Korisnik s tom email adresom ne postoji!");
+            }
+        }
+
+        private void FormZaboravljenaLozinka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "ZaboravljenaLozinka.htm");
             }
         }
     }

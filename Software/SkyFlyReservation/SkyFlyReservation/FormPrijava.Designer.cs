@@ -151,6 +151,7 @@
             this.Name = "FormPrijava";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPrijava_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

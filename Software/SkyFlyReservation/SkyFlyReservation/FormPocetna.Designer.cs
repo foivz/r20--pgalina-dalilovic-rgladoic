@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPocetna));
             this.label1 = new System.Windows.Forms.Label();
             this.btnRezerviraj = new System.Windows.Forms.Button();
             this.btnKupi = new System.Windows.Forms.Button();
@@ -173,10 +173,12 @@
             this.Controls.Add(this.btnRegistracija);
             this.Controls.Add(this.btnPrijava);
             this.Controls.Add(this.picMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPocetna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SkyFlyReservation";
             this.Load += new System.EventHandler(this.FormPocetna_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPocetna_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNajpopularnijiLetovi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             this.ResumeLayout(false);

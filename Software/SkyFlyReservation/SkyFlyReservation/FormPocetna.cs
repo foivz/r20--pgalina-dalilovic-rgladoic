@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -15,6 +16,7 @@ namespace SkyFlyReservation
     {
         public FormPocetna()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -179,6 +181,12 @@ namespace SkyFlyReservation
             }
 
             return null;
+        }
+
+        private void FormPocetna_KeyDown(object sender, KeyEventArgs e)
+        {
+            Controler controler = new Controler();
+            controler.OtvoriUserHelp(this, "OAplikaciji.htm");
         }
     }
 }
