@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLozinka));
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -142,10 +143,12 @@
             this.Controls.Add(this.txtPonovljenaLozinka);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLozinka);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLozinka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLozinka";
             this.Load += new System.EventHandler(this.FormLozinka_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormLozinka_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

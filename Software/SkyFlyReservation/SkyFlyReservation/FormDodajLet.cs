@@ -54,7 +54,10 @@ namespace SkyFlyReservation
 
                 aviokompanijeComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAviokompanije();
 
-                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiSveAvione();
+
+                Aviokompanija aviokompanija = DohvatiSelektiranuAviokompaniju();
+
+                avionNaLetuComboBox.DataSource = RepozitorijSkyFlyReservation.DohvatiAvione(aviokompanija.AviokompanijaId);
             }
 
             avionNaLetuComboBox.DropDownStyle = ComboBoxStyle.DropDownList;

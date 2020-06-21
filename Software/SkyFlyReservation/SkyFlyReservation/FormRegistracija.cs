@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 using Validation;
 
 namespace SkyFlyReservation
@@ -19,6 +20,7 @@ namespace SkyFlyReservation
         private bool seePassword2 = false;
         public FormRegistracija()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -131,6 +133,16 @@ namespace SkyFlyReservation
         private void btnNatrag_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormRegistracija_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "Registracija.htm");
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -17,6 +18,7 @@ namespace SkyFlyReservation
         private bool seePassword2 = false;
         public FormLozinka()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -73,6 +75,17 @@ namespace SkyFlyReservation
             {
                 txtPonovljenaLozinka.PasswordChar = '\0';
                 seePassword2 = true;
+            }
+
+        }
+
+        private void FormLozinka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "PromjenaLozinke.htm");
             }
         }
     }

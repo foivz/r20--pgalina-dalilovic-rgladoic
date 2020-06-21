@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 using Validation;
 
 namespace SkyFlyReservation
@@ -17,6 +18,7 @@ namespace SkyFlyReservation
         private bool seePassword1 = false;
         public FormKorisnickiRacun()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -126,6 +128,16 @@ namespace SkyFlyReservation
                 {
                     MessageBox.Show("Neuspješna promjena! Molimo pokušajte ponovno.");
                 }
+            }
+        }
+
+        private void FormKorisnickiRacun_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "KorisnickiRacun.htm");
             }
         }
     }

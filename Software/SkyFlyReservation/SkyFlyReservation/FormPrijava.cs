@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -17,6 +18,7 @@ namespace SkyFlyReservation
         bool Autentikacija = false;
         public FormPrijava()
         {
+            this.KeyPreview = true;
             InitializeComponent();
             SetupPasswordTextbox();
         }
@@ -76,6 +78,16 @@ namespace SkyFlyReservation
         {
             FormZaboravljenaLozinka form = new FormZaboravljenaLozinka();
             form.ShowDialog();
+        }
+
+        private void FormPrijava_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "Prijava.htm");
+            }
         }
     }
 }

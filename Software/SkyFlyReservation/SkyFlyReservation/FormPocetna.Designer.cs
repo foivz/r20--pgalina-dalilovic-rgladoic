@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPocetna));
             this.label1 = new System.Windows.Forms.Label();
             this.btnRezerviraj = new System.Windows.Forms.Button();
             this.btnKupi = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@
             // btnRegistracija
             // 
             this.btnRegistracija.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRegistracija.Location = new System.Drawing.Point(860, 16);
+            this.btnRegistracija.Location = new System.Drawing.Point(1012, 13);
             this.btnRegistracija.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistracija.Name = "btnRegistracija";
             this.btnRegistracija.Size = new System.Drawing.Size(144, 42);
@@ -127,7 +127,7 @@
             // btnPrijava
             // 
             this.btnPrijava.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrijava.Location = new System.Drawing.Point(1012, 16);
+            this.btnPrijava.Location = new System.Drawing.Point(860, 13);
             this.btnPrijava.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrijava.Name = "btnPrijava";
             this.btnPrijava.Size = new System.Drawing.Size(144, 42);
@@ -173,10 +173,12 @@
             this.Controls.Add(this.btnRegistracija);
             this.Controls.Add(this.btnPrijava);
             this.Controls.Add(this.picMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPocetna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SkyFlyReservation";
             this.Load += new System.EventHandler(this.FormPocetna_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPocetna_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNajpopularnijiLetovi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             this.ResumeLayout(false);

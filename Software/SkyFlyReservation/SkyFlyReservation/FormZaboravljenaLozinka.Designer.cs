@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormZaboravljenaLozinka));
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -94,10 +95,12 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormZaboravljenaLozinka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Oporavak lozinke";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormZaboravljenaLozinka_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

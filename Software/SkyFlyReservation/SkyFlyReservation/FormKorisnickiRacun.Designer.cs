@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKorisnickiRacun));
             this.txtOib = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.KontaktLabel = new System.Windows.Forms.Label();
@@ -278,11 +279,13 @@
             this.Controls.Add(this.txtIme);
             this.Controls.Add(this.ImeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormKorisnickiRacun";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormKorisnickiRacun";
+            this.Text = "Korisnicki račun";
             this.Load += new System.EventHandler(this.FormKorisnickiRacun_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormKorisnickiRacun_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
