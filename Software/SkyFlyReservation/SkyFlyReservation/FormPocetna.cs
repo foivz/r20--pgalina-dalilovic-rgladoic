@@ -39,8 +39,8 @@ namespace SkyFlyReservation
         {
             if (RepozitorijSkyFlyReservation.prijavljeniKorisnik == null)
             {
-                btnRegistracija.Show();
-                btnPrijava.Show();
+                btnRegistracija.Text = "Registracija";
+                btnPrijava.Text = "Prijava";
 
                 btnPregledAviona.Hide();
                 btnPregledLetova.Hide();
@@ -48,7 +48,7 @@ namespace SkyFlyReservation
             }
             else if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik)
             {
-                btnRegistracija.Hide();
+                btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
 
                 btnPregledAviona.Hide();
@@ -57,7 +57,7 @@ namespace SkyFlyReservation
             }
             else if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Moderator)
             {
-                btnRegistracija.Hide();
+                btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
 
                 btnPregledAviona.Show();
@@ -66,7 +66,7 @@ namespace SkyFlyReservation
             }
             else if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Administrator)
             {
-                btnRegistracija.Hide();
+                btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
 
                 btnPregledAviona.Show();
@@ -75,7 +75,7 @@ namespace SkyFlyReservation
             }
             else if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
             {
-                btnRegistracija.Hide();
+                btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
 
                 btnPregledAviona.Show();
@@ -101,9 +101,17 @@ namespace SkyFlyReservation
 
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
-            FormRegistracija form = new FormRegistracija();
-            form.ShowDialog();
-            OsvjeziGumbe();
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik == null)
+            {
+                FormRegistracija form = new FormRegistracija();
+                form.ShowDialog();
+                OsvjeziGumbe();
+            }
+            else
+            {
+                RepozitorijSkyFlyReservation.prijavljeniKorisnik = null;
+                OsvjeziGumbe();
+            }
         }
 
         private void btnPregledLetova_Click(object sender, EventArgs e)

@@ -115,7 +115,7 @@
             // btnRegistracija
             // 
             this.btnRegistracija.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRegistracija.Location = new System.Drawing.Point(860, 16);
+            this.btnRegistracija.Location = new System.Drawing.Point(1012, 13);
             this.btnRegistracija.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistracija.Name = "btnRegistracija";
             this.btnRegistracija.Size = new System.Drawing.Size(144, 42);
@@ -127,7 +127,7 @@
             // btnPrijava
             // 
             this.btnPrijava.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrijava.Location = new System.Drawing.Point(1012, 16);
+            this.btnPrijava.Location = new System.Drawing.Point(860, 13);
             this.btnPrijava.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrijava.Name = "btnPrijava";
             this.btnPrijava.Size = new System.Drawing.Size(144, 42);
