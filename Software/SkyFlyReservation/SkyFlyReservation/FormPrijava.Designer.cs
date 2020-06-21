@@ -41,7 +41,7 @@
             // 
             // btnNatrag
             // 
-            this.btnNatrag.Location = new System.Drawing.Point(588, 323);
+            this.btnNatrag.Location = new System.Drawing.Point(411, 267);
             this.btnNatrag.Margin = new System.Windows.Forms.Padding(4);
             this.btnNatrag.Name = "btnNatrag";
             this.btnNatrag.Size = new System.Drawing.Size(121, 43);
@@ -53,18 +53,20 @@
             // ZaboravljenaLozinkaLabel
             // 
             this.ZaboravljenaLozinkaLabel.AutoSize = true;
-            this.ZaboravljenaLozinkaLabel.Location = new System.Drawing.Point(442, 283);
+            this.ZaboravljenaLozinkaLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ZaboravljenaLozinkaLabel.Location = new System.Drawing.Point(265, 227);
             this.ZaboravljenaLozinkaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ZaboravljenaLozinkaLabel.Name = "ZaboravljenaLozinkaLabel";
             this.ZaboravljenaLozinkaLabel.Size = new System.Drawing.Size(147, 17);
             this.ZaboravljenaLozinkaLabel.TabIndex = 46;
             this.ZaboravljenaLozinkaLabel.Text = "Zaboravljena lozinka?";
+            this.ZaboravljenaLozinkaLabel.Click += new System.EventHandler(this.ZaboravljenaLozinkaLabel_Click);
             // 
             // PrijavaLabel
             // 
             this.PrijavaLabel.AutoSize = true;
             this.PrijavaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrijavaLabel.Location = new System.Drawing.Point(534, 155);
+            this.PrijavaLabel.Location = new System.Drawing.Point(357, 99);
             this.PrijavaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PrijavaLabel.Name = "PrijavaLabel";
             this.PrijavaLabel.Size = new System.Drawing.Size(78, 25);
@@ -73,7 +75,7 @@
             // 
             // btnPrijaviSe
             // 
-            this.btnPrijaviSe.Location = new System.Drawing.Point(446, 323);
+            this.btnPrijaviSe.Location = new System.Drawing.Point(269, 267);
             this.btnPrijaviSe.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrijaviSe.Name = "btnPrijaviSe";
             this.btnPrijaviSe.Size = new System.Drawing.Size(121, 43);
@@ -84,7 +86,7 @@
             // 
             // txtLozinka
             // 
-            this.txtLozinka.Location = new System.Drawing.Point(446, 237);
+            this.txtLozinka.Location = new System.Drawing.Point(269, 181);
             this.txtLozinka.Margin = new System.Windows.Forms.Padding(4);
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(261, 22);
@@ -93,7 +95,7 @@
             // LozinkaLabel
             // 
             this.LozinkaLabel.AutoSize = true;
-            this.LozinkaLabel.Location = new System.Drawing.Point(381, 241);
+            this.LozinkaLabel.Location = new System.Drawing.Point(204, 185);
             this.LozinkaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LozinkaLabel.Name = "LozinkaLabel";
             this.LozinkaLabel.Size = new System.Drawing.Size(61, 17);
@@ -102,7 +104,7 @@
             // 
             // txtKorIme
             // 
-            this.txtKorIme.Location = new System.Drawing.Point(446, 205);
+            this.txtKorIme.Location = new System.Drawing.Point(269, 149);
             this.txtKorIme.Margin = new System.Windows.Forms.Padding(4);
             this.txtKorIme.Name = "txtKorIme";
             this.txtKorIme.Size = new System.Drawing.Size(261, 22);
@@ -111,7 +113,7 @@
             // KorImeLabel
             // 
             this.KorImeLabel.AutoSize = true;
-            this.KorImeLabel.Location = new System.Drawing.Point(334, 209);
+            this.KorImeLabel.Location = new System.Drawing.Point(157, 153);
             this.KorImeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.KorImeLabel.Name = "KorImeLabel";
             this.KorImeLabel.Size = new System.Drawing.Size(103, 17);
@@ -121,7 +123,7 @@
             // btnSeePassword
             // 
             this.btnSeePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeePassword.Location = new System.Drawing.Point(715, 237);
+            this.btnSeePassword.Location = new System.Drawing.Point(538, 181);
             this.btnSeePassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeePassword.Name = "btnSeePassword";
             this.btnSeePassword.Size = new System.Drawing.Size(40, 22);
@@ -134,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 602);
+            this.ClientSize = new System.Drawing.Size(803, 427);
             this.Controls.Add(this.btnSeePassword);
             this.Controls.Add(this.btnNatrag);
             this.Controls.Add(this.ZaboravljenaLozinkaLabel);
@@ -144,8 +146,10 @@
             this.Controls.Add(this.LozinkaLabel);
             this.Controls.Add(this.txtKorIme);
             this.Controls.Add(this.KorImeLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormPrijava";
-            this.Text = "FormPrijava";
+            this.Text = "Prijava";
             this.ResumeLayout(false);
             this.PerformLayout();
 

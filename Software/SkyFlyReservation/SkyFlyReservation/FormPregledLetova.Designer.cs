@@ -44,11 +44,9 @@
             this.polazisniAerodromLabel = new System.Windows.Forms.Label();
             this.dodajLetButton = new System.Windows.Forms.Button();
             this.kupiKartuButton = new System.Windows.Forms.Button();
-            this.pregledRezervacijaButton = new System.Windows.Forms.Button();
             this.obrisiLetButton = new System.Windows.Forms.Button();
             this.azurirajLetButton = new System.Windows.Forms.Button();
             this.prikaziSveButton = new System.Windows.Forms.Button();
-            this.buttonAvioniAviokompanije = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.popisLetovaDataGridView)).BeginInit();
             this.pretrazivanjeLetovaGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -216,21 +214,6 @@
             this.kupiKartuButton.UseVisualStyleBackColor = true;
             this.kupiKartuButton.Click += new System.EventHandler(this.kupiKartuButton_Click);
             // 
-            // pregledRezervacijaButton
-            // 
-
-            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1114, 471);
-
-            this.pregledRezervacijaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pregledRezervacijaButton.Location = new System.Drawing.Point(1111, 517);
-
-            this.pregledRezervacijaButton.Name = "pregledRezervacijaButton";
-            this.pregledRezervacijaButton.Size = new System.Drawing.Size(90, 51);
-            this.pregledRezervacijaButton.TabIndex = 9;
-            this.pregledRezervacijaButton.Text = "Pregled rezervacija";
-            this.pregledRezervacijaButton.UseVisualStyleBackColor = true;
-            this.pregledRezervacijaButton.Click += new System.EventHandler(this.pregledRezervacijaButton_Click);
-            // 
             // obrisiLetButton
             // 
             this.obrisiLetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -267,31 +250,14 @@
             this.prikaziSveButton.UseVisualStyleBackColor = true;
             this.prikaziSveButton.Click += new System.EventHandler(this.prikaziSveButton_Click);
             // 
-            // buttonAvioniAviokompanije
-            // 
-
-            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(959, 471);
-
-            this.buttonAvioniAviokompanije.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAvioniAviokompanije.Location = new System.Drawing.Point(954, 517);
-
-            this.buttonAvioniAviokompanije.Name = "buttonAvioniAviokompanije";
-            this.buttonAvioniAviokompanije.Size = new System.Drawing.Size(123, 51);
-            this.buttonAvioniAviokompanije.TabIndex = 12;
-            this.buttonAvioniAviokompanije.Text = "Avioni aviokompanije";
-            this.buttonAvioniAviokompanije.UseVisualStyleBackColor = true;
-            this.buttonAvioniAviokompanije.Click += new System.EventHandler(this.buttonAvioniAviokompanije_Click);
-            // 
             // FormPregledLetova
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 602);
-            this.Controls.Add(this.buttonAvioniAviokompanije);
             this.Controls.Add(this.prikaziSveButton);
             this.Controls.Add(this.azurirajLetButton);
             this.Controls.Add(this.obrisiLetButton);
-            this.Controls.Add(this.pregledRezervacijaButton);
             this.Controls.Add(this.kupiKartuButton);
             this.Controls.Add(this.dodajLetButton);
             this.Controls.Add(this.pretrazivanjeLetovaGroupBox);
@@ -330,11 +296,9 @@
         private System.Windows.Forms.Label polazisniAerodromLabel;
         private System.Windows.Forms.Button kupiKartuButton;
         private System.Windows.Forms.Button dodajLetButton;
-        private System.Windows.Forms.Button pregledRezervacijaButton;
         private System.Windows.Forms.Button obrisiLetButton;
         private System.Windows.Forms.Button azurirajLetButton;
         private System.Windows.Forms.Button prikaziSveButton;
-        private System.Windows.Forms.Button buttonAvioniAviokompanije;
         private System.Windows.Forms.CheckBox pretraziPremaDatumuCheckBox;
     }
 }
