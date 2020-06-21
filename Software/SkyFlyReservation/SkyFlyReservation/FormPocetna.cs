@@ -33,6 +33,20 @@ namespace SkyFlyReservation
             List<Let> Letovi = RepozitorijSkyFlyReservation.DohvatiNajpopularnijeLetove();
             dgvNajpopularnijiLetovi.DataSource = null;
             dgvNajpopularnijiLetovi.DataSource = Letovi;
+
+            dgvNajpopularnijiLetovi.Columns[1].HeaderText = "Broj leta";
+            dgvNajpopularnijiLetovi.Columns[2].HeaderText = "Polazišni aerodrom";
+            dgvNajpopularnijiLetovi.Columns[3].HeaderText = "Odredišni aerodrom";
+            dgvNajpopularnijiLetovi.Columns[4].HeaderText = "Datum polaska";
+            dgvNajpopularnijiLetovi.Columns[5].HeaderText = "Datum dolaska";
+            dgvNajpopularnijiLetovi.Columns[6].HeaderText = "Avion";
+            dgvNajpopularnijiLetovi.Columns[7].HeaderText = "Cijena karte";
+            dgvNajpopularnijiLetovi.Columns[8].HeaderText = "Broj slobodnih mjesta";
+
+            dgvNajpopularnijiLetovi.Columns[0].Visible = false;
+            dgvNajpopularnijiLetovi.Columns[6].Visible = false;
+            dgvNajpopularnijiLetovi.Columns[7].Visible = false;
+            dgvNajpopularnijiLetovi.Columns[8].Visible = false;
         }
 
         private void OsvjeziGumbe()
