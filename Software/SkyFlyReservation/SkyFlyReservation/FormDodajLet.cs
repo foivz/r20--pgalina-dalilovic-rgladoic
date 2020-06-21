@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -20,7 +21,8 @@ namespace SkyFlyReservation
 
         private void FormDodajLet_Load(object sender, EventArgs e)
         {
-            OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
+            List<Aerodrom> aerodromi = RepozitorijSkyFlyReservation.DohvatiAerodrome();
+            OsvjeziComboBox(aerodromi);
         }
 
         private void OsvjeziComboBox(List<Aerodrom> aerodromi)
@@ -99,6 +101,10 @@ namespace SkyFlyReservation
                     MessageBox.Show($"Let {polazisniAerodrom.NazivAerodroma}->{odredisniAerodrom.NazivAerodroma} je uspješno dodan u sustav.");
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Greška kod unosa u bazu podataka.");
+                }
             }
         }
 
@@ -150,8 +156,9 @@ namespace SkyFlyReservation
         {
             if (e.KeyCode == Keys.F1)
             {
-                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
-                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "DodajLet.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "DodajLet.htm");
             }
         }
 

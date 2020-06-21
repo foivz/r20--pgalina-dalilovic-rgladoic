@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -22,9 +23,13 @@ namespace SkyFlyReservation
         
         private void FormPregledLetova_Load(object sender, EventArgs e)
         {
-            OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove());
-            OsvjeziComboBox(RepozitorijSkyFlyReservation.DohvatiAerodrome());
+            List<Aerodrom> aerodromi = RepozitorijSkyFlyReservation.DohvatiAerodrome();
+            OsvjeziComboBox(aerodromi);
+
             OsvjeziKomponente();
+
+            List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove();
+            OsvjeziDGV(letovi);
         }
 
         private void OsvjeziKomponente()
@@ -99,12 +104,13 @@ namespace SkyFlyReservation
                     MessageBox.Show($"Datum polaska ne može biti manji od datuma {datum.ToString("dd/MM/yyyy")}.");
                     return;
                 }
-
-                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom, datumVrijemePolaska.ToString("yyyy-MM-dd")));
+                List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom, datumVrijemePolaska.ToString("yyyy-MM-dd"));
+                OsvjeziDGV(letovi);
             }
             else
             {
-                OsvjeziDGV(RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom));
+                List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove(odabraniPolazisniAerodrom, odabraniOdredisniAerodrom);
+                OsvjeziDGV(letovi);
             }
             
         }
@@ -216,8 +222,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
-                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PregledLetova.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "PregledLetova.htm");
             }
         }
     }

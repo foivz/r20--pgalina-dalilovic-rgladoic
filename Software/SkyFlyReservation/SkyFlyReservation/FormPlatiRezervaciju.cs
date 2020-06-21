@@ -13,6 +13,7 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System.Net.Mail;
 using System.Net;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -227,8 +228,9 @@ namespace SkyFlyReservation
         {
             if (e.KeyCode == Keys.F1)
             {
-                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
-                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "PlatiRezervaciju.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "PlatiRezervaciju.htm");
             }
         }
     }

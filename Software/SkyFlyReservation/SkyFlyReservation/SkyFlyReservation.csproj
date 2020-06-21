@@ -213,6 +213,10 @@
       <Project>{A4FB8562-331B-4105-A069-5B2A9884C0C4}</Project>
       <Name>Database Access</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserHelpControler\UserHelp Controler.csproj">
+      <Project>{9F11C64D-826F-4869-B062-9C839C49A435}</Project>
+      <Name>UserHelp Controler</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

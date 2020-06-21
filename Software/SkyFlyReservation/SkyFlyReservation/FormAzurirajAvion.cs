@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserHelpControler;
 
 namespace SkyFlyReservation
 {
@@ -136,8 +137,9 @@ namespace SkyFlyReservation
         {
             if(e.KeyCode == Keys.F1)
             {
-                string putanja = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
-                Help.ShowHelp(this, putanja + "\\Help\\SkyFlyReservationUserManual.chm", HelpNavigator.Topic, "AzurirajAvion.htm");
+                Controler controler = new Controler();
+
+                controler.OtvoriUserHelp(this, "AzurirajAvion.htm");
             }
         }
     }
