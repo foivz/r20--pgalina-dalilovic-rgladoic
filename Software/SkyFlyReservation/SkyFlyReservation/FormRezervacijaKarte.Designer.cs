@@ -389,9 +389,8 @@
             // 
             // rezervirajSjedaloButton
             // 
-            this.rezervirajSjedaloButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rezervirajSjedaloButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rezervirajSjedaloButton.Location = new System.Drawing.Point(1431, 528);
+            this.rezervirajSjedaloButton.Location = new System.Drawing.Point(1451, 528);
             this.rezervirajSjedaloButton.Name = "rezervirajSjedaloButton";
             this.rezervirajSjedaloButton.Size = new System.Drawing.Size(98, 42);
             this.rezervirajSjedaloButton.TabIndex = 17;
@@ -3131,9 +3130,8 @@
             // 
             // kupiKartuButton
             // 
-            this.kupiKartuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.kupiKartuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.kupiKartuButton.Location = new System.Drawing.Point(1535, 528);
+            this.kupiKartuButton.Location = new System.Drawing.Point(1555, 528);
             this.kupiKartuButton.Name = "kupiKartuButton";
             this.kupiKartuButton.Size = new System.Drawing.Size(98, 42);
             this.kupiKartuButton.TabIndex = 181;
@@ -3145,7 +3143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1653, 602);
+            this.ClientSize = new System.Drawing.Size(1673, 602);
             this.Controls.Add(this.kupiKartuButton);
             this.Controls.Add(this.sjedalaSeNeKoristeLabel);
             this.Controls.Add(this.zauzetaSjedalaLabel);
