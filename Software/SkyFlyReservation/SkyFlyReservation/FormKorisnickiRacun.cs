@@ -91,10 +91,6 @@ namespace SkyFlyReservation
             {
                 MessageBox.Show("Korisničko ime je zauzeto!");
             }
-            else if (dohvaceniKorisnik.EmailKorisnika == txtEmail.Text && dohvaceniKorisnik.KorisnickoImeKorisnika != RepozitorijSkyFlyReservation.prijavljeniKorisnik.KorisnickoImeKorisnika)
-            {
-                MessageBox.Show("Taj email već koristi drugi račun!");
-            }
             else
             {
                 Korisnik korisnik = new Korisnik()
