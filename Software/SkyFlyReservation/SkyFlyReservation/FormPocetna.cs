@@ -59,20 +59,26 @@ namespace SkyFlyReservation
                 btnPregledAviona.Hide();
                 btnPregledLetova.Hide();
                 btnPregledRezervacija.Hide();
+                btnPregledKorisnickihRacuna.Hide();
+                btnPrikazIzvjesca.Hide();
             }
             else if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik)
             {
                 btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
+                btnPregledAviona.Text = "Slanje zahtjeva za suradnju";
 
-                btnPregledAviona.Hide();
+                btnPregledAviona.Show();
                 btnPregledLetova.Show();
                 btnPregledRezervacija.Show();
+                btnPrikazIzvjesca.Hide();
+                btnPregledKorisnickihRacuna.Hide();
             }
             else if(RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Moderator)
             {
                 btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
+                btnPregledAviona.Text = "Pregled aviona";
 
                 btnPregledAviona.Show();
                 btnPregledLetova.Show();
@@ -82,19 +88,26 @@ namespace SkyFlyReservation
             {
                 btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
+                btnPregledAviona.Text = "Pregled aviona";
+                btnPregledKorisnickihRacuna.Text = "Pregled korisničkih računa";
 
                 btnPregledAviona.Show();
                 btnPregledLetova.Show();
                 btnPregledRezervacija.Show();
+                btnPregledKorisnickihRacuna.Show();
+                btnPrikazIzvjesca.Show();
             }
             else if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
             {
                 btnRegistracija.Text = "Odjava";
                 btnPrijava.Text = "Korisnički račun";
+                btnPregledAviona.Text = "Pregled aviona";
+                btnPregledKorisnickihRacuna.Text = "Pregled zahtjeva";
 
                 btnPregledAviona.Show();
                 btnPregledLetova.Show();
                 btnPregledRezervacija.Show();
+                btnPregledKorisnickihRacuna.Show();
             }
         }
 
@@ -142,8 +155,16 @@ namespace SkyFlyReservation
 
         private void btnPregledAviona_Click(object sender, EventArgs e)
         {
-            FormPregledAvionaAviokompanije form = new FormPregledAvionaAviokompanije();
-            form.ShowDialog();
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik)
+            {
+                FormSlanjeZahtjeva form = new FormSlanjeZahtjeva();
+                form.ShowDialog();
+            }
+            else
+            {
+                FormPregledAvionaAviokompanije form = new FormPregledAvionaAviokompanije();
+                form.ShowDialog();
+            }
         }
 
         private void btnRezerviraj_Click(object sender, EventArgs e)
@@ -195,6 +216,26 @@ namespace SkyFlyReservation
             }
         }
 
+        private void btnPregledKorisnickihRacuna_Click(object sender, EventArgs e)
+        {
+            if (RepozitorijSkyFlyReservation.prijavljeniKorisnik.UlogaKorisnika == UlogaKorisnika.Owner)
+            {
+                FormPregledZahtjeva form = new FormPregledZahtjeva();
+                form.ShowDialog();
+            }
+            else
+            {
+                FormPregledKorisnickihRacuna form = new FormPregledKorisnickihRacuna();
+                form.ShowDialog();
+            }
+        }
+
+        private void btnPrikazIzvjesca_Click(object sender, EventArgs e)
+        {
+            FormPrikazIzvjesca form = new FormPrikazIzvjesca();
+            form.ShowDialog();
+        }
+
         private Let DohvatiSelektiraniLet()
         {
             if (dgvNajpopularnijiLetovi.CurrentRow != null)
@@ -213,5 +254,6 @@ namespace SkyFlyReservation
                 controler.OtvoriUserHelp(this, "OAplikaciji.htm");
             }
         }
+
     }
 }

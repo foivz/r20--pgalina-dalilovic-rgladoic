@@ -91,5 +91,10 @@ namespace SkyFlyReservation
                 controler.OtvoriUserHelp(this, "ZaboravljenaLozinka.htm");
             }
         }
+
+        private void btnNatrag_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

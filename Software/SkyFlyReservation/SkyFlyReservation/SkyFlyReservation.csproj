@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,7 @@
     <Compile Include="Class\RepozitorijSkyFlyReservation.cs" />
     <Compile Include="Class\Rezervacija.cs" />
     <Compile Include="Class\Sjedalo.cs" />
+    <Compile Include="Class\ZahtjevZaSuradnju.cs" />
     <Compile Include="FormAzurirajAvion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +87,12 @@
     </Compile>
     <Compile Include="FormDetaljiLeta.Designer.cs">
       <DependentUpon>FormDetaljiLeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetaljiZahtjeva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetaljiZahtjeva.Designer.cs">
+      <DependentUpon>FormDetaljiZahtjeva.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDodajAvion.cs">
       <SubType>Form</SubType>
@@ -152,11 +160,29 @@
     <Compile Include="FormPregledRezervacija.Designer.cs">
       <DependentUpon>FormPregledRezervacija.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPregledKorisnickihRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPregledKorisnickihRacuna.Designer.cs">
+      <DependentUpon>FormPregledKorisnickihRacuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPregledZahtjeva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPregledZahtjeva.Designer.cs">
+      <DependentUpon>FormPregledZahtjeva.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrijava.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPrijava.Designer.cs">
       <DependentUpon>FormPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrikazIzvjesca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrikazIzvjesca.Designer.cs">
+      <DependentUpon>FormPrikazIzvjesca.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegistracija.cs">
       <SubType>Form</SubType>
@@ -169,6 +195,12 @@
     </Compile>
     <Compile Include="FormRezervacijaKarte.Designer.cs">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSlanjeZahtjeva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSlanjeZahtjeva.Designer.cs">
+      <DependentUpon>FormSlanjeZahtjeva.cs</DependentUpon>
     </Compile>
     <Compile Include="FormZaboravljenaLozinka.cs">
       <SubType>Form</SubType>
@@ -186,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetaljiLeta.resx">
       <DependentUpon>FormDetaljiLeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetaljiZahtjeva.resx">
+      <DependentUpon>FormDetaljiZahtjeva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDodajAvion.resx">
       <DependentUpon>FormDodajAvion.cs</DependentUpon>
@@ -220,14 +255,26 @@
     <EmbeddedResource Include="FormPregledRezervacija.resx">
       <DependentUpon>FormPregledRezervacija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPregledKorisnickihRacuna.resx">
+      <DependentUpon>FormPregledKorisnickihRacuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPregledZahtjeva.resx">
+      <DependentUpon>FormPregledZahtjeva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrijava.resx">
       <DependentUpon>FormPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrikazIzvjesca.resx">
+      <DependentUpon>FormPrikazIzvjesca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistracija.resx">
       <DependentUpon>FormRegistracija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRezervacijaKarte.resx">
       <DependentUpon>FormRezervacijaKarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSlanjeZahtjeva.resx">
+      <DependentUpon>FormSlanjeZahtjeva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormZaboravljenaLozinka.resx">
       <DependentUpon>FormZaboravljenaLozinka.cs</DependentUpon>

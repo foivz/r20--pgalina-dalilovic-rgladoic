@@ -40,45 +40,45 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(292, 95);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(219, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 25);
+            this.label1.Size = new System.Drawing.Size(146, 20);
             this.label1.TabIndex = 70;
             this.label1.Text = "Oporavak lozinke";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(237, 191);
+            this.txtEmail.Location = new System.Drawing.Point(178, 155);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(288, 22);
+            this.txtEmail.Size = new System.Drawing.Size(217, 20);
             this.txtEmail.TabIndex = 71;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 171);
+            this.label2.Location = new System.Drawing.Point(195, 139);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 17);
+            this.label2.Size = new System.Drawing.Size(187, 13);
             this.label2.TabIndex = 72;
             this.label2.Text = "Email korisničkog računa za oporavak";
             // 
             // btnNatrag
             // 
-            this.btnNatrag.Location = new System.Drawing.Point(382, 259);
-            this.btnNatrag.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNatrag.Location = new System.Drawing.Point(286, 210);
             this.btnNatrag.Name = "btnNatrag";
-            this.btnNatrag.Size = new System.Drawing.Size(125, 43);
+            this.btnNatrag.Size = new System.Drawing.Size(94, 35);
             this.btnNatrag.TabIndex = 74;
             this.btnNatrag.Text = "Natrag";
             this.btnNatrag.UseVisualStyleBackColor = true;
+            this.btnNatrag.Click += new System.EventHandler(this.btnNatrag_Click);
             // 
             // btnPosalji
             // 
-            this.btnPosalji.Location = new System.Drawing.Point(246, 259);
-            this.btnPosalji.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPosalji.Location = new System.Drawing.Point(184, 210);
             this.btnPosalji.Name = "btnPosalji";
-            this.btnPosalji.Size = new System.Drawing.Size(125, 43);
+            this.btnPosalji.Size = new System.Drawing.Size(94, 35);
             this.btnPosalji.TabIndex = 73;
             this.btnPosalji.Text = "Pošalji";
             this.btnPosalji.UseVisualStyleBackColor = true;
@@ -86,9 +86,9 @@
             // 
             // FormZaboravljenaLozinka
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 405);
+            this.ClientSize = new System.Drawing.Size(567, 329);
             this.Controls.Add(this.btnNatrag);
             this.Controls.Add(this.btnPosalji);
             this.Controls.Add(this.label2);
@@ -96,6 +96,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "FormZaboravljenaLozinka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
