@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SkyFlyReservation.Class
 {
@@ -202,6 +203,153 @@ namespace SkyFlyReservation.Class
             return numAffectedRows;
         }
 
+        public static int DodajZahtjev(ZahtjevZaSuradnju zahtjev)
+        {
+            Database.Instance.Connect();
+
+            string sql = "INSERT INTO ZahtjevZaSuradnju (idKorisnik, DatumVrijemeKreiranja, TekstZahtjeva, StatusZahtjeva) " +
+                $"VALUES({zahtjev.Korisnik.KorisnikId},'{zahtjev.DatumVrijemeKreiranja.ToString("yyyy-MM-dd HH:mm:ss")}', '{zahtjev.TekstZahtjeva}', 2);";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static int DodajAviokompaniju(Aviokompanija aviokompanija)
+        {
+            Database.Instance.Connect();
+
+            string sql = "INSERT INTO Aviokompanija (NazivAviokompanije, OIBAviokompanije, IBANAviokompanije, AdresaAviokompanije, KontaktTelefonAviokompanije, EmailAviokompanije) " +
+                $"VALUES('{aviokompanija.NazivAviokompanije}','{aviokompanija.OIBAviokompanije}', '{aviokompanija.IBANAviokompanije}', '{aviokompanija.AdresaAviokompanije}','{aviokompanija.KontaktAviokompanije}', '{aviokompanija.EmailAviokompanije}');";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static void ObrisiAviokompaniju(int id)
+        {
+            Database.Instance.Connect();
+
+            string sql = "DELETE FROM Aviokompanija " +
+                $"WHERE AviokompanijaId = '{id}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+        }
+
+        public static int PridruziAviokompaniju(Aviokompanija aviokompanija, int id)
+        {
+
+            int aviokompanijaId = DohvatiIdAviokompanije(aviokompanija);
+
+
+            Database.Instance.Connect();
+
+            string sql = $"UPDATE Korisnik SET AviokompanijaKorisnika = '{aviokompanijaId}' " +
+                $"WHERE KorisnikId = '{id}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+
+        public static int DohvatiIdAviokompanije(Aviokompanija aviokompanija)
+        {
+            Database.Instance.Connect();
+
+            string sql = "SELECT AviokompanijaId FROM Aviokompanija " +
+                $"WHERE OIBAviokompanije = '{aviokompanija.OIBAviokompanije}';";
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            int aviokompanijaId = 0;
+
+            while (dataReader.Read())
+            {
+                aviokompanijaId = (int)dataReader["AviokompanijaId"];
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return aviokompanijaId;
+        }
+
+        public static Aviokompanija DohvatiAviokompaniju(int id)
+        {
+            int AviokompanijaId = RepozitorijSkyFlyReservation.DohvatiAviokompanijaId(id);
+            string sql = "SELECT * FROM Aviokompanija " +
+                $"WHERE AviokompanijaId = '{AviokompanijaId}';";
+
+            Aviokompanija aviokompanija = DohvatiAviokompaniju(sql);
+
+            return aviokompanija;
+        }
+
+        private static Aviokompanija DohvatiAviokompaniju(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            bool recvData = dataReader.Read();
+            if (recvData == false)
+            {
+                dataReader.Close();
+                Database.Instance.Disconnect();
+                return null;
+            }
+            else
+            {
+               Aviokompanija aviokompanija = new Aviokompanija()
+                {
+                   AviokompanijaId = (int)dataReader["AviokompanijaId"],
+                   NazivAviokompanije = dataReader["NazivAviokompanije"].ToString(),
+                   OIBAviokompanije = dataReader["OIBAviokompanije"].ToString(),
+                   IBANAviokompanije = dataReader["IBANAviokompanije"].ToString(),
+                   AdresaAviokompanije = dataReader["AdresaAviokompanije"].ToString(),
+                   KontaktAviokompanije = dataReader["KontaktTelefonAviokompanije"].ToString(),
+                   EmailAviokompanije = dataReader["EmailAviokompanije"].ToString()
+
+               };
+                dataReader.Close();
+                Database.Instance.Disconnect();
+                return aviokompanija;
+            }
+        }
+
+        public static int DohvatiAviokompanijaId(int id)
+        {
+            Database.Instance.Connect();
+
+            string sql = "SELECT AviokompanijaKorisnika FROM Korisnik " +
+                $"WHERE  KorisnikId = '{id}';";
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            int aviokompanijaKorisnika = 0;
+
+            while (dataReader.Read())
+            {
+                aviokompanijaKorisnika = (int)dataReader["AviokompanijaKorisnika"];
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return aviokompanijaKorisnika;
+        }
+
         public static int DodajRacun(string id, string email)
         {
             string brojRacuna = GenerirajBrojRacuna();
@@ -243,6 +391,34 @@ namespace SkyFlyReservation.Class
             return numAffectedRows;
         }
 
+        public static void Obavijest(string email)
+        {
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
+
+            client.UseDefaultCredentials = false;
+            NetworkCredential cred = new NetworkCredential("skyflyreservation@gmail.com", "sj6IWP3o");
+
+            MailMessage Msg = new MailMessage();
+
+            Msg.From = new MailAddress("skyflyreservation@gmail.com");
+
+            Msg.To.Add($"{email}");
+
+            Msg.Subject = "Dodjela uloge administratora";
+
+            Msg.Body = $"Poštovani,\n\n" +
+                "Prihvaćen je Vaš zahtjev za suradnjom te Vam se dodijeljuje uloga administratora.\n\n" +
+                "S poštovanjem,\n" +
+                "SkyFlyReservation";
+
+            client.Credentials = cred;
+
+            client.EnableSsl = true;
+
+            client.Send(Msg);
+            client.Dispose();
+        }
+
         private static string GenerirajBrojRacuna()
         {
             Database.Instance.Connect();
@@ -274,6 +450,23 @@ namespace SkyFlyReservation.Class
             }
             Database.Instance.Disconnect();
             return brojRacuna;
+        }
+
+        public static List<Korisnik> DohvatiKorisnickeRacune()
+        {
+            string sql = "SELECT * FROM Korisnik k " +
+                "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
+                "LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId " +
+                "WHERE IdUlogaKorisnika = 1 " +
+                "UNION " +
+                "SELECT * FROM Korisnik k " +
+                "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
+                "LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId " +
+                "WHERE IdUlogaKorisnika = 2 ;";
+
+            List<Korisnik> korisnik = DohvatiPodatkeKorisnika(sql);
+
+            return korisnik;
         }
 
         public static List<Korisnik> DohvatiSveKorisnike()
@@ -483,6 +676,76 @@ namespace SkyFlyReservation.Class
             Database.Instance.ExecuteCommand(sql);
         }
 
+        public static int DodajUloguAdministratora(int id)
+        {
+            Database.Instance.Connect();
+
+            string sql = "UPDATE Korisnik SET IdUlogaKorisnika = 3 " +
+                $"WHERE KorisnikId = '{id}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static int DodajUloguRegistriranogKorisnika(int id)
+        {
+            Database.Instance.Connect();
+            string sqlNULL = "NULL";
+            string sql = $"UPDATE Korisnik SET IdUlogaKorisnika = 1, AviokompanijaKorisnika = {sqlNULL} " +
+                $"WHERE KorisnikId = '{id}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static int DodajUloguModeratora(int id, Aviokompanija aviokompanija)
+        {
+            Database.Instance.Connect();
+
+            string sql = $"UPDATE Korisnik SET IdUlogaKorisnika = 2,  AviokompanijaKorisnika = '{aviokompanija.AviokompanijaId}'" +
+                $"WHERE KorisnikId = '{id}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static int ZahtjevPrihvacen(int ZahtjevId)
+        {
+            Database.Instance.Connect();
+
+            string sql = "UPDATE ZahtjevZaSuradnju SET StatusZahtjeva = 1 " +
+                $"WHERE ZahtjevId = '{ZahtjevId}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
+        public static int ZahtjevOdbijen(int ZahtjevId)
+        {
+            Database.Instance.Connect();
+
+            string sql = "UPDATE ZahtjevZaSuradnju SET StatusZahtjeva = 0 " +
+                $"WHERE ZahtjevId = '{ZahtjevId}';";
+
+            int numAffectedRows = Database.Instance.ExecuteCommand(sql);
+
+            Database.Instance.Disconnect();
+
+            return numAffectedRows;
+        }
+
         public static int ObrisiLet(Let let)
         {
             Database.Instance.Connect();
@@ -526,6 +789,16 @@ namespace SkyFlyReservation.Class
             List<Avion> avioni = DohvatiPodatkeAviona(sql);
 
             return avioni;
+        }
+
+        public static List<ZahtjevZaSuradnju> DohvatiZahtjeve()
+        {
+            string sql = "SELECT ZahtjevId, DatumVrijemeKreiranja, TekstZahtjeva, StatusZahtjeva, KorisnikId, Ime, Prezime, EmailAdresaKorisnika, AdresaKorisnika, KontaktTelefon, OIBKorisnika FROM ZahtjevZaSuradnju z " +
+                "INNER JOIN Korisnik k ON z.IdKorisnik = k.KorisnikId;";
+
+            List<ZahtjevZaSuradnju> zahtjevi = DohvatiPodatkeZahtjeva(sql);
+
+            return zahtjevi;
         }
 
         public static List<Avion> DohvatiSveAvione()
@@ -796,6 +1069,61 @@ namespace SkyFlyReservation.Class
             Database.Instance.Disconnect();
 
             return avioni;
+        }
+
+        private static List<ZahtjevZaSuradnju> DohvatiPodatkeZahtjeva(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<ZahtjevZaSuradnju> zahtjevi = new List<ZahtjevZaSuradnju>();
+            while (dataReader.Read())
+            {
+              
+                Korisnik korisnik = new Korisnik()
+                {
+                    KorisnikId = (int)dataReader["KorisnikId"],
+                    ImeKorisnika = dataReader["Ime"].ToString(),
+                    PrezimeKorisnika = dataReader["Prezime"].ToString(),
+                    AdresaKorisnika = dataReader["AdresaKorisnika"].ToString(),
+                    KontaktTelefonKorisnika = dataReader["KontaktTelefon"].ToString(),
+                    EmailKorisnika = dataReader["EmailAdresaKorisnika"].ToString(),
+                    OIBKorisnika = dataReader["OIBKorisnika"].ToString(),
+                };
+
+                StanjeZahtjeva stanjeZahtjeva = StanjeZahtjeva.Obrada;
+
+                if (dataReader["StatusZahtjeva"].ToString() == "0")
+                {
+                    stanjeZahtjeva = StanjeZahtjeva.Odbijen;
+                }
+                else if (dataReader["StatusZahtjeva"].ToString() == "1")
+                {
+                    stanjeZahtjeva = StanjeZahtjeva.Prihvaćen;
+                }
+                else
+                {
+                    stanjeZahtjeva = StanjeZahtjeva.Obrada;
+                }
+
+                ZahtjevZaSuradnju zahtjev = new ZahtjevZaSuradnju()
+                {
+                    ZahtjevId = (int)dataReader["ZahtjevId"],
+                    Korisnik = korisnik,
+                    DatumVrijemeKreiranja = (DateTime)dataReader["DatumVrijemeKreiranja"],
+                    TekstZahtjeva = dataReader["TekstZahtjeva"].ToString(),
+                    StatusZahtjeva = stanjeZahtjeva
+                    
+                };
+
+                zahtjevi.Add(zahtjev);
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return zahtjevi;
         }
 
         private static List<Aerodrom> DohvatiPodatkeAerodroma(string sql)
