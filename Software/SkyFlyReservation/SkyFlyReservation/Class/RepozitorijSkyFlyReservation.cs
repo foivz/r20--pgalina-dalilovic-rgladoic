@@ -452,17 +452,18 @@ namespace SkyFlyReservation.Class
             return brojRacuna;
         }
 
-        public static List<Korisnik> DohvatiKorisnickeRacune()
+        public static List<Korisnik> DohvatiKorisnickeRacune(int id)
         {
             string sql = "SELECT * FROM Korisnik k " +
                 "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
                 "LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId " +
-                "WHERE IdUlogaKorisnika = 1 " +
+                $"WHERE IdUlogaKorisnika = 1 AND AviokompanijaKorisnika  IS NULL " +
                 "UNION " +
                 "SELECT * FROM Korisnik k " +
                 "INNER JOIN UlogaKorisnika u ON k.IdUlogaKorisnika = u.UlogaKorisnikaId " +
                 "LEFT JOIN Aviokompanija a ON k.AviokompanijaKorisnika = a.AviokompanijaId " +
-                "WHERE IdUlogaKorisnika = 2 ;";
+                $"WHERE IdUlogaKorisnika = 2 AND AviokompanijaKorisnika = '{id}' ;";
+                
 
             List<Korisnik> korisnik = DohvatiPodatkeKorisnika(sql);
 

@@ -22,7 +22,7 @@ namespace SkyFlyReservation
 
         private void FormPregledKorisnickihRacuna_Load(object sender, EventArgs e)
         {
-            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
             OsvjeziDGV(korisnici);
             prikazSvihRadio.Checked = true;
         }
@@ -50,19 +50,19 @@ namespace SkyFlyReservation
         {
             if (moderatorRadio.Checked == true)
             {
-                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
 
                 OsvjeziDGV(korisnici.Where(r => r.UlogaKorisnika == UlogaKorisnika.Moderator).ToList());
             }
             else if (registriraniRadio.Checked == true)
             {
-                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
 
                 OsvjeziDGV(korisnici.Where(r => r.UlogaKorisnika == UlogaKorisnika.RegistriraniKorisnik).ToList());
             }
             else if (prikazSvihRadio.Checked == true)
             {
-                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+                List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
 
                 OsvjeziDGV(korisnici.ToList());
             }
@@ -97,7 +97,7 @@ namespace SkyFlyReservation
 
             }
 
-            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
             OsvjeziDGV(korisnici);
         }
 
@@ -120,13 +120,13 @@ namespace SkyFlyReservation
                 
             }
 
-            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
             OsvjeziDGV(korisnici);  
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune();
+            List<Korisnik> korisnici = RepozitorijSkyFlyReservation.DohvatiKorisnickeRacune(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
 
                 string text = txtPretrazi.Text;
                 var query = from k in korisnici

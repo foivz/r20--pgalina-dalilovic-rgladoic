@@ -9,3 +9,9 @@ C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.csproj.CoreCompileInputs.cache
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.dll
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.pdb
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\bin\Debug\Database Access.dll
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\bin\Debug\Database Access.pdb
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.csprojAssemblyReference.cache
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.csproj.CoreCompileInputs.cache
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.dll
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Database Access\obj\Debug\Database Access.pdb
