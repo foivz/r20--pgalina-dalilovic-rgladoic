@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gladoić\\Desktop\\Projekt iz Programskog inženjerstva\\r20--master\\Software\\SkyFlyReservation\\Validation\\Validation.csproj": {}
+    "C:\\Users\\Petra\\Documents\\r20--pgalina-dalilovic-rgladoic\\Software\\SkyFlyReservation\\Validation\\Validation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gladoić\\Desktop\\Projekt iz Programskog inženjerstva\\r20--master\\Software\\SkyFlyReservation\\Validation\\Validation.csproj": {
+    "C:\\Users\\Petra\\Documents\\r20--pgalina-dalilovic-rgladoic\\Software\\SkyFlyReservation\\Validation\\Validation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gladoić\\Desktop\\Projekt iz Programskog inženjerstva\\r20--master\\Software\\SkyFlyReservation\\Validation\\Validation.csproj",
+        "projectUniqueName": "C:\\Users\\Petra\\Documents\\r20--pgalina-dalilovic-rgladoic\\Software\\SkyFlyReservation\\Validation\\Validation.csproj",
         "projectName": "Validation",
-        "projectPath": "C:\\Users\\Gladoić\\Desktop\\Projekt iz Programskog inženjerstva\\r20--master\\Software\\SkyFlyReservation\\Validation\\Validation.csproj",
-        "packagesPath": "C:\\Users\\Gladoić\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gladoić\\Desktop\\Projekt iz Programskog inženjerstva\\r20--master\\Software\\SkyFlyReservation\\Validation\\obj\\",
+        "projectPath": "C:\\Users\\Petra\\Documents\\r20--pgalina-dalilovic-rgladoic\\Software\\SkyFlyReservation\\Validation\\Validation.csproj",
+        "packagesPath": "C:\\Users\\Petra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Petra\\Documents\\r20--pgalina-dalilovic-rgladoic\\Software\\SkyFlyReservation\\Validation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gladoić\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Petra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -28,8 +28,8 @@ namespace SkyFlyReservation
 
         private void FormPrikazIzvjesca_Load(object sender, EventArgs e)
         {
-            List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetove();
-
+            
+            List<Let> letovi = RepozitorijSkyFlyReservation.DohvatiLetoveAviokompanije();
             
             List<string> polazista = letovi.Select(l => l.PolazisniAerodrom.ToString()).Distinct().ToList();
 
