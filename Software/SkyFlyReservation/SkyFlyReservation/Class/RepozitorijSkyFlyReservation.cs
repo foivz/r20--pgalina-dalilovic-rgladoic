@@ -28,6 +28,53 @@ namespace SkyFlyReservation.Class
             return letovi;
         }
 
+        public static List<Let> DohvatiLetoveAviokompanije()
+        {
+
+            List<int> id = RepozitorijSkyFlyReservation.DohvatiIdAviona(RepozitorijSkyFlyReservation.prijavljeniKorisnik.Aviokompanija.AviokompanijaId);
+
+            List<Let> letovi = new List<Let>();
+
+            foreach (var item in id)
+            {
+                string sql = "SELECT LetId as letId, BrojLeta as brojLeta, DatumVrijemePolaska as datumVrijemePolaska, DatumVrijemeDolaska as datumVrijemeDolaska, CijenaKarte as cijenaKarte, BrojSlobodnihMjesta as brojSlobodnihMjesta , polazisni.AerodromId as idPolazisnogAerodroma, polazisni.NazivAerodroma as nazivPolazisnogAerodroma, polazisni.OznakaAerodroma as oznakaPolazisnogAerodroma, polazisni.AdresaAerodroma as adresaPolazisnogAerodroma, polazisni.OIBAerodroma as oibPolazisnogAerodroma, polazisni.KontaktTelefonAerodroma as kontaktPolazisnogAerodroma, polazisni.EmailAerodroma as emailPolazisnogAerodroma, odredisni.AerodromId as idOdredisnogAerodroma, odredisni.NazivAerodroma as nazivOdredisnoAerodroma, odredisni.OznakaAerodroma as oznakaOdredisnogAerodroma, odredisni.AdresaAerodroma as adresaOdredisnogAerodroma, odredisni.OIBAerodroma as oibOdredisnogAerodroma, odredisni.KontaktTelefonAerodroma as kontaktOdredisnogAerodroma, odredisni.EmailAerodroma as emailOdreisnogAerodroma, a.AvionId as idAviona, a.RegistarskaOznakaAviona as identifikatorAviona, a.ProizvodacAviona as proizvodacAviona, a.ModelAviona as modelAviona, a.BrojSjedalaAviona as brojMjesta, ak.AviokompanijaId as idAviokompanije, ak.NazivAviokompanije as nazivAviokompanije, ak.OIBAviokompanije as oibAviokompanijem, ak.AdresaAviokompanije as adresaAviokompanije, ak.KontaktTelefonAviokompanije as kontaktAviokompanije, ak.EmailAviokompanije as emailAviokompanije, ak.IBANAviokompanije as ibanAviokompanije FROM Let l " +
+                    "INNER JOIN Aerodrom polazisni ON l.PolazisniAerodrom = polazisni.AerodromId " +
+                    "INNER JOIN Aerodrom odredisni ON l.OdredisniAerodrom = odredisni.AerodromId " +
+                    "INNER JOIN Avion a ON l.IdAvion = a.AvionId " +
+                    "INNER JOIN Aviokompanija ak ON a.IdAviokompanije = ak.AviokompanijaId " +
+                    $"WHERE IdAvion = '{item}' ;";
+
+                List<Let> let = DohvatiPodatkeLetovaAviokompanije(sql);
+                letovi.AddRange(let);
+            }
+            return letovi;
+        }
+
+        public static List<int> DohvatiIdAviona(int id)
+        {
+            Database.Instance.Connect();
+
+            string sql = "SELECT AvionId FROM Avion " +
+                $"WHERE IdAviokompanije = '{id}';";
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<int> IdAviona = new List<int>();
+
+            int avionId = 0;
+
+            while (dataReader.Read())
+            {
+                avionId = (int)dataReader["AvionId"];
+                IdAviona.Add(avionId);
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return IdAviona;
+        }
+
         internal static int AzurirajKorisnika(string email, string lozinka)
         {
             Database.Instance.Connect();
@@ -1229,6 +1276,82 @@ namespace SkyFlyReservation.Class
                     letovi.Add(let);
                 }
 
+            }
+
+            dataReader.Close();
+            Database.Instance.Disconnect();
+
+            return letovi;
+        }
+
+        private static List<Let> DohvatiPodatkeLetovaAviokompanije(string sql)
+        {
+            Database.Instance.Connect();
+
+            IDataReader dataReader = Database.Instance.GetDataReader(sql);
+
+            List<Let> letovi = new List<Let>();
+
+            while (dataReader.Read())
+            {
+                Aerodrom polazisniAerodrom = new Aerodrom()
+                {
+                    AerodromId = (int)dataReader["idPolazisnogAerodroma"],
+                    NazivAerodroma = dataReader["nazivPolazisnogAerodroma"].ToString(),
+                    OznakaAerodroma = dataReader["oznakaPolazisnogAerodroma"].ToString(),
+                    AdresaAerodorma = dataReader["adresaPolazisnogAerodroma"].ToString(),
+                    OIBAerodroma = dataReader["oibPolazisnogAerodroma"].ToString(),
+                    KontaktAerodroma = dataReader["kontaktPolazisnogAerodroma"].ToString(),
+                    EmailAerodroma = dataReader["emailPolazisnogAerodroma"].ToString()
+                };
+
+                Aerodrom odredisniAerodrom = new Aerodrom()
+                {
+                    AerodromId = (int)dataReader["idOdredisnogAerodroma"],
+                    NazivAerodroma = dataReader["nazivOdredisnoAerodroma"].ToString(),
+                    OznakaAerodroma = dataReader["oznakaOdredisnogAerodroma"].ToString(),
+                    AdresaAerodorma = dataReader["adresaOdredisnogAerodroma"].ToString(),
+                    OIBAerodroma = dataReader["oibOdredisnogAerodroma"].ToString(),
+                    KontaktAerodroma = dataReader["kontaktOdredisnogAerodroma"].ToString(),
+                    EmailAerodroma = dataReader["emailOdreisnogAerodroma"].ToString()
+                };
+
+                Aviokompanija aviokompanija = new Aviokompanija()
+                {
+                    AviokompanijaId = (int)dataReader["idAviokompanije"],
+                    NazivAviokompanije = dataReader["nazivAviokompanije"].ToString(),
+                    OIBAviokompanije = dataReader["oibAviokompanijem"].ToString(),
+                    AdresaAviokompanije = dataReader["adresaAviokompanije"].ToString(),
+                    KontaktAviokompanije = dataReader["kontaktAviokompanije"].ToString(),
+                    EmailAviokompanije = dataReader["emailAviokompanije"].ToString(),
+                    IBANAviokompanije = dataReader["ibanAviokompanije"].ToString()
+                };
+
+                Avion avion = new Avion()
+                {
+                    AvionId = (int)dataReader["idAviona"],
+                    IdentifikatorAviona = dataReader["identifikatorAviona"].ToString(),
+                    ProizvodacAviona = dataReader["proizvodacAviona"].ToString(),
+                    ModelAviona = dataReader["modelAviona"].ToString(),
+                    BrojMjesta = (int)dataReader["brojMjesta"],
+                    Aviokompanija = aviokompanija
+                };
+
+
+                Let let = new Let()
+                {
+                    LetId = (int)dataReader["letId"],
+                    BrojLeta = dataReader["brojLeta"].ToString(),
+                    PolazisniAerodrom = polazisniAerodrom,
+                    OdredisniAerodrom = odredisniAerodrom,
+                    AvionNaLetu = avion,
+                    DatumPolaska = (DateTime)dataReader["datumVrijemePolaska"],
+                    DatumDolaska = (DateTime)dataReader["datumVrijemeDolaska"],
+                    CijenaKarte = (double)dataReader["cijenaKarte"],
+                    BrojSlobodnihMjesta = (int)dataReader["brojSlobodnihMjesta"]
+                };
+
+                letovi.Add(let);
             }
 
             dataReader.Close();
