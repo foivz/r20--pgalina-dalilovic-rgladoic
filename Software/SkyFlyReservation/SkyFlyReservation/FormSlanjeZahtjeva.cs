@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserHelpControler;
+using ValidacijaZahtjeva;
 using Validation;
 
 namespace SkyFlyReservation
@@ -53,10 +54,17 @@ namespace SkyFlyReservation
         {
 
             string[] validiraj = new string[9];
-            validiraj[0] = textBoxZahtjev.Text;
             
+            validiraj[0] = txtNazivAviokompanije.Text;
+            validiraj[1] = txtOIBaviokompanije.Text;
+            validiraj[2] = txtIBAN.Text;
+            validiraj[3] = txtAdresaAviokompanije.Text;
+            validiraj[4] = txtTelefonAviokompanije.Text;
+            validiraj[5] = txtEmailAviokompanije.Text;
+            validiraj[6] = textBoxZahtjev.Text;
 
-            ValidacijaZahtjeva validacija = new ValidacijaZahtjeva();
+
+            Validacija validacija = new Validacija();
             string poruka = validacija.Validiraj(validiraj);
             
             if (poruka != "")

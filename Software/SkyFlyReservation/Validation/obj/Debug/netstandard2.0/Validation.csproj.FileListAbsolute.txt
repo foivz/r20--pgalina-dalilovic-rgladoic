@@ -15,3 +15,12 @@ C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.csproj.CoreCompileInputs.cache
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.dll
 C:\Users\Dario\Desktop\Projekt iz Programskog inženjerstva\r20--master\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.pdb
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\bin\Debug\netstandard2.0\Validation.deps.json
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\bin\Debug\netstandard2.0\Validation.dll
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\bin\Debug\netstandard2.0\Validation.pdb
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.csprojAssemblyReference.cache
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.AssemblyInfoInputs.cache
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.AssemblyInfo.cs
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.csproj.CoreCompileInputs.cache
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.dll
+C:\Users\Petra\Documents\r20--pgalina-dalilovic-rgladoic\Software\SkyFlyReservation\Validation\obj\Debug\netstandard2.0\Validation.pdb
