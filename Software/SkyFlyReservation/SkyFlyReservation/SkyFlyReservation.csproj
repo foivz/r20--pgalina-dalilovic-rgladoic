@@ -312,6 +312,10 @@
       <Project>{9F11C64D-826F-4869-B062-9C839C49A435}</Project>
       <Name>UserHelp Controler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ValidacijaZahtjeva\ValidacijaZahtjeva.csproj">
+      <Project>{995B2AE1-6BD0-43B8-824F-0438B1078DD0}</Project>
+      <Name>ValidacijaZahtjeva</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Validation\Validation.csproj">
       <Project>{11C34197-5118-426B-90FA-0BF78C46142D}</Project>
       <Name>Validation</Name>
